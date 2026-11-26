@@ -4,8 +4,6 @@ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const bar=document.querySelector('#page-progress-bar');
 const update=()=>{if(!bar)return;const max=document.documentElement.scrollHeight-innerHeight;bar.style.width=(max>0?Math.min(100,scrollY/max*100):0)+'%';};
 let pending=false;addEventListener('scroll',()=>{if(!pending){requestAnimationFrame(()=>{update();pending=false;});pending=true;}},{passive:true});update();
-const menuButton=document.querySelector('[data-menu-toggle]'),menu=document.querySelector('[data-mobile-menu]');
-if(menuButton&&menu){const close=()=>{menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open menu');menu.classList.remove('is-open');menu.setAttribute('inert','');};menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Close menu':'Open menu');menu.classList.toggle('is-open',open);if(open)menu.removeAttribute('inert');else menu.setAttribute('inert','');});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});}
 if(!window.gsap||reduced)return;
 const gsap=window.gsap;if(window.ScrollTrigger)gsap.registerPlugin(window.ScrollTrigger);
 const intro=gsap.timeline({defaults:{ease:'power4.out'}});

@@ -8,6 +8,7 @@
 <title>Fate / Stay Last Time — Tablet Edition</title>
 <link rel="canonical" href="https://fate-stay-last-time-3.vercel.app/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -322,6 +323,7 @@
 <a href="#principles">Principles</a>
 <a href="#process">Process</a>
 <a href="#questions">Questions</a>
+<a href="#field-guide">Field guide</a>
 </nav>
 </section>
 <section class="editorial-section" id="questions" aria-labelledby="t-questions-title">
@@ -377,6 +379,499 @@
 <p>
 <a href="contact.html">OPEN CONTACT PAGE ↗</a>
 </p>
+</section>
+<section class="editorial-section field-guide" id="field-guide" aria-labelledby="t-field-guide-title">
+<div class="editorial-section__top">
+<span>10 / Interface field guide</span>
+<span>TABLET EDITION / 19 NOTES</span>
+</div>
+<h2 class="editorial-section__heading" id="t-field-guide-title">A field guide to the tablet reading experience.</h2>
+<p class="editorial-section__intro">This section documents practical interface decisions for this specific viewport. It discusses reading comfort, accessibility, content integrity, and real browser behaviour. It does not invent unpublished story material.</p>
+<div class="field-guide__toolbar">
+<label for="t-field-search">Search field guide</label>
+<input id="t-field-search" type="search" data-field-search placeholder="Search notes">
+<label for="t-field-topic">Subject</label>
+<select id="t-field-topic" data-field-topic>
+<option value="all">All subjects</option>
+<option value="0">Layout</option>
+<option value="1">Reading</option>
+<option value="2">Accessibility</option>
+<option value="3">Motion</option>
+<option value="4">Content</option>
+</select>
+<p data-field-count aria-live="polite">Showing 19 notes</p>
+<button type="button" data-field-reset>Reset</button>
+</div>
+<div class="field-guide__grid" data-field-grid>
+<article class="field-note" data-field-note data-topic="0">
+<header>
+<p class="field-note__index">FIELD NOTE 01 / LAYOUT</p>
+<h3>Portrait spread</h3>
+</header>
+<p class="field-note__lead">Portrait tablet width can support an editorial column and a supporting region.</p>
+<p>Stack the hero before either column becomes too narrow.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Review the page at the narrow and wide ends of the tablet breakpoint.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 01 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="1">
+<header>
+<p class="field-note__index">FIELD NOTE 02 / READING</p>
+<h3>Landscape balance</h3>
+</header>
+<p class="field-note__lead">Landscape provides room for a split composition without requiring desktop-scale prose.</p>
+<p>Bound the illustration separately from the text measure.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Compare the hero at common landscape widths and confirm the title remains dominant.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 02 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="2">
+<header>
+<p class="field-note__index">FIELD NOTE 03 / ACCESS</p>
+<h3>Split-screen layout</h3>
+</header>
+<p class="field-note__lead">A tablet browser may occupy only part of the screen.</p>
+<p>Base layout decisions on the actual viewport rather than the device's advertised dimensions.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Resize to a half-screen window and check for horizontal overflow.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 03 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="3">
+<header>
+<p class="field-note__index">FIELD NOTE 04 / MOTION</p>
+<h3>Orientation continuity</h3>
+</header>
+<p class="field-note__lead">A visitor may rotate while reading a lower section.</p>
+<p>Preserve the current URL hash through width-based page routing.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Rotate with a section anchor active and confirm that the same section remains targeted.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 04 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="4">
+<header>
+<p class="field-note__index">FIELD NOTE 05 / CONTENT</p>
+<h3>Touch and trackpad</h3>
+</header>
+<p class="field-note__lead">Tablet users may alternate between finger input and a pointer.</p>
+<p>Keep hit areas comfortable and focus states visible.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Use the same control with touch, trackpad, and keyboard input.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 05 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="0">
+<header>
+<p class="field-note__index">FIELD NOTE 06 / LAYOUT</p>
+<h3>Header density</h3>
+</header>
+<p class="field-note__lead">A tablet header has less room than a desktop monitor.</p>
+<p>Prioritize a small set of destinations with clear labels.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Inspect the header around both tablet breakpoints.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 06 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="1">
+<header>
+<p class="field-note__index">FIELD NOTE 07 / READING</p>
+<h3>Editorial column pairing</h3>
+</header>
+<p class="field-note__lead">A two-column spread can connect a statement with its explanation.</p>
+<p>Give one column a clear lead role and preserve the reading order when stacked.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Disable the grid mentally: the DOM sequence should still make sense.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 07 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="2">
+<header>
+<p class="field-note__index">FIELD NOTE 08 / ACCESS</p>
+<h3>Landscape reading measure</h3>
+</header>
+<p class="field-note__lead">A wide tablet can create excessively long lines.</p>
+<p>Constrain prose independently from the overall spread width.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Review several paragraphs at full tablet landscape width.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 08 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="3">
+<header>
+<p class="field-note__index">FIELD NOTE 09 / MOTION</p>
+<h3>Portrait reading measure</h3>
+</header>
+<p class="field-note__lead">Portrait tablets provide a tall reading surface with moderate width.</p>
+<p>Use a centered measure without making the layout feel like an enlarged phone.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Compare heading and paragraph proportions with the phone edition.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 09 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="4">
+<header>
+<p class="field-note__index">FIELD NOTE 10 / CONTENT</p>
+<h3>Keyboard accessories</h3>
+</header>
+<p class="field-note__lead">A hardware keyboard may be connected to the tablet.</p>
+<p>Hover must supplement rather than replace focus and activation states.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Navigate from the header through the footer using Tab and Enter.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 10 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="0">
+<header>
+<p class="field-note__index">FIELD NOTE 11 / LAYOUT</p>
+<h3>Orientation-safe artwork</h3>
+</header>
+<p class="field-note__lead">The hero illustration should not push the title below the first useful viewport.</p>
+<p>Give artwork a bounded region that adapts to orientation.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Compare the title-to-art balance in portrait and landscape.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 11 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="1">
+<header>
+<p class="field-note__index">FIELD NOTE 12 / READING</p>
+<h3>Browser toolbar changes</h3>
+</header>
+<p class="field-note__lead">Mobile browser chrome changes the visible viewport height.</p>
+<p>Avoid fixed hero heights that depend on a guessed viewport.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Scroll while watching the hero and fixed controls.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 12 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="2">
+<header>
+<p class="field-note__index">FIELD NOTE 13 / ACCESS</p>
+<h3>Reader preference panel</h3>
+</header>
+<p class="field-note__lead">The settings preview should not become a tiny scroll area inside the page.</p>
+<p>Keep labels close to inputs and keep the specimen visible beside them where space allows.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Change every preference in both orientations.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 13 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="3">
+<header>
+<p class="field-note__index">FIELD NOTE 14 / MOTION</p>
+<h3>Section index</h3>
+</header>
+<p class="field-note__lead">Long editorial pages benefit from a compact section map.</p>
+<p>Use descriptive anchor labels and a restrained active state.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Scroll through the page and check the index against visible sections.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 14 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="4">
+<header>
+<p class="field-note__index">FIELD NOTE 15 / CONTENT</p>
+<h3>Archive status</h3>
+</header>
+<p class="field-note__lead">The chapter archive is empty while the manuscript is rewritten.</p>
+<p>Place the explanation next to the empty-state presentation.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Check that the status reads clearly in portrait and landscape.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 15 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="0">
+<header>
+<p class="field-note__index">FIELD NOTE 16 / LAYOUT</p>
+<h3>Motion pacing</h3>
+</header>
+<p class="field-note__lead">Large screens can invite longer transitions.</p>
+<p>Use brief transform and opacity movement only where it helps hierarchy.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Enable reduced motion and compare the reading flow.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 16 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="1">
+<header>
+<p class="field-note__index">FIELD NOTE 17 / READING</p>
+<h3>Rendering budget</h3>
+</header>
+<p class="field-note__lead">Tablet GPU and thermal limits vary by model.</p>
+<p>Keep backgrounds static and avoid full-screen filters.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Review the page with animation scripts blocked.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 17 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="2">
+<header>
+<p class="field-note__index">FIELD NOTE 18 / ACCESS</p>
+<h3>Typography fallback</h3>
+</header>
+<p class="field-note__lead">The editorial typefaces may not be available on every network.</p>
+<p>Provide local fallbacks that retain legible text.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Block remote fonts and inspect every heading for clipping.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 18 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="3">
+<header>
+<p class="field-note__index">FIELD NOTE 19 / MOTION</p>
+<h3>Text scaling</h3>
+</header>
+<p class="field-note__lead">Browser zoom can change the grid's available width.</p>
+<p>Let grid items grow vertically and avoid fixed-height copy panels.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Test at 200 percent zoom without horizontal scrolling.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / TABLET</span>
+<span>NOTE 19 / 19</span>
+</footer>
+</article>
+</div>
+<p data-field-empty hidden>No field notes match those filters. Clear the search or select another subject.</p>
+</section>
+<section class="editorial-section field-guide__faq" id="field-guide-questions" aria-labelledby="t-field-faq-title">
+<div class="editorial-section__top">
+<span>11 / Device questions</span>
+<span>10 ANSWERS</span>
+</div>
+<h2 class="editorial-section__heading" id="t-field-faq-title">Before you <em>settle in.</em></h2>
+<div class="faq-list">
+<details>
+<summary>Does the tablet page lock orientation?</summary>
+<p>No. The page responds to viewport width and does not request an orientation lock.</p>
+</details>
+<details>
+<summary>Does split-screen work?</summary>
+<p>The layout should reflow, but actual tablet split-screen testing remains to be completed.</p>
+</details>
+<details>
+<summary>Can I use a hardware keyboard?</summary>
+<p>The page uses native controls and links. Keyboard and screen-reader QA should still be completed before launch.</p>
+</details>
+<details>
+<summary>Are preferences synced?</summary>
+<p>No. Reader preview settings are stored only in the current browser profile.</p>
+</details>
+<details>
+<summary>Why does routing use width?</summary>
+<p>Viewport width is a more reliable layout input than guessing the physical device type.</p>
+</details>
+<details>
+<summary>Can I read chapters now?</summary>
+<p>No rewritten chapters have been supplied for publication, so the archive remains intentionally empty.</p>
+</details>
+<details>
+<summary>Will the art move while I scroll?</summary>
+<p>The design avoids continuous scroll-scrubbed parallax. Motion is limited to selected enhancements.</p>
+</details>
+<details>
+<summary>What if remote fonts fail?</summary>
+<p>System fallbacks keep the text readable, although line breaks and proportions may change.</p>
+</details>
+<details>
+<summary>Is the site a full PWA?</summary>
+<p>A manifest is present, but a complete offline-capable PWA and service worker are not implemented.</p>
+</details>
+<details>
+<summary>How do I contact the project?</summary>
+<p>The contact page provides project information; a private inbox has not yet been configured.</p>
+</details>
+</div>
 </section>
 </main>
 <footer class="t-footer">

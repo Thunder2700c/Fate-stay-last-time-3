@@ -11,6 +11,7 @@
 <title>Fate / Stay Last Time — A Story That Refuses to End</title>
 <link rel="canonical" href="https://fate-stay-last-time-3.vercel.app/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -321,6 +322,7 @@
 <a href="#principles">Principles</a>
 <a href="#process">Process</a>
 <a href="#questions">Questions</a>
+<a href="#field-guide">Field guide</a>
 </nav>
 </section>
 <section class="editorial-section" id="questions" aria-labelledby="m-questions-title">
@@ -376,6 +378,499 @@
 <p>
 <a href="contact.html">OPEN CONTACT PAGE ↗</a>
 </p>
+</section>
+<section class="editorial-section field-guide" id="field-guide" aria-labelledby="m-field-guide-title">
+<div class="editorial-section__top">
+<span>10 / Interface field guide</span>
+<span>MOBILE EDITION / 19 NOTES</span>
+</div>
+<h2 class="editorial-section__heading" id="m-field-guide-title">A field guide to the mobile reading experience.</h2>
+<p class="editorial-section__intro">This section documents practical interface decisions for this specific viewport. It discusses reading comfort, accessibility, content integrity, and real browser behaviour. It does not invent unpublished story material.</p>
+<div class="field-guide__toolbar">
+<label for="m-field-search">Search field guide</label>
+<input id="m-field-search" type="search" data-field-search placeholder="Search notes">
+<label for="m-field-topic">Subject</label>
+<select id="m-field-topic" data-field-topic>
+<option value="all">All subjects</option>
+<option value="0">Layout</option>
+<option value="1">Reading</option>
+<option value="2">Accessibility</option>
+<option value="3">Motion</option>
+<option value="4">Content</option>
+</select>
+<p data-field-count aria-live="polite">Showing 19 notes</p>
+<button type="button" data-field-reset>Reset</button>
+</div>
+<div class="field-guide__grid" data-field-grid>
+<article class="field-note" data-field-note data-topic="0">
+<header>
+<p class="field-note__index">FIELD NOTE 01 / LAYOUT</p>
+<h3>One-hand navigation</h3>
+</header>
+<p class="field-note__lead">A phone reader should reach the main route without stretching across the screen.</p>
+<p>Keep the menu action separate from decorative labels and give it a generous touch area.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Test the menu with one hand and confirm that closing it also removes hidden links from keyboard order.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 01 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="1">
+<header>
+<p class="field-note__index">FIELD NOTE 02 / READING</p>
+<h3>Short viewport composition</h3>
+</header>
+<p class="field-note__lead">Browser controls can expand and collapse while a phone page is open.</p>
+<p>Use content-led sizing instead of assuming one permanent viewport height.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Check the title and first action with the address bar both visible and collapsed.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 02 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="2">
+<header>
+<p class="field-note__index">FIELD NOTE 03 / ACCESS</p>
+<h3>Touch target separation</h3>
+</header>
+<p class="field-note__lead">A finger is less precise than a mouse pointer.</p>
+<p>Give adjacent links independent padding and avoid tiny icon-only actions.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Activate each important control with a thumb at the default browser zoom.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 03 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="3">
+<header>
+<p class="field-note__index">FIELD NOTE 04 / MOTION</p>
+<h3>Reading column comfort</h3>
+</header>
+<p class="field-note__lead">A phone provides a narrow measure before the site applies any additional constraints.</p>
+<p>Keep body copy readable and let paragraphs grow naturally in height.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Review a long sample paragraph without horizontal scrolling.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 04 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="4">
+<header>
+<p class="field-note__index">FIELD NOTE 05 / CONTENT</p>
+<h3>Portrait and landscape</h3>
+</header>
+<p class="field-note__lead">Visitors may rotate the phone during a long page visit.</p>
+<p>The layout should reflow without locking orientation or losing the current section.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Rotate while a lower-page hash is active and confirm the route preserves it.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 05 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="0">
+<header>
+<p class="field-note__index">FIELD NOTE 06 / LAYOUT</p>
+<h3>Safe-area spacing</h3>
+</header>
+<p class="field-note__lead">Gesture areas and rounded screen corners can overlap edge-aligned controls.</p>
+<p>Use safe-area padding for fixed actions where needed.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Test with gesture navigation enabled and verify that footer links remain reachable.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 06 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="1">
+<header>
+<p class="field-note__index">FIELD NOTE 07 / READING</p>
+<h3>No hover dependency</h3>
+</header>
+<p class="field-note__lead">A touchscreen cannot reliably reveal hover-only instructions.</p>
+<p>Essential actions and labels must be visible without a mouse.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Complete the page using touch and keyboard, without relying on hover.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 07 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="2">
+<header>
+<p class="field-note__index">FIELD NOTE 08 / ACCESS</p>
+<h3>Text enlargement</h3>
+</header>
+<p class="field-note__lead">Browser zoom and accessibility text settings change the available space.</p>
+<p>Allow cards and controls to expand instead of clipping enlarged copy.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Inspect the page at 200 percent zoom and check every section heading.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 08 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="3">
+<header>
+<p class="field-note__index">FIELD NOTE 09 / MOTION</p>
+<h3>Remote font fallback</h3>
+</header>
+<p class="field-note__lead">Font requests can fail on restricted or slow connections.</p>
+<p>Fallback fonts must preserve legible copy even if line breaks change.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Block the font provider and reload the first screen.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 09 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="4">
+<header>
+<p class="field-note__index">FIELD NOTE 10 / CONTENT</p>
+<h3>Menu accessibility</h3>
+</header>
+<p class="field-note__lead">The mobile menu has both a visual state and a keyboard state.</p>
+<p>Synchronize its expanded label, visibility, and inert behaviour.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Open with the menu button, close with Escape, then activate a menu link.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 10 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="0">
+<header>
+<p class="field-note__index">FIELD NOTE 11 / LAYOUT</p>
+<h3>Reader preference clarity</h3>
+</header>
+<p class="field-note__lead">The reader's desk is a live preview rather than a chapter reader.</p>
+<p>Explain which sample text is affected and make each setting visibly change it.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Change tone, size, line height, width, and font, then reset.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 11 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="1">
+<header>
+<p class="field-note__index">FIELD NOTE 12 / READING</p>
+<h3>Local preference limits</h3>
+</header>
+<p class="field-note__lead">Browser storage is tied to a browser profile and device.</p>
+<p>Do not describe local settings as an account or cloud synchronization.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Clear site data and confirm that the controls return to their defaults.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 12 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="2">
+<header>
+<p class="field-note__index">FIELD NOTE 13 / ACCESS</p>
+<h3>Archive honesty</h3>
+</header>
+<p class="field-note__lead">The rewritten manuscript has not been supplied for publication.</p>
+<p>An empty archive is more trustworthy than invented chapter titles.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Audit chapter links and make sure every published destination exists.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 13 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="3">
+<header>
+<p class="field-note__index">FIELD NOTE 14 / MOTION</p>
+<h3>Long-session motion</h3>
+</header>
+<p class="field-note__lead">A transition that looks subtle during a short visit can distract during a long read.</p>
+<p>Use one-time movement and let the page settle after its introduction.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Enable reduced motion and verify that all copy remains visible.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 14 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="4">
+<header>
+<p class="field-note__index">FIELD NOTE 15 / CONTENT</p>
+<h3>Battery restraint</h3>
+</header>
+<p class="field-note__lead">Continuous movement can add work during an extended phone session.</p>
+<p>Avoid decorative loops that keep rendering after the visitor has stopped interacting.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Leave the page open and confirm that nonessential animation does not run forever.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 15 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="0">
+<header>
+<p class="field-note__index">FIELD NOTE 16 / LAYOUT</p>
+<h3>Offline transparency</h3>
+</header>
+<p class="field-note__lead">A static website is not automatically an offline reading application.</p>
+<p>Do not promise cached chapters or offline access without a service worker and tested cache.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Disable the network and document which resources actually remain available.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 16 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="1">
+<header>
+<p class="field-note__index">FIELD NOTE 17 / READING</p>
+<h3>Scroll progress</h3>
+</header>
+<p class="field-note__lead">A thin progress line can orient visitors on a long page.</p>
+<p>It should not change document layout while scrolling.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Scroll quickly and confirm that progress updates without width-driven reflow.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 17 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="2">
+<header>
+<p class="field-note__index">FIELD NOTE 18 / ACCESS</p>
+<h3>Illustration weight</h3>
+</header>
+<p class="field-note__lead">The red-thread motif introduces the identity but is not the novel itself.</p>
+<p>Keep the vector artwork restrained and separate from reading copy.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Compare the page with remote fonts and optional scripts blocked.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 18 / 19</span>
+</footer>
+</article>
+<article class="field-note" data-field-note data-topic="3">
+<header>
+<p class="field-note__index">FIELD NOTE 19 / MOTION</p>
+<h3>Footer reachability</h3>
+</header>
+<p class="field-note__lead">The footer is the final practical navigation point after a long scroll.</p>
+<p>Group legal links and project information in a clear order.</p>
+<dl class="field-note__details">
+<div>
+<dt>Design response</dt>
+<dd>Reach the footer using only the keyboard and activate each link.</dd>
+</div>
+<div>
+<dt>Review method</dt>
+<dd>undefined</dd>
+</div>
+</dl>
+<footer>
+<span>EDITION 03 / MOBILE</span>
+<span>NOTE 19 / 19</span>
+</footer>
+</article>
+</div>
+<p data-field-empty hidden>No field notes match those filters. Clear the search or select another subject.</p>
+</section>
+<section class="editorial-section field-guide__faq" id="field-guide-questions" aria-labelledby="m-field-faq-title">
+<div class="editorial-section__top">
+<span>11 / Device questions</span>
+<span>10 ANSWERS</span>
+</div>
+<h2 class="editorial-section__heading" id="m-field-faq-title">Before you <em>settle in.</em></h2>
+<div class="faq-list">
+<details>
+<summary>Can I read chapters offline?</summary>
+<p>Offline chapter access is not implemented. The current site is static and network-served.</p>
+</details>
+<details>
+<summary>Does the site remember my reading position?</summary>
+<p>No chapter history is stored. Only reader-preview display preferences can be saved locally.</p>
+</details>
+<details>
+<summary>Why is the chapter list empty?</summary>
+<p>The manuscript is being rewritten. No chapter titles or excerpts are invented to fill the archive.</p>
+</details>
+<details>
+<summary>Will the page work without GSAP?</summary>
+<p>Yes. GSAP adds optional motion; the document content and normal navigation remain in the HTML.</p>
+</details>
+<details>
+<summary>What is saved in my browser?</summary>
+<p>The reader preview may save tone, text size, line spacing, reading width, and font choice in localStorage.</p>
+</details>
+<details>
+<summary>Are preferences shared with other devices?</summary>
+<p>No. Browser storage is local to the current browser profile and does not synchronize.</p>
+</details>
+<details>
+<summary>Can I use the site with a keyboard?</summary>
+<p>Native links, buttons, inputs, and disclosure elements support keyboard interaction. Full assistive-technology QA remains pending.</p>
+</details>
+<details>
+<summary>Why does the page change after rotating?</summary>
+<p>The router chooses a document from viewport width and preserves the current section hash.</p>
+</details>
+<details>
+<summary>Does the site use analytics?</summary>
+<p>The inspected project code does not intentionally add an analytics platform or advertising pixel.</p>
+</details>
+<details>
+<summary>Can I send a private message here?</summary>
+<p>No private contact inbox or form endpoint has been configured.</p>
+</details>
+</div>
 </section>
 </main>
 <footer class="m-footer">

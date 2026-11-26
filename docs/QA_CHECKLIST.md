@@ -40,3 +40,29 @@
 - [ ] Active section navigation updates as the reader scrolls.
 - [ ] Back-to-top appears after scrolling and respects reduced motion.
 - [ ] The reader preview clearly states that its sample is not novel text.
+
+
+## Expanded homepage field guide
+- [ ] Each homepage has more than 1,000 source lines of actual semantic content.
+- [ ] Search filters field notes by visible text.
+- [ ] Subject filter narrows field notes to the selected category.
+- [ ] Reset clears both search and subject filters.
+- [ ] Empty search results display a clear no-match message.
+- [ ] Device-specific reading scenarios appear in the correct edition.
+- [ ] Every new field-guide section anchor resolves.
+
+## Utility pages and metadata
+- [ ] Unknown paths display the custom 404 page on the deployed static host.
+- [ ] The 404 home link returns to the homepage.
+- [ ] The 404 previous-page action falls back to home when no prior history exists.
+- [ ] The requested path is displayed as text, not injected as HTML.
+- [ ] Contact page does not imply that a message was submitted.
+- [ ] Copy-project-address control reports success or shows the address fallback.
+- [ ] Privacy notice accurately describes localStorage and third-party resources.
+- [ ] Terms page remains marked as a draft pending legal review.
+- [ ] thankyou.html does not claim that a form was submitted.
+- [ ] thank-you.html redirects to thankyou.html.
+- [ ] robots.txt points to the production sitemap.
+- [ ] sitemap.xml parses and contains only canonical public pages.
+- [ ] site.webmanifest parses as JSON and has same-origin relative start_url and scope.
+- [ ] Utility pages use the shared Edition 03 utility-page CSS.

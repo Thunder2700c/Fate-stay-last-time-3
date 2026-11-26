@@ -24,8 +24,19 @@ Shared files:
 - css/edition-tokens.css — shared color, typography, reset, and reduced-motion foundation.
 - js/device-router.js — viewport-to-document routing.
 - js/edition-shared.js — year, single scroll RAF, progress indicator, and mobile menu behaviour.
+- css/experience.css and js/experience.js — reader preference preview and editorial interface.
+- js/field-guide.js — client-side field-guide search and subject filtering.
 
-Utility pages retain their older css/style.css and js/site.js foundation. Do not change that system as a side effect of homepage work.
+## Utility pages and discovery files
+- 404.html — custom noindex error document.
+- contact.html — project contact information; no form endpoint is configured.
+- privacy.html and terms.html — draft notices that require review before production use.
+- thankyou.html — general thank-you page; thank-you.html redirects to it for compatibility.
+- css/site-pages.css — shared Edition 03 utility-page styling.
+- robots.txt and sitemap.xml — crawler guidance and canonical public URL list.
+- site.webmanifest — app identity and launch metadata; a manifest alone does not implement offline support.
+
+Utility pages use css/style.css, css/site-pages.css, and js/site.js. The 404 page adds js/404.js for the requested-path label and previous-page action. Homepage field guides use css/experience.css and js/field-guide.js for search and topic filtering.
 
 ## Content contract
 

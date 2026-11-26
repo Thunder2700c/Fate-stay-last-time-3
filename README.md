@@ -42,19 +42,27 @@ Static site; no build step is required. Serve the repository root with any stati
 - index.html, tablet.html, desktop.html — three home compositions
 - css/edition-tokens.css — shared homepage design tokens
 - css/mobile.css, css/tablet.css, css/desktop.css — page-specific layouts
-- css/experience.css — reader preference preview and added editorial sections
+- css/experience.css — reader preferences, searchable field guide, and editorial sections
+- css/site-pages.css — shared visual system for error, contact, and policy pages
 - js/device-router.js — width-based page routing
 - js/edition-shared.js — year, scroll progress, header state, and mobile menu
 - js/mobile.js, js/tablet.js, js/desktop.js — page-specific GSAP motion
 - js/experience.js — local reader-preview preferences, active section navigation, and back-to-top control
-- css/style.css, js/site.js — shared utility-page foundation
+- js/field-guide.js — search and subject filtering for device-specific field notes
+- js/404.js — requested-route display and previous-page navigation
+- css/style.css, css/site-pages.css, js/site.js — utility-page foundation and Edition 03 utility-page skin
+- 404.html — custom noindex error page
+- contact.html, privacy.html, terms.html — project contact and draft policy pages
+- thankyou.html — general thank-you page (no form submission is implied)
+- thank-you.html — compatibility redirect to thankyou.html
+- robots.txt, sitemap.xml, site.webmanifest — crawler, canonical URL, and web-app metadata
 - docs/ARCHITECTURE.md, docs/PERFORMANCE.md, docs/QA_CHECKLIST.md — implementation notes
 - AGENTS.md, PROJECT_LOG.md, docs/SESSION_LOG.md — agent handoff and work history
 
 ## Before production
 
-1. Confirm the final domain and absolute sitemap URLs.
-2. Review privacy and terms content for the actual deployment and services.
+1. Confirm the production domain and submit the canonical sitemap in Search Console.
+2. Obtain legal review of the draft privacy and terms pages for the actual operator and services.
 3. Configure a real contact channel before advertising contact functionality.
 4. Complete the manual QA checklist in docs/QA_CHECKLIST.md on phone, tablet portrait/landscape, and desktop.
 A responsive, chapter-ready website for a novel being rewritten from a clean foundation.

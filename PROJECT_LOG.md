@@ -5,43 +5,55 @@ Last updated: 2026-11-26 (Asia/Kolkata)
 ## Current state
 - Repository: https://github.com/Thunder2700c/Fate-stay-last-time-3
 - Working branch: `main`
-- Latest implementation commit: `e06aadbed9e8c43376602113a2cd26eb89a65e10`
-- Current design direction: Edition 03 — warm paper, black ink, vermilion thread, expressive editorial typography.
-- Three independent homepage compositions remain: mobile `index.html`, tablet `tablet.html`, and desktop `desktop.html`.
-- Routing is based on viewport width: mobile <=767 px; tablet 768–1099 px; desktop >=1100 px.
-- The reading room remains honestly empty pending rewritten chapter content.
+- Latest implementation commit before this documentation update: `63070cb504beee6f7de8c562142cf32fd400a047`
+- Design direction: Edition 03 — warm paper, near-black ink, vermilion thread, expressive editorial typography.
+- Independent homepage compositions: `index.html` (mobile), `tablet.html`, and `desktop.html`.
+- Viewport routing: mobile <=767 px; tablet 768–1099 px; desktop >=1100 px.
+- Reading room remains intentionally empty pending rewritten chapter content.
 
-## Latest implementation
-- Restored the original Edition 03 page compositions instead of keeping the simplified replacement markup.
-- Added an interactive reader-preference preview to each homepage: paper/sepia/night tone, text size, line spacing, reading width, and serif/sans font.
-- Reader preview preferences persist locally in browser storage. The controls are explicitly described as a preview; they do not pretend that chapters exist.
-- Added editorial principles, the intended chapter publication workflow, a project FAQ, a page index, and a correspondence section.
-- Added active section navigation, a back-to-top control, and shared experience styling/script.
-- Existing page-specific layouts, CSS, routing, and GSAP scripts remain separate.
+## Homepage implementation
+- Each of the three homepage documents now exceeds 1,000 source lines using distinct semantic sections, device-specific field notes, reading scenarios, FAQs, and publication standards. The pages are not padded by splitting words or attributes across lines.
+- Added a searchable field guide with subject filtering and a reset action.
+- Added device-specific reading scenarios and practical publication standards.
+- Preserved the separate original mobile, tablet, and desktop compositions.
+- Existing reader preference preview supports paper/sepia/night, text size, line spacing, reading width, and font choice. Preferences are stored locally and are explicitly described as a preview, not as chapter-reader settings.
+- The archive remains empty. No fictional chapter names, excerpts, or story facts have been introduced.
 
-## Performance and accessibility
-- Reader controls update only their preview surface; they do not trigger page-wide layout work.
-- Preferences use a small localStorage record with failure handling.
-- Native `details/summary` elements provide the FAQ interaction without a JavaScript dependency.
-- The active-section indicator uses IntersectionObserver where available.
-- Back-to-top respects reduced-motion preferences.
-- Existing reduced-motion foundation remains in place.
+## Utility pages and site metadata
+- Rebuilt `404.html` as a dedicated noindex error page with a home route, previous-page action, and requested-path display.
+- Rebuilt `contact.html`. It clearly states that no private inbox or form endpoint is configured and provides a public repository route plus a copy-address action.
+- Expanded `privacy.html` to describe local reader preferences, hosting requests, remote fonts, GSAP/jsDelivr, and the absence of an implemented account/contact submission service.
+- Expanded `terms.html` while keeping it explicitly marked as a draft requiring legal review.
+- Added `thankyou.html` as a general thank-you page that does not falsely claim a form submission occurred.
+- Kept `thank-you.html` as a compatibility redirect to `thankyou.html`.
+- Updated `robots.txt` with the production sitemap URL.
+- Populated `sitemap.xml` with canonical public URLs only. Device-specific homepage variants, the 404 page, and the noindex thank-you page are not included.
+- Updated `site.webmanifest` with the current Edition 03 theme colors, start URL, scope, and existing SVG icon.
 
-## Verification status
-- [x] Latest `main` inspected before writing; commits applied directly to `main`.
-- [x] Three homepage files checked for duplicate IDs, missing local references, and missing same-page anchors.
-- [x] `js/experience.js` parsed successfully with the JavaScript parser.
-- [ ] Browser rendering and interaction QA not yet run.
-- [ ] Android phone frame-rate/GPU profiling not performed.
-- [ ] Tablet portrait/landscape and desktop browser QA not performed.
-- [ ] Full HTML validator and CSS parser not run.
-- [ ] The 1,000-line-per-page target is **not yet met**; the current pages are intentionally readable and currently around 400 lines each. More actual features/content are needed rather than whitespace or line splitting.
+## CSS and JavaScript
+- Added field-guide layout, card, filter toolbar, and reading-scenario styles to `css/experience.css`.
+- Added utility-page theme, responsive layout, focus, and 404 styling in `css/site-pages.css`, with small supporting utility-page rules in `css/style.css`.
+- Added `js/field-guide.js` for live search and subject filters.
+- Added `js/404.js` for the requested URL display and safe previous-page fallback.
 
-## Next actions
-1. Run browser-based QA for reader controls, local preference persistence, active section navigation, and back-to-top.
-2. Check all three page compositions at representative widths and tablet orientations.
-3. Add further purposeful features only where they improve the novel-site experience; do not pad HTML to reach a line count.
-4. Measure actual Android performance before making FPS/GPU claims.
+## Verification
+- [x] Homepage HTML source line counts checked from GitHub: mobile 1,032; tablet 1,034; desktop 1,041.
+- [x] Duplicate IDs checked on all three homepages: none found.
+- [x] Same-page anchor targets checked on all three homepages: none missing.
+- [x] Field-guide markup and page-specific scenarios present on all three pages.
+- [x] Manifest link present on all three homepage documents.
+- [ ] Full HTML validation not run.
+- [ ] Browser rendering and interaction QA not run.
+- [ ] Vercel production deployment not checked after these commits.
+- [ ] Real Android/tablet/desktop performance profiling not run.
+- [ ] Privacy and terms require legal review before being treated as final legal documents.
+- [ ] Contact endpoint remains unconfigured; the page is transparent about that limitation.
+
+## Sources checked for crawler and manifest structure
+- Google Search Central sitemap guidance: use absolute canonical URLs and avoid listing duplicate variants.
+- Google Search Central crawling guidance: robots.txt controls crawling; noindex is a separate indexing directive.
+- MDN Web App Manifest references for start_url and scope.
+- Vercel knowledge base for static deployment 404 troubleshooting.
 
 ## Working rule
-Work directly on `main`, inspect its latest head before every write, commit coherent changes, and never claim tests or deployment that did not happen.
+Work directly on `main`, inspect the latest head before every write, commit coherent changes, and never claim browser testing, profiling, or deployment that did not happen.

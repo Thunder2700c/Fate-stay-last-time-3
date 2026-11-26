@@ -57,3 +57,35 @@ The branch and PR were read before editing. No local browser, Vercel preview, re
 - No real browser, phone, tablet, or desktop visual/interaction test was run.
 - No FPS, GPU, or thermal benchmark was run.
 - The requested 1,000-line minimum per HTML page is not yet met. Current page markup is approximately 400 lines per file; it has not been padded with artificial line breaks.
+
+
+## 2026-11-26 — Device-specific homepage expansion and utility-page repair
+
+**Branch:** `main`  
+**Homepage expansion commit:** `afc17ad6ad1a74ce771993f0d35bd0a3835b636c`  
+**Utility-page commit:** `734fb6388cedb057811a05ccce187c130d4162b5`  
+**Field-guide script correction:** `63070cb504beee6f7de8c562142cf32fd400a047`
+
+### Homepage changes
+- Expanded index.html, tablet.html, and desktop.html with device-specific field guides, searchable notes, reading scenarios, and additional publication standards.
+- Verified source line counts from the repository: 1,032 / 1,034 / 1,041.
+- Added a client-side search and subject filter script.
+- Added CSS for field-guide cards, search controls, reading scenarios, and responsive grids.
+
+### Utility-page changes
+- Rebuilt 404.html, contact.html, privacy.html, terms.html, and thankyou.html.
+- Preserved thank-you.html as a redirect for the old hyphenated URL.
+- Populated robots.txt and sitemap.xml using the current production domain.
+- Updated site.webmanifest to match Edition 03.
+- Added a shared utility-page stylesheet and dedicated 404 behaviour.
+- Contact and thank-you pages explicitly state that no message submission endpoint exists.
+
+### Sources consulted
+- Google Search Central sitemap and robots guidance.
+- MDN Web App Manifest start_url and scope references.
+- Vercel's 404 troubleshooting guidance for static deployments.
+
+### Validation status
+- Homepage line counts, duplicate IDs, and internal anchors checked.
+- Full HTML validation, browser visual QA, deployed 404 response verification, and real-device profiling remain unperformed.
+- Privacy and terms pages are project-specific drafts, not final legal advice.

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://fate-stay-last-time-3.vercel.app/sitemap.xml

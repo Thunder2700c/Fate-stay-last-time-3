@@ -5,6 +5,7 @@ Last updated: 2026-11-26 (Asia/Kolkata)
 ## Repository state
 - Repository: https://github.com/Thunder2700c/Fate-stay-last-time-3
 - Active branch: `main`
+- Latest homepage implementation commit: `3248edc57e877a17c7a0ddc52536d04469968927`
 - Current homepage direction: Edition 03 — warm paper, near-black ink, vermilion red, expressive editorial typography, unfinished-circle/red-thread motif.
 - Separate homepage compositions: `index.html` (mobile), `tablet.html`, and `desktop.html`.
 - Viewport routing: mobile <=767 px; tablet 768–1099 px; desktop >=1100 px.
@@ -17,6 +18,7 @@ Last updated: 2026-11-26 (Asia/Kolkata)
 - Deleted unused `js/field-guide.js` and `css/experience.css`.
 - Reduced `js/experience.js` to active section-navigation state only.
 - Added shared visible keyboard-focus styling in `css/edition-tokens.css`.
+- Added a device-specific GSAP entrance for the existing vermilion thread and its three anchor points in the hero SVG. It uses opacity/scale only; it does not add sections, new story copy, or continuous scroll animation.
 
 ## Current homepage files
 - `index.html`, `tablet.html`, `desktop.html`

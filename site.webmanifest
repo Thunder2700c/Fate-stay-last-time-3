@@ -2,7 +2,7 @@
   "id": "/",
   "name": "Fate / Stay Last Time",
   "short_name": "Fate / Stay",
-  "description": "An independent novel project, its empty chapter archive, and the information for Edition 03.",
+  "description": "An independent novel project, rewritten from the first page.",
   "lang": "en",
   "dir": "ltr",
   "start_url": "./",
@@ -16,20 +16,6 @@
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Reading room",
-      "short_name": "Read",
-      "description": "Open the current chapter archive.",
-      "url": "./#reading"
-    },
-    {
-      "name": "Project information",
-      "short_name": "Project",
-      "description": "Open the contact and project information page.",
-      "url": "./contact.html"
     }
   ]
 }

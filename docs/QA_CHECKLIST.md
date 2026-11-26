@@ -19,6 +19,7 @@
 
 ## Motion and accessibility
 - [ ] Hero entrance and section reveals work when GSAP is available.
+- [ ] The red thread and its anchor points animate in after the hero artwork on each device edition.
 - [ ] Content remains visible if GSAP/ScrollTrigger is blocked.
 - [ ] Reduced-motion disables non-essential motion.
 - [ ] Save-Data disables non-essential motion.

@@ -3,197 +3,369 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fate/Stay Last Time — A Fan Novel</title>
-<meta name="description" content="The Grail keeps a ledger. Every legend is a line item. A dark Fate fan novel — demo build.">
+<title>ARCHIVE//OS — Fate/Stay Last Time · The Gods Rank Awakening</title>
+<meta name="description" content="A reading terminal for two serials: Fate/Stay Last Time by Gurtej Singh, and The Gods Rank Awakening by Gurtej Singh & Harmanjot Singh.">
 <meta name="author" content="Gurtej Singh">
 <link rel="canonical" href="https://fate-stay-last-time-3.vercel.app/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fate/Stay Last Time">
-<meta property="og:title" content="Fate/Stay Last Time — A Fan Novel">
-<meta property="og:description" content="The Grail keeps a ledger. Every legend is a line item. A dark Fate fan novel — demo build.">
+<meta property="og:title" content="ARCHIVE//OS — Fate/Stay Last Time">
+<meta property="og:description" content="A reading terminal for two ongoing serials. Mount a module, browse its data logs, resume where the signal dropped.">
 <meta property="og:url" content="https://fate-stay-last-time-3.vercel.app/">
 <meta property="og:image" content="https://fate-stay-last-time-3.vercel.app/assets/og.svg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#05060a">
+<meta name="theme-color" content="#0a0a0f">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/favicon.svg">
 <link rel="manifest" href="site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;0,6..96,800;1,6..96,400;1,6..96,600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<div id="loader" aria-hidden="true">
-  <div class="ld-mark">FSLT</div>
-  <div class="ld-bar"><i></i></div>
-  <div class="ld-txt">LOADING THE LEDGER</div>
+<div class="atmos"></div>
+<div class="orb a"></div><div class="orb b"></div><div class="orb c"></div>
+<div class="mesh"></div><div class="scan"></div><div class="vign"></div><div class="grain"></div>
+
+<div id="boot">
+  <div class="boot-ring">
+    <div class="halo"></div>
+    <svg viewBox="0 0 120 120" aria-hidden="true">
+      <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(0,240,255,.16)" stroke-width="1"/>
+      <circle id="bootArc" cx="60" cy="60" r="52" fill="none" stroke="#00f0ff" stroke-width="2" stroke-linecap="round" stroke-dasharray="327" stroke-dashoffset="327" transform="rotate(-90 60 60)"/>
+      <circle cx="60" cy="60" r="34" fill="none" stroke="rgba(255,215,0,.3)" stroke-width="1"/>
+      <path d="M60 34v52M34 60h52" stroke="rgba(124,92,255,.55)" stroke-width="1.4"/>
+      <circle cx="60" cy="60" r="6" fill="#00f0ff"/>
+    </svg>
+  </div>
+  <div class="boot-title">SYSTEM INITIALIZING</div>
+  <div class="boot-log" id="bootLog"></div>
+  <div class="boot-bar"><i id="bootBar"></i></div>
+  <button class="boot-skip" id="bootSkip">SKIP →</button>
 </div>
 
-<div class="prog" aria-hidden="true"><i id="prog-fill"></i></div>
-
 <nav class="nav" id="nav">
-  <a class="mark" href="index.html">FSLT<span>/</span><em>Fate/Stay Last Time</em></a>
+  <a class="mark" href="index.html">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="10" width="44" height="44" rx="9" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M22 32h20M32 22v20" stroke="#ffd700" stroke-width="2.6"/><circle cx="32" cy="32" r="4.2" fill="currentColor"/></svg>
+    ARCHIVE<em>//</em>OS
+  </a>
+  <span class="ver">v2.4</span>
   <div class="links">
-    <a href="#brief" data-nav="brief">BRIEF</a>
-    <a href="#reel" data-nav="reel">REEL</a>
-    <a href="#cast" data-nav="cast">CAST</a>
-    <a href="#excerpt" data-nav="excerpt">EXCERPT</a>
+    <a href="#dashboard" data-nav="dashboard">DASHBOARD</a>
+    <a href="#modules" data-nav="modules">MODULES</a>
+    <a href="#prefs" data-nav="prefs">PREFERENCES</a>
+    <a href="#metrics" data-nav="metrics">METRICS</a>
+    <a href="#about" data-nav="about">AUTHORS</a>
     <a href="contact.html">CONTACT</a>
     <a class="gh" href="https://github.com/Thunder2700c" target="_blank" rel="noopener">GITHUB ↗</a>
   </div>
+  <div class="nav-right">
+    <span class="clock" id="clock">--:--:--</span>
+    <button class="snd" id="sndBtn" aria-pressed="true" aria-label="Mute all sound">
+      <span class="led"></span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+        <path d="M4 9v6h4l5 4V5L8 9H4z"/>
+        <path class="wv" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/>
+        <path class="mu" d="M17 9l5 6M22 9l-5 6" stroke="#ff3b52"/>
+      </svg>
+      <span id="sndTxt">SOUND ON</span>
+    </button>
+    <button class="btn-top" id="resumeBtn">RESUME</button>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+<nav class="mob" id="mobNav">
+  <a href="#dashboard" data-nav="dashboard">DASHBOARD</a>
+  <a href="#modules" data-nav="modules">MODULES</a>
+  <a href="#prefs" data-nav="prefs">PREFERENCES</a>
+  <a href="#metrics" data-nav="metrics">METRICS</a>
+  <a href="#about" data-nav="about">AUTHORS</a>
+  <a href="contact.html">CONTACT</a>
 </nav>
 
-<header class="hero" id="top">
-  <div class="hero-grid" aria-hidden="true"></div>
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <p class="kick"><span class="dot"></span>FAN NOVEL · WORK IN PROGRESS</p>
-    <h1 class="wordmark" id="wordmark">
-      <span class="ln"><span>FATE</span></span>
-      <span class="ln"><span>STAY</span></span>
-      <span class="ln slab"><span>LAST TIME</span></span>
-    </h1>
-    <div class="hero-foot">
-      <p class="tag">The Grail keeps a ledger. Every legend is a line item.<br>Someone has to close the account.</p>
-      <a class="btn solid" href="#reel">ENTER THE REEL</a>
+<main>
+<section id="dashboard">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="status-line reveal"><span class="pulse"></span>ALL MODULES ONLINE</span>
+      <h1 class="hero-h1">
+        <span class="ln"><span>Two worlds,</span></span>
+        <span class="ln"><span><em>one terminal.</em></span></span>
+      </h1>
+      <p class="hero-sub reveal">A reading interface for two ongoing serials. Mount a module, browse its data logs, and pick up exactly where the signal dropped.</p>
+      <div class="hero-cta reveal">
+        <button class="btn primary" id="heroOpen">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          OPEN ARCHIVE
+        </button>
+        <a class="btn" href="#modules">BROWSE MODULES</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-meta">
-    <span>SCROLL</span><span class="arw">↓</span>
-  </div>
-</header>
-
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-in">
-    <span>SEVEN SERVANTS<i>✦</i>ONE LEDGER<i>✦</i>NO REFUNDS<i>✦</i>THE WAR IS A MACHINE<i>✦</i>DEMO BUILD<i>✦</i>NEW TEXT INCOMING<i>✦</i></span>
-    <span>SEVEN SERVANTS<i>✦</i>ONE LEDGER<i>✦</i>NO REFUNDS<i>✦</i>THE WAR IS A MACHINE<i>✦</i>DEMO BUILD<i>✦</i>NEW TEXT INCOMING<i>✦</i></span>
-  </div>
-</div>
-
-<section class="brief" id="brief">
-  <div class="brief-stick">
-    <span class="idx">01 / THE BRIEF</span>
-    <h2 class="big">A machine<br>for spending<br><em>legends.</em></h2>
-    <div class="rule"></div>
-    <p class="mono-note">DEMO COPY · AWAITING FINAL TEXT</p>
-  </div>
-  <div class="brief-body">
-    <p class="lead reveal">Nobody summons a hero for free. The Grail advances the legend, the war spends it, and the difference is collected from whoever is still standing when the noise stops.</p>
-    <p class="reveal">This is a story about that arithmetic. About a man who read the terms, understood them completely, and decided the only honest move left was to default on the whole arrangement — heroes, masters, world and all.</p>
-    <p class="reveal">He is not a chosen one. He has no crest, no lineage, no inheritance waiting in a vault. He has a debt he did not agree to and a very short window in which to refuse it.</p>
-    <p class="reveal">The war does not hate him. That is the worst part. It simply audits him, line by line, and waits for the numbers to balance.</p>
-    <div class="brief-stats reveal">
-      <div><b>07</b><span>SERVANTS</span></div>
-      <div><b>01</b><span>LEDGER</span></div>
-      <div><b>00</b><span>REFUNDS</span></div>
+    <div class="readout reveal">
+      <div class="readout-h"><span class="dot"></span>SYSTEM READOUT</div>
+      <div class="readout-b">
+        <div class="stat"><b id="sModules">2</b><span>MODULES</span></div>
+        <div class="stat"><b id="sLogs">18</b><span>DATA LOGS</span></div>
+        <div class="stat"><b id="sWords">0<i>k</i></b><span>WORDS INDEXED</span></div>
+        <div class="stat"><b id="sRead">0<i>%</i></b><span>ARCHIVE READ</span></div>
+      </div>
+      <div class="readout-f"><span>LAST SYNC</span><b id="sSync">awaiting access</b></div>
     </div>
   </div>
 </section>
 
-<section class="reel" id="reel">
-  <div class="reel-head">
-    <span class="idx">02 / THE REEL</span>
-    <span class="reel-hint">SCROLL SIDEWAYS →</span>
-  </div>
-  <div class="reel-view">
-    <div class="reel-track">
-      <article class="plate">
-        <span class="pnum">I</span>
-        <h3>Cold Open</h3>
-        <p>The ledger opens before the war does.</p>
-        <a class="open" href="#excerpt">OPEN <span>→</span></a>
+<section id="modules">
+  <div class="wrap">
+    <div class="sec-tag reveal">01 <i>/</i> SYSTEM MODULES</div>
+    <h2 class="sec reveal">Mounted <em>volumes.</em></h2>
+    <p class="sec-lede reveal">Each module is a live serial. Open a window to mount its file system and read the logs inside.</p>
+
+    <div class="mods">
+      <article class="mod reveal" data-id="fate" tabindex="0" role="button" aria-label="Open Fate/Stay Last Time">
+        <div class="mod-bar">
+          <span class="mod-dots"><i></i><i></i><i></i></span>
+          <span class="mod-id">MOD-01 · FSLT</span>
+          <span class="mod-live"><i></i>ACTIVE</span>
+        </div>
+        <div class="mod-cover" data-glyph="F"><span class="sheen"></span></div>
+        <div class="mod-body">
+          <div class="mod-kicker">FATE/STAY NIGHT · FAN NOVEL</div>
+          <h3 class="mod-title">Fate/Stay <em>Last Time</em></h3>
+          <div class="mod-by">GURTEJ SINGH · SELF-INSERT PROTAGONIST</div>
+          <p class="mod-syn">A ruined shoe, a clip the whole internet laughed at, and a summoning circle drawn in blood. Gurtej — a Master with no Command Seals — calls two Servants into a world that already decided he was the joke.</p>
+          <div class="mod-chips"><span class="chip hot">ONGOING</span><span class="chip">DARK FANTASY</span><span class="chip">10 LOGS</span></div>
+          <div class="mod-foot">
+            <div class="mod-prog"><div class="pb"><i data-prog="fate"></i></div><span data-progtxt="fate">0% ACCESSED</span></div>
+            <span class="mod-access">ACCESS DATA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
       </article>
-      <article class="plate">
-        <span class="pnum">II</span>
-        <h3>Seven Signatures</h3>
-        <p>Every name a debt somebody else will pay.</p>
-        <a class="open" href="#excerpt">OPEN <span>→</span></a>
-      </article>
-      <article class="plate">
-        <span class="pnum">III</span>
-        <h3>The Machine Wakes</h3>
-        <p>It does not hate. It audits.</p>
-        <a class="open" href="#excerpt">OPEN <span>→</span></a>
-      </article>
-      <article class="plate">
-        <span class="pnum">IV</span>
-        <h3>Interest</h3>
-        <p>What the Grail charges when you cannot pay.</p>
-        <a class="open" href="#excerpt">OPEN <span>→</span></a>
-      </article>
-      <article class="plate">
-        <span class="pnum">V</span>
-        <h3>Close the Account</h3>
-        <p>The only wish left is a settlement.</p>
-        <a class="open" href="#excerpt">OPEN <span>→</span></a>
-      </article>
-      <article class="plate soon">
-        <span class="pnum">VI</span>
-        <h3>Last Time</h3>
-        <p>The ending the machine refuses to allow.</p>
-        <span class="open off">FORTHCOMING</span>
+
+      <article class="mod reveal" data-id="tgra" tabindex="0" role="button" aria-label="Open The Gods Rank Awakening">
+        <div class="mod-bar">
+          <span class="mod-dots"><i></i><i></i><i></i></span>
+          <span class="mod-id">MOD-02 · TGRA</span>
+          <span class="mod-live"><i></i>ACTIVE</span>
+        </div>
+        <div class="mod-cover" data-glyph="G"><span class="sheen"></span></div>
+        <div class="mod-body">
+          <div class="mod-kicker">ORIGINAL SERIAL · CO-WRITTEN</div>
+          <h3 class="mod-title">The Gods Rank <em>Awakening</em></h3>
+          <div class="mod-by">GURTEJ SINGH &amp; HARMANJOT SINGH</div>
+          <p class="mod-syn">The ladder of gods is public, ranked and merciless — and every rung is priced in names. One climber starts at zero and discovers the sky keeps a ledger of everyone who tried.</p>
+          <div class="mod-chips"><span class="chip hot">ONGOING</span><span class="chip">PROGRESSION</span><span class="chip">8 LOGS</span></div>
+          <div class="mod-foot">
+            <div class="mod-prog"><div class="pb"><i data-prog="tgra"></i></div><span data-progtxt="tgra">0% ACCESSED</span></div>
+            <span class="mod-access">ACCESS DATA <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </div>
+        </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="cast" id="cast">
-  <div class="sec-head reveal">
-    <span class="idx">03 / THE CAST</span>
-    <h2 class="big">Who answers<em>.</em></h2>
-  </div>
-  <div class="cast-list">
-    <div class="crow reveal"><span class="cls">SABER</span><h3>The Unpaid King</h3><p>A crown bought on credit and a sword that never stopped collecting.</p><span class="cno">01</span></div>
-    <div class="crow reveal"><span class="cls">ARCHER</span><h3>The Counterfeit</h3><p>A thousand originals, none of them his.</p><span class="cno">02</span></div>
-    <div class="crow reveal"><span class="cls">LANCER</span><h3>The Fast Debt</h3><p>Arrives before the terms are read. Leaves before they are understood.</p><span class="cno">03</span></div>
-    <div class="crow reveal"><span class="cls">BERSERKER</span><h3>The Write-Off</h3><p>Whatever the ledger could not recover, it sent anyway.</p><span class="cno">04</span></div>
+<section id="prefs">
+  <div class="wrap">
+    <div class="sec-tag reveal">02 <i>/</i> SYSTEM PREFERENCES</div>
+    <h2 class="sec reveal">Tune the <em>terminal.</em></h2>
+    <p class="sec-lede reveal">Every control applies instantly and is remembered on this device.</p>
+
+    <div class="prefs reveal">
+      <div class="prefs-h"><span class="t">CONTROL PANEL</span><span class="s">LOCAL PROFILE · SAVED</span></div>
+      <div class="prefs-b">
+        <div class="pcell">
+          <span class="pl">ACCENT CHANNEL</span>
+          <div class="swatches" role="group" aria-label="Accent colour">
+            <button class="sw" data-a="cyan" aria-pressed="true" aria-label="Cyan accent"></button>
+            <button class="sw" data-a="gold" aria-pressed="false" aria-label="Gold accent"></button>
+            <button class="sw" data-a="violet" aria-pressed="false" aria-label="Violet accent"></button>
+            <button class="sw" data-a="magenta" aria-pressed="false" aria-label="Magenta accent"></button>
+          </div>
+        </div>
+        <div class="pcell">
+          <label for="pGlow">GLOW INTENSITY <b id="vGlow">100%</b></label>
+          <input type="range" id="pGlow" min="0" max="150" value="100">
+        </div>
+        <div class="pcell">
+          <label for="pSize">READER TYPE SIZE <b id="vSize">17px</b></label>
+          <input type="range" id="pSize" min="15" max="23" value="17">
+        </div>
+        <div class="pcell">
+          <label for="pVol">AMBIENT VOLUME <b id="vVol">45%</b></label>
+          <input type="range" id="pVol" min="0" max="100" value="45">
+        </div>
+        <div class="pcell">
+          <span class="pl">RENDER LAYERS</span>
+          <div class="tg"><span class="name">Film grain</span><button class="switch" id="pGrain" role="switch" aria-checked="true" aria-label="Film grain"><i></i></button></div>
+          <div class="tg"><span class="name">Scanlines</span><button class="switch" id="pScan" role="switch" aria-checked="true" aria-label="Scanlines"><i></i></button></div>
+        </div>
+        <div class="pcell">
+          <span class="pl">LAYOUT DENSITY</span>
+          <div class="tg"><span class="name">Compact mode</span><button class="switch" id="pDense" role="switch" aria-checked="false" aria-label="Compact density"><i></i></button></div>
+        </div>
+        <div class="pcell">
+          <label for="pMotion">MOTION PROFILE</label>
+          <select id="pMotion"><option value="full">Full · cinematic</option><option value="calm">Calm · reduced drift</option><option value="off">Off · static</option></select>
+        </div>
+        <div class="pcell">
+          <span class="pl">AUDIO ENGINE</span>
+          <div class="tg"><span class="name">Interface sound</span><button class="switch" id="pSound" role="switch" aria-checked="true" aria-label="Interface sound"><i></i></button></div>
+        </div>
+      </div>
+      <div class="prefs-f">
+        <button class="mini" id="pRandom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h4l10 12h4M3 18h4l3-3.6M14 8.6L17 6h4"/><path d="M18 3l3 3-3 3M18 15l3 3-3 3"/></svg>RANDOMIZE</button>
+        <button class="mini" id="pExport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>EXPORT PROFILE</button>
+        <button class="mini warn" id="pReset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5"/></svg>RESET DEFAULTS</button>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="excerpt" id="excerpt">
-  <div class="sec-head reveal">
-    <span class="idx">04 / THE EXCERPT</span>
-    <h2 class="big">Read a piece<em>.</em></h2>
-  </div>
-  <div class="ex-body">
-    <p class="pull reveal">“Nothing here is a gift. Everything here is an advance.”</p>
-    <p class="reveal">The circle did not flare. It itemised. Light came up from the floor in thin, even columns, like a receipt printing itself in the air, and each column had a name at the top of it that I did not recognise and could not stop reading.</p>
-    <p class="reveal">When it finished, two of them were standing in the space where the light had been. Neither looked at me first. They looked at each other, the way colleagues do when a job comes through that neither of them wanted.</p>
-    <p class="reveal say">“You called,” the taller one said.</p>
-    <p class="reveal say">“I did.”</p>
-    <p class="reveal say">“Do you know the rate?”</p>
-    <p class="reveal">I said nothing. He nodded, as if that answered it, and stepped out of the circle onto the concrete like a man clocking in.</p>
-    <p class="reveal say">“Then we start,” he said. “And you will find out what you owe at the end, same as everyone.”</p>
+<section id="metrics">
+  <div class="wrap">
+    <div class="sec-tag reveal">03 <i>/</i> ARCHIVE TELEMETRY</div>
+    <h2 class="sec reveal">What the archive <em>holds.</em></h2>
+    <div class="met-grid">
+      <div class="panel reveal">
+        <div class="panel-h"><span class="dot"></span>DATA VOLUME · LARGEST LOGS<b id="chartTotal">—</b></div>
+        <div class="chart" id="chart"></div>
+        <div class="legend">
+          <span><i style="background:#00f0ff"></i>CYAN CHANNEL</span>
+          <span><i style="background:#ffd700"></i>GOLD CHANNEL</span>
+          <span><i style="background:#7c5cff"></i>VIOLET</span>
+          <span><i style="background:#ff2d95"></i>MAGENTA</span>
+          <span><i style="background:#3dff9e"></i>VERIFIED</span>
+          <span><i style="background:#38bdf8"></i>INDEXED</span>
+        </div>
+      </div>
+      <div class="panel feed reveal">
+        <div class="panel-h"><span class="dot ok"></span>ACTIVITY LOG<b>LIVE</b></div>
+        <div class="feed-b" id="feed"></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="colo">
-  <p class="idx reveal">05 / COLOPHON</p>
-  <h2 class="colo-big reveal">THE TITLE IS FIXED.<br><em>THE TEXT IS BEING REWRITTEN.</em></h2>
-  <p class="reveal">This is a demo build. The words on this page are a stand-in voice, not the novel. When the real manuscript lands it goes straight into this frame — the design stays, the story replaces everything else.</p>
-  <div class="colo-row reveal">
-    <a class="btn solid" href="contact.html">SEND A LETTER</a>
-    <a class="btn" href="https://github.com/Thunder2700c" target="_blank" rel="noopener">@THUNDER2700C ↗</a>
+<section id="about">
+  <div class="wrap">
+    <div class="sec-tag reveal">04 <i>/</i> OPERATORS</div>
+    <h2 class="sec reveal">Who writes the <em>signal.</em></h2>
+    <div class="about-grid">
+      <div class="author reveal">
+        <div class="av">GS</div>
+        <div>
+          <h3>Gurtej Singh</h3>
+          <div class="role">AUTHOR · BOTH MODULES</div>
+          <p>Writes the Fate fan serial and co-builds the ascension world. Also the person who wired this terminal together.</p>
+          <a href="https://github.com/Thunder2700c" target="_blank" rel="noopener">@THUNDER2700C ↗</a>
+        </div>
+      </div>
+      <div class="author reveal">
+        <div class="av">HS</div>
+        <div>
+          <h3>Harmanjot Singh</h3>
+          <div class="role">CO-AUTHOR · THE GODS RANK AWAKENING</div>
+          <p>Half of the voice behind the ranked ladder — the arcs, the costs, and the names the sky refuses to give back.</p>
+          <a href="#modules" id="hsLink">OPEN MODULE ↗</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+</main>
 
 <footer>
-  FATE/STAY LAST TIME · A FAN WORK · FATE/STAY NIGHT © TYPE-MOON · NOT AFFILIATED<br>
-  <a href="privacy.html">PRIVACY</a> · <a href="terms.html">TERMS</a> · <a href="contact.html">CONTACT</a> · © <span id="year">2026</span> GURTEJ SINGH
+ARCHIVE//OS · A FAN WORK · FATE/STAY NIGHT © TYPE-MOON · NOT AFFILIATED<br>
+<a href="privacy.html">PRIVACY</a> · <a href="terms.html">TERMS</a> · <a href="contact.html">CONTACT</a> · © <span id="year">2026</span> GURTEJ SINGH
 </footer>
 
-<div class="mcta" id="mcta"><a class="btn solid" href="#reel">ENTER THE REEL</a></div>
+<div class="win" id="win" role="dialog" aria-modal="true" aria-labelledby="winName">
+  <div class="win-scrim" id="winScrim"></div>
+  <div class="win-panel" id="winPanel">
+    <div class="win-bar">
+      <span class="mod-dots"><i></i><i></i><i></i></span>
+      <span class="win-name" id="winName">MODULE</span>
+      <span class="win-path" id="winPath">/archive/</span>
+      <button class="win-x" id="winX" aria-label="Close window"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+    </div>
+    <div class="win-body">
+      <aside class="win-rail" id="winRail">
+        <div class="rail-cover" id="railCover" data-glyph="F"></div>
+        <h3 class="rail-title" id="railTitle">—</h3>
+        <div class="rail-by" id="railBy">—</div>
+        <p class="rail-syn" id="railSyn">—</p>
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 62 62"><circle class="bg" cx="31" cy="31" r="26"/><circle class="fg" id="ringFg" cx="31" cy="31" r="26" stroke-dasharray="163.4" stroke-dashoffset="163.4"/></svg>
+          <div class="ring-txt"><b id="ringPct">0%</b><span>ACCESSED</span></div>
+        </div>
+        <div class="rail-stats">
+          <div><span>LOGS</span><b id="railLogs">—</b></div>
+          <div><span>WORDS</span><b id="railWords">—</b></div>
+          <div><span>RUNTIME</span><b id="railTime">—</b></div>
+          <div><span>STATUS</span><b>ONGOING</b></div>
+        </div>
+      </aside>
+      <div class="win-main">
+        <div class="tools">
+          <div class="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5L21 21"/></svg>
+            <input id="q" type="search" placeholder="SEARCH DATA LOGS…" aria-label="Search chapters">
+          </div>
+          <select id="sort" aria-label="Sort logs">
+            <option value="asc">ORDER · ASCENDING</option>
+            <option value="desc">ORDER · DESCENDING</option>
+            <option value="title">TITLE · A–Z</option>
+            <option value="len">LENGTH · LONGEST</option>
+          </select>
+        </div>
+        <div class="filters" id="filters" role="group" aria-label="Filter logs">
+          <button class="fchip" data-f="all" aria-pressed="true">ALL</button>
+          <button class="fchip" data-f="unread" aria-pressed="false">UNREAD</button>
+          <button class="fchip" data-f="part" aria-pressed="false">IN PROGRESS</button>
+          <button class="fchip" data-f="read" aria-pressed="false">READ</button>
+        </div>
+        <div class="logs" id="logs"></div>
+        <div class="reader" id="reader">
+          <div class="reader-h">
+            <button class="back" id="readerBack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>LOGS</button>
+            <span class="rid" id="readerId">CH-000</span>
+          </div>
+          <div class="reader-scroll" id="readerScroll">
+            <div class="reader-in">
+              <h3 id="readerTitle">—</h3>
+              <div class="reader-meta" id="readerMeta">—</div>
+              <div id="readerBody"></div>
+              <div class="reader-note">DEMO EXCERPT · Replace the excerpt arrays in the DATA object at the top of <b>js/main.js</b> with your manuscript, or give a chapter a <b>url</b> field to link straight to its own HTML file.</div>
+            </div>
+          </div>
+          <div class="reader-f">
+            <button class="btn" id="rPrev">← PREV</button>
+            <button class="btn" id="rNext">NEXT →</button>
+            <span class="spacer"></span>
+            <button class="btn primary" id="rMark">MARK AS READ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mcta" id="mcta"><a class="btn solid" href="#modules">BROWSE MODULES</a></div>
 
 <div id="consent" hidden>
-  <p>This site keeps your place on your own device. Optional, cookieless analytics (Vercel) help count reads. No ads, ever.</p>
-  <div class="row"><button id="consent-yes">ALLOW</button><button id="consent-no">NO THANKS</button></div>
+<p>This site keeps your place on your own device. Optional, cookieless analytics (Vercel) help count reads. No ads, ever.</p>
+<div class="row"><button id="consent-yes">ALLOW</button><button id="consent-no">NO THANKS</button></div>
 </div>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="js/site.js"></script>
 <script src="js/main.js"></script>
 </body>
-</html>
+          </html>

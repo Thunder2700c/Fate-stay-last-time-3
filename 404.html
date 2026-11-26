@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 — This Side Is Blank · Fate/Stay Last Time</title>
+<meta name="description" content="This track was pruned from the timeline. Return to the record.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#131110">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131110'/%3E%3Ccircle cx='32' cy='32' r='26' fill='%231d1a18'/%3E%3Ccircle cx='32' cy='32' r='10.5' fill='%23d43a2f'/%3E%3Ccircle cx='32' cy='32' r='2.2' fill='%23ece5d8'/%3E%3C/svg%3E" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,900;1,9..144,600&family=Archivo:wght@400;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#131110;--line:#2e2823;--ink:#ece5d8;--muted:#a3988a;--dim:#6f6558;--crimson:#d43a2f}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:Archivo,system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center}
+main{max-width:460px}
+.disc{position:relative;width:150px;height:150px;margin:0 auto 30px;border-radius:50%;background:repeating-radial-gradient(circle at 50% 50%,#191614 0 2px,#211d1a 2px 4px);box-shadow:inset 0 0 0 1px #2a2420;animation:spin 6s linear infinite}
+.disc::after{content:"";position:absolute;inset:33%;border-radius:50%;background:var(--ink)}
+.disc::before{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px;border-radius:50%;background:var(--bg);z-index:1}
+@keyframes spin{to{transform:rotate(360deg)}}
+.cat{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.4em;color:var(--crimson)}
+h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:clamp(34px,7vw,52px);line-height:1.05;margin:12px 0 14px}
+p{color:var(--muted);font-size:15px;margin-bottom:28px}
+.row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+a.btn{display:inline-flex;align-items:center;height:46px;padding:0 22px;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:background .2s,border-color .2s}
+.solid{background:var(--crimson);color:var(--ink)}.solid:hover{background:#e0483c}
+.ghost{border:1px solid var(--line);color:var(--muted)}.ghost:hover{border-color:var(--crimson);color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.disc{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <div class="disc" aria-hidden="true"></div>
+  <span class="cat">FSLT-001 · ERROR 404</span>
+  <h1>This side is blank.</h1>
+  <p>The track you're looking for was pruned from the timeline — or never pressed at all. The record itself is still spinning.</p>
+  <div class="row">
+    <a class="btn solid" href="/">Back to the record</a>
+    <a class="btn ghost" href="/chapters/chapter-10.html">Play the latest track</a>
+  </div>
+</main>
+</body>
+</html>

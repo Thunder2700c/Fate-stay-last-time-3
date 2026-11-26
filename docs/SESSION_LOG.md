@@ -135,3 +135,19 @@ The branch and PR were read before editing. No local browser, Vercel preview, re
 - No browser rendering, live Vercel deployment check, full HTML validator, or real-device QA was run.
 - No FPS, GPU, thermal, or accessibility audit is claimed.
 
+## 2026-11-26 — Device-specific hero thread animation
+
+**Branch:** `main`
+
+### Changes
+- Added explicit data hooks to the existing vermilion thread and its three anchor points in each homepage SVG.
+- Extended the mobile, tablet, and desktop GSAP entrance timelines so the thread resolves into view and its anchor points appear in sequence.
+- Kept the effect limited to the existing hero artwork. No new homepage sections, chapter copy, or continuous scroll animation were added.
+- The effect is skipped by the existing reduced-motion and Save-Data guards because those guards return before the GSAP timeline is created.
+
+### Verification
+- [x] Confirmed all three SVGs contain one thread hook and three anchor-point hooks.
+- [x] Confirmed each device script targets its own edition's hero art and retains the existing reduced-motion/Save-Data guard.
+- [ ] Browser rendering and animation timing not verified.
+- [ ] Real Android, tablet, and desktop performance not measured.
+

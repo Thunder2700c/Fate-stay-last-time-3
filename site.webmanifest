@@ -1,0 +1,10 @@
+{
+  "name": "Fate/Stay Last Time",
+  "short_name": "FSLT",
+  "description": "A dark Fate fan novel.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0b0a09",
+  "theme_color": "#0b0a09",
+  "icons": [{ "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

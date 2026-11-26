@@ -22,7 +22,8 @@ The replacement homepage removes the large grain filter, centralizes progress/he
 - [x] Repository branch and PR state inspected before edits.
 - [x] Three page documents and separate device CSS/GSAP scripts added.
 - [x] Handoff, architecture, performance, and QA documentation added.
-- [ ] Browser rendering / HTML validation not yet run.
+- [x] JavaScript syntax and static local-reference / same-page-anchor checks passed.
+- [ ] HTML validation and browser rendering not yet run.
 - [ ] Vercel branch preview not yet visually inspected.
 - [ ] Android phone frame-rate/GPU profiling not yet performed.
 - [ ] Tablet portrait/landscape and desktop browser QA not yet performed.

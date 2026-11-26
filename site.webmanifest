@@ -1,0 +1,11 @@
+{
+  "name": "Fate / Stay Last Time",
+  "short_name": "Fate / Stay",
+  "description": "An independent novel project.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#090a0d",
+  "theme_color": "#090a0d",
+  "icons": [{"src":"assets/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]
+}

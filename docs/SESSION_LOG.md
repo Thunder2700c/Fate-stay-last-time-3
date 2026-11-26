@@ -113,3 +113,25 @@ The branch and PR were read before editing. No local browser, Vercel preview, re
 - No Android, tablet, or desktop performance trace was recorded.
 - The contact endpoint remains intentionally unconfigured.
 - Privacy and terms remain draft project notices pending legal review.
+
+## 2026-11-26 — Remove abandoned homepage systems and reconcile handoff
+
+**Branch:** `main`
+
+### Changes
+- Removed obsolete field-guide and reader-lab stylesheet/script includes from mobile, tablet, and desktop homepage documents.
+- Deleted the now-unused `js/field-guide.js` and `css/experience.css`.
+- Reduced `js/experience.js` to active section navigation only.
+- Added a shared visible `:focus-visible` treatment for links and buttons.
+- Rewrote the architecture, QA checklist, and project handoff to describe the actual four-section homepage and current file structure. Removed stale claims that the deleted FAQ, field guide, preference lab, and 1,000-line pages still exist.
+
+### Checks actually performed
+- Re-fetched all three homepage files from `main`; confirmed no references to the deleted field-guide script or experience stylesheet remain.
+- Re-fetched `js/experience.js`; confirmed it queries only sections and the active section navigation.
+- Re-fetched `css/edition-tokens.css`; confirmed the shared keyboard-focus rule is present.
+- Confirmed the architecture and QA documents now describe the four-section homepage.
+
+### Not performed
+- No browser rendering, live Vercel deployment check, full HTML validator, or real-device QA was run.
+- No FPS, GPU, thermal, or accessibility audit is claimed.
+

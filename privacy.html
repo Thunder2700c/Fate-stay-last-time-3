@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy · Fate/Stay Last Time</title>
+<meta name="description" content="What this site stores, what it doesn't, and who can see it.">
+<link rel="canonical" href="https://fate-stay-last-time.vercel.app/privacy.html">
+<meta name="theme-color" content="#131110">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23131110'/%3E%3Ccircle cx='32' cy='32' r='26' fill='%231d1a18'/%3E%3Ccircle cx='32' cy='32' r='10.5' fill='%23d43a2f'/%3E%3Ccircle cx='32' cy='32' r='2.2' fill='%23ece5d8'/%3E%3C/svg%3E" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,900&family=Archivo:wght@400;600&family=Space+Mono&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#131110;--line:#2e2823;--ink:#ece5d8;--muted:#a3988a;--dim:#6f6558;--crimson:#d43a2f}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:Archivo,system-ui,sans-serif;line-height:1.7;padding:64px 22px;display:flex;justify-content:center}
+main{max-width:620px;width:100%}
+.cat{font-family:"Space Mono",monospace;font-size:10px;letter-spacing:.4em;color:var(--crimson)}
+h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:clamp(30px,6vw,42px);margin:12px 0 8px}
+.date{font-family:"Space Mono",monospace;font-size:10px;color:var(--dim);margin-bottom:30px}
+h2{font-family:"Space Mono",monospace;font-weight:400;font-size:11px;letter-spacing:.3em;color:var(--crimson);margin:30px 0 10px}
+p,li{color:var(--muted);font-size:14.5px;margin-bottom:10px}
+ul{padding-left:20px}
+code{font-family:"Space Mono",monospace;font-size:12px;color:var(--ink);background:#1a1715;padding:1px 6px}
+a{color:var(--crimson)}
+.back{display:inline-block;margin-top:36px;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.18em;text-decoration:none;border:1px solid var(--line);padding:12px 20px;color:var(--muted)}
+.back:hover{border-color:var(--crimson);color:var(--ink)}
+</style>
+</head>
+<body>
+<main>
+  <span class="cat">FSLT-001 · LEGAL</span>
+  <h1>Privacy</h1>
+  <p class="date">EFFECTIVE 26 NOV 2026</p>
+  <h2>WHAT STAYS ON YOUR DEVICE</h2>
+  <p>Your reading place never leaves your browser. We use localStorage only:</p>
+  <ul>
+    <li><code>fslt.player.v1</code> — last track played and per-chapter progress.</li>
+    <li><code>fslt.consent</code> — your analytics choice.</li>
+    <li>Old keys from the previous site design are migrated once, locally.</li>
+  </ul>
+  <p>Clearing your browser data erases all of it. No account, no login, no server-side profile.</p>
+  <h2>ANALYTICS</h2>
+  <p>If you press "Allow analytics", Vercel Web Analytics counts page views. It is cookieless and does not fingerprint you. If you decline, nothing loads. There are no ads and no third-party trackers.</p>
+  <h2>THIRD PARTIES</h2>
+  <ul>
+    <li>Google Fonts and cdnjs (GSAP) serve fonts and animation code — they see standard request data like your IP.</li>
+    <li>Letters you send open as <strong>public</strong> GitHub issues under your chosen pen name. Don't put anything private in a letter.</li>
+    <li>Hosting is Vercel; standard server logs apply.</li>
+  </ul>
+  <h2>CONTACT</h2>
+  <p>Questions: open an issue at <a href="https://github.com/Thunder2700c/Fate-Stay-Last-Time/issues" target="_blank" rel="noopener">the repo</a> or reach <a href="https://github.com/Thunder2700c" target="_blank" rel="noopener">@Thunder2700c</a>.</p>
+  <a class="back" href="/">← BACK TO THE RECORD</a>
+</main>
+</body>
+</html>

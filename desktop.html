@@ -181,73 +181,191 @@
 </div>
 </section>
 
-<section class="editorial-section" id="reader-settings" aria-labelledby="d-reader-title">
-<div class="editorial-section__top">
-<span>04 / Reader's desk</span>
-<span>Interactive preview</span>
-</div>
-<div class="reader-lab" data-reader-lab data-tone="paper">
-<div class="reader-lab__head">
-<div>
-<span class="reader-lab__eyebrow">Reading preferences / prototype</span>
-<h2 class="reader-lab__title" id="d-reader-title">Make room for the words.</h2>
-<p class="editorial-section__intro">Try the typography controls on this sample. Your choices are saved on this device and preview the settings planned for the chapter reader.</p>
-</div>
-<span class="reader-lab__meta">LOCAL PREVIEW / NO ACCOUNT</span>
-</div>
-<div class="reader-lab__grid">
-<div class="reader-lab__settings" aria-label="Reading preference controls">
-<div class="reader-lab__field">
-<span class="reader-lab__label">Paper tone</span>
-<div class="reader-lab__segmented" role="group" aria-label="Preview tone">
-<button type="button" data-tone-choice="paper" aria-pressed="true">Paper</button>
-<button type="button" data-tone-choice="sepia" aria-pressed="false">Sepia</button>
-<button type="button" data-tone-choice="night" aria-pressed="false">Night</button>
-</div>
-</div>
-<div class="reader-lab__field">
-<label for="d-size">Text size <output data-size-output>17 px</output>
-</label>
-<input id="d-size" type="range" min="14" max="24" step="1" value="17" data-size>
-</div>
-<div class="reader-lab__field">
-<label for="d-leading">Line spacing</label>
-<input id="d-leading" type="range" min="1.4" max="2.2" step=".1" value="1.8" data-leading>
-</div>
-<div class="reader-lab__field">
-<label for="d-width">Reading width</label>
-<select id="d-width" data-width>
-<option value="narrow">Narrow</option>
-<option value="comfortable" selected>Comfortable</option>
-<option value="wide">Wide</option>
-</select>
-</div>
-<div class="reader-lab__field">
-<label for="d-font">Text face</label>
-<select id="d-font" data-font>
-<option value="serif" selected>Literary serif</option>
-<option value="sans">Clean sans</option>
-</select>
-</div>
-<div class="reader-lab__actions">
-<button class="reader-lab__reset" type="button" data-reset-reader>Reset preferences</button>
-</div>
-</div>
-<div class="reader-lab__preview">
-<span class="reader-lab__eyebrow">Type specimen / 001</span>
-<h3>A quieter page.</h3>
-<div class="reader-lab__sample">
-<p>Some stories ask to be read quickly. Others ask for a little space: a clear line, a comfortable measure, and enough quiet around each paragraph to let the thought settle.</p>
-<p>This is sample interface copy, not an excerpt from the novel. The rewritten chapters will be added only when the author supplies them.</p>
-</div>
-<p class="reader-lab__notice">Preview settings are stored locally in this browser. They do not change the chapter archive while it is empty.</p>
-</div>
-</div>
-</div>
+<section class="project-glossary" id="glossary" aria-labelledby="d-glossary-title">
+  <div class="project-glossary__header">
+    <p class="project-glossary__eyebrow">04 / PROJECT REFERENCE</p>
+    <p class="project-glossary__edition">DESKTOP EDITION</p>
+  </div>
+  <h2 class="project-glossary__title" id="d-glossary-title">The language behind the page.</h2>
+  <p class="project-glossary__intro">A reference for the document structure, navigation, and responsive routing used by the wide-screen edition. Each note opens with the browser's native popover behaviour; no custom script is required.</p>
+  <p class="project-glossary__routing">The desktop document is selected at 1100 CSS pixels and above. A narrower viewport can route to another edition while preserving the current URL hash.</p>
+  <nav class="project-glossary__navigation" aria-label="Project reference terms">
+    <ul class="project-glossary__list">
+        <li class="project-glossary__item">
+          <button class="project-glossary__trigger" type="button" popovertarget="d-glossary-edition">
+            Edition 03
+          </button>
+          <aside class="project-glossary__popover" id="d-glossary-edition" popover="auto" aria-labelledby="d-glossary-edition-title">
+            <h3 id="d-glossary-edition-title">Edition 03</h3>
+            <p>This is the current rebuild of the website. It begins the digital presentation again; it does not promise continuity with earlier manuscript drafts.</p>
+            <button class="project-glossary__close" type="button" popovertarget="d-glossary-edition" popovertargetaction="hide">
+              Close note
+            </button>
+          </aside>
+        </li>
+        <li class="project-glossary__item">
+          <button class="project-glossary__trigger" type="button" popovertarget="d-glossary-reading-room">
+            Reading room
+          </button>
+          <aside class="project-glossary__popover" id="d-glossary-reading-room" popover="auto" aria-labelledby="d-glossary-reading-room-title">
+            <h3 id="d-glossary-reading-room-title">Reading room</h3>
+            <p>The part of the site reserved for published chapters. It is intentionally empty until the rewritten manuscript is supplied and approved.</p>
+            <button class="project-glossary__close" type="button" popovertarget="d-glossary-reading-room" popovertargetaction="hide">
+              Close note
+            </button>
+          </aside>
+        </li>
+        <li class="project-glossary__item">
+          <button class="project-glossary__trigger" type="button" popovertarget="d-glossary-viewport">
+            Viewport
+          </button>
+          <aside class="project-glossary__popover" id="d-glossary-viewport" popover="auto" aria-labelledby="d-glossary-viewport-title">
+            <h3 id="d-glossary-viewport-title">Viewport</h3>
+            <p>The visible layout area inside the browser. The site uses its width to choose the mobile, tablet, or desktop homepage document.</p>
+            <button class="project-glossary__close" type="button" popovertarget="d-glossary-viewport" popovertargetaction="hide">
+              Close note
+            </button>
+          </aside>
+        </li>
+        <li class="project-glossary__item">
+          <button class="project-glossary__trigger" type="button" popovertarget="d-glossary-anchor">
+            Anchor link
+          </button>
+          <aside class="project-glossary__popover" id="d-glossary-anchor" popover="auto" aria-labelledby="d-glossary-anchor-title">
+            <h3 id="d-glossary-anchor-title">Anchor link</h3>
+            <p>A link to a specific element on the same page. Its URL uses a fragment such as #reading, making a section easier to bookmark or share.</p>
+            <button class="project-glossary__close" type="button" popovertarget="d-glossary-anchor" popovertargetaction="hide">
+              Close note
+            </button>
+          </aside>
+        </li>
+        <li class="project-glossary__item">
+          <button class="project-glossary__trigger" type="button" popovertarget="d-glossary-progressive-enhancement">
+            Progressive enhancement
+          </button>
+          <aside class="project-glossary__popover" id="d-glossary-progressive-enhancement" popover="auto" aria-labelledby="d-glossary-progressive-enhancement-title">
+            <h3 id="d-glossary-progressive-enhancement-title">Progressive enhancement</h3>
+            <p>An approach that starts with meaningful document structure and adds optional presentation or behaviour. The glossary popovers here use native HTML.</p>
+            <button class="project-glossary__close" type="button" popovertarget="d-glossary-progressive-enhancement" popovertargetaction="hide">
+              Close note
+            </button>
+          </aside>
+        </li>
+        <li class="project-glossary__item">
+          <button class="project-glossary__trigger" type="button" popovertarget="d-glossary-colophon">
+            Colophon
+          </button>
+          <aside class="project-glossary__popover" id="d-glossary-colophon" popover="auto" aria-labelledby="d-glossary-colophon-title">
+            <h3 id="d-glossary-colophon-title">Colophon</h3>
+            <p>A short record about an edition or publication. The project's About section acts as its digital colophon.</p>
+            <button class="project-glossary__close" type="button" popovertarget="d-glossary-colophon" popovertargetaction="hide">
+              Close note
+            </button>
+          </aside>
+        </li>
+    </ul>
+  </nav>
+  <div class="project-glossary__details">
+    <details class="project-glossary__disclosure">
+      <summary>Why are there three homepage documents?</summary>
+      <p>Each edition has its own HTML composition for a different viewport range. They share the same project identity and core information while arranging the content for the available space.</p>
+    </details>
+    <details class="project-glossary__disclosure">
+      <summary>What can I read in the archive today?</summary>
+      <p>No rewritten chapters have been published yet. The reading room remains empty rather than displaying invented titles, excerpts, or material from earlier drafts.</p>
+    </details>
+    <details class="project-glossary__disclosure">
+      <summary>Do these notes describe story lore?</summary>
+      <p>No. This is a guide to the website and its reading interface. It does not introduce characters, plot details, or unpublished story information.</p>
+    </details>
+  </div>
+</section>
+<section class="publication-ledger" id="publication-ledger" aria-labelledby="d-publication-title">
+  <header class="publication-ledger__header">
+    <p class="publication-ledger__eyebrow">05 / PUBLICATION RECORD</p>
+    <p class="publication-ledger__edition">DESKTOP EDITION</p>
+    <h2 class="publication-ledger__title" id="d-publication-title">What is actually <em>available?</em></h2>
+    <p class="publication-ledger__intro">This record separates published material from planned work. It is a statement of the archive's current public state, not a release calendar or a promise of dates.</p>
+  </header>
+  <dl class="publication-ledger__facts">
+    <div class="publication-ledger__fact">
+      <dt>Public edition</dt>
+      <dd>Edition 03</dd>
+    </div>
+    <div class="publication-ledger__fact">
+      <dt>Published chapters</dt>
+      <dd>None at this time</dd>
+    </div>
+    <div class="publication-ledger__fact">
+      <dt>Chapter excerpts</dt>
+      <dd>Not published</dd>
+    </div>
+    <div class="publication-ledger__fact">
+      <dt>Earlier drafts</dt>
+      <dd>Not carried into this edition</dd>
+    </div>
+    <div class="publication-ledger__fact">
+      <dt>Release schedule</dt>
+      <dd>No public date announced</dd>
+    </div>
+  </dl>
+  <div class="publication-ledger__table-wrap">
+    <table class="publication-ledger__table">
+      <caption>Public content availability for the current edition</caption>
+      <thead>
+        <tr>
+          <th scope="col">Content group</th>
+          <th scope="col">Current state</th>
+          <th scope="col">What the reader will find</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Rewritten chapters</th>
+          <td>Awaiting approved text</td>
+          <td>No chapter page is available yet.</td>
+        </tr>
+        <tr>
+          <th scope="row">Chapter previews</th>
+          <td>Not published</td>
+          <td>No teaser excerpt is used as a substitute for a chapter.</td>
+        </tr>
+        <tr>
+          <th scope="row">Previous drafts</th>
+          <td>Excluded</td>
+          <td>This edition does not reproduce earlier manuscript material.</td>
+        </tr>
+        <tr>
+          <th scope="row">Project information</th>
+          <td>Available</td>
+          <td>The overview, site notes, and contact information remain accessible.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="publication-ledger__notes">
+    <details class="publication-ledger__disclosure">
+      <summary>What must happen before a chapter appears?</summary>
+      <ol>
+        <li>The rewritten chapter text is supplied by the author.</li>
+        <li>The text is reviewed and approved for publication.</li>
+        <li>A chapter page is prepared with a clear title and navigation back to the archive.</li>
+        <li>The public archive is updated to link to the published page.</li>
+      </ol>
+    </details>
+    <details class="publication-ledger__disclosure">
+      <summary>Why is there no estimated release date?</summary>
+      <p>A date should not be displayed until the author has chosen one. The site will not infer a schedule from the existence of this interface.</p>
+    </details>
+    <details class="publication-ledger__disclosure">
+      <summary>Will this record change when writing is published?</summary>
+      <p>Yes. The public status should be updated alongside the actual chapter links, so the archive and its summary remain consistent.</p>
+    </details>
+  </div>
 </section>
 <section class="editorial-section" id="principles" aria-labelledby="d-principles-title">
 <div class="editorial-section__top">
-<span>05 / Editorial principles</span>
+<span>06 / Editorial principles</span>
 <span>Edition 03</span>
 </div>
 <h2 class="editorial-section__heading" id="d-principles-title">The rules behind <em>the reading room.</em>
@@ -288,7 +406,7 @@
 </section>
 <section class="editorial-section" id="process" aria-labelledby="d-process-title">
 <div class="editorial-section__top">
-<span>06 / From draft to archive</span>
+<span>07 / From draft to archive</span>
 <span>Publication workflow</span>
 </div>
 <h2 class="editorial-section__heading" id="d-process-title">A chapter earns <em>its place.</em>
@@ -328,7 +446,8 @@
 <nav class="section-nav" aria-label="On this page" data-section-nav>
 <a href="#idea">The idea</a>
 <a href="#reading">Reading room</a>
-<a href="#reader-settings">Reader's desk</a>
+<a href="#glossary">Project glossary</a>
+<a href="#publication-ledger">Publication record</a>
 <a href="#principles">Principles</a>
 <a href="#process">Process</a>
 <a href="#questions">Questions</a>
@@ -337,7 +456,7 @@
 </section>
 <section class="editorial-section" id="questions" aria-labelledby="d-questions-title">
 <div class="editorial-section__top">
-<span>07 / Questions</span>
+<span>09 / Questions</span>
 <span>Project information</span>
 </div>
 <h2 class="editorial-section__heading" id="d-questions-title">A few things <em>worth knowing.</em>
@@ -379,7 +498,7 @@
 </section>
 <section class="editorial-section" id="contact-note">
 <div class="editorial-section__top">
-<span>09 / Correspondence</span>
+<span>10 / Correspondence</span>
 <span>Open channel</span>
 </div>
 <h2 class="editorial-section__heading">A note, a question, <em>a thought.</em>
@@ -391,7 +510,7 @@
 </section>
 <section class="editorial-section field-guide" id="field-guide" aria-labelledby="d-field-guide-title">
 <div class="editorial-section__top">
-<span>10 / Interface field guide</span>
+<span>11 / Interface field guide</span>
 <span>DESKTOP EDITION / 19 NOTES</span>
 </div>
 <h2 class="editorial-section__heading" id="d-field-guide-title">A field guide to the desktop reading experience.</h2>
@@ -424,10 +543,6 @@
 <dt>Design response</dt>
 <dd>Review at 1280, 1600, and 1920 CSS pixels.</dd>
 </div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
-</div>
 </dl>
 <footer>
 <span>EDITION 03 / DESKTOP</span>
@@ -445,10 +560,6 @@
 <div>
 <dt>Design response</dt>
 <dd>Hide or disable the rail and confirm the page remains navigable.</dd>
-</div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
 </div>
 </dl>
 <footer>
@@ -468,10 +579,6 @@
 <dt>Design response</dt>
 <dd>Review a chapter-length sample when the manuscript becomes available.</dd>
 </div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
-</div>
 </dl>
 <footer>
 <span>EDITION 03 / DESKTOP</span>
@@ -489,10 +596,6 @@
 <div>
 <dt>Design response</dt>
 <dd>Check the fold at laptop and desktop heights.</dd>
-</div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
 </div>
 </dl>
 <footer>
@@ -512,10 +615,6 @@
 <dt>Design response</dt>
 <dd>Complete a full tab-through test without a mouse.</dd>
 </div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
-</div>
 </dl>
 <footer>
 <span>EDITION 03 / DESKTOP</span>
@@ -533,10 +632,6 @@
 <div>
 <dt>Design response</dt>
 <dd>Repeat each hover interaction using keyboard focus.</dd>
-</div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
 </div>
 </dl>
 <footer>
@@ -556,10 +651,6 @@
 <dt>Design response</dt>
 <dd>Review the first viewport at several wide and narrow desktop sizes.</dd>
 </div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
-</div>
 </dl>
 <footer>
 <span>EDITION 03 / DESKTOP</span>
@@ -577,10 +668,6 @@
 <div>
 <dt>Design response</dt>
 <dd>Compare the illustration at standard and ultrawide resolutions.</dd>
-</div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
 </div>
 </dl>
 <footer>
@@ -600,10 +687,6 @@
 <dt>Design response</dt>
 <dd>Open a direct link to a lower section and verify its target.</dd>
 </div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
-</div>
 </dl>
 <footer>
 <span>EDITION 03 / DESKTOP</span>
@@ -621,10 +704,6 @@
 <div>
 <dt>Design response</dt>
 <dd>Scan the page without reading every paragraph and identify its structure.</dd>
-</div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
 </div>
 </dl>
 <footer>
@@ -644,10 +723,6 @@
 <dt>Design response</dt>
 <dd>Check title wrapping at the widest supported viewport.</dd>
 </div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
-</div>
 </dl>
 <footer>
 <span>EDITION 03 / DESKTOP</span>
@@ -665,10 +740,6 @@
 <div>
 <dt>Design response</dt>
 <dd>Test at 125 and 200 percent zoom.</dd>
-</div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
 </div>
 </dl>
 <footer>
@@ -688,10 +759,6 @@
 <dt>Design response</dt>
 <dd>Change every control and confirm the result is visible.</dd>
 </div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
-</div>
 </dl>
 <footer>
 <span>EDITION 03 / DESKTOP</span>
@@ -709,10 +776,6 @@
 <div>
 <dt>Design response</dt>
 <dd>Clear browser storage and verify a safe return to defaults.</dd>
-</div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
 </div>
 </dl>
 <footer>
@@ -732,10 +795,6 @@
 <dt>Design response</dt>
 <dd>Check every anchor after a breakpoint route change.</dd>
 </div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
-</div>
 </dl>
 <footer>
 <span>EDITION 03 / DESKTOP</span>
@@ -753,10 +812,6 @@
 <div>
 <dt>Design response</dt>
 <dd>Inspect fast scrolling for layout shifts.</dd>
-</div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
 </div>
 </dl>
 <footer>
@@ -776,10 +831,6 @@
 <dt>Design response</dt>
 <dd>Compare the page with motion preferences enabled and disabled.</dd>
 </div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
-</div>
 </dl>
 <footer>
 <span>EDITION 03 / DESKTOP</span>
@@ -797,10 +848,6 @@
 <div>
 <dt>Design response</dt>
 <dd>Profile the deployed page before making GPU performance claims.</dd>
-</div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
 </div>
 </dl>
 <footer>
@@ -820,10 +867,6 @@
 <dt>Design response</dt>
 <dd>Only publish metadata that matches approved manuscript material.</dd>
 </div>
-<div>
-<dt>Review method</dt>
-<dd>undefined</dd>
-</div>
 </dl>
 <footer>
 <span>EDITION 03 / DESKTOP</span>
@@ -835,7 +878,7 @@
 </section>
 <section class="editorial-section field-guide__faq" id="field-guide-questions" aria-labelledby="d-field-faq-title">
 <div class="editorial-section__top">
-<span>11 / Device questions</span>
+<span>12 / Device questions</span>
 <span>10 ANSWERS</span>
 </div>
 <h2 class="editorial-section__heading" id="d-field-faq-title">Before you <em>settle in.</em></h2>
@@ -845,8 +888,8 @@
 <p>No. It provides section shortcuts and supplements the main document navigation.</p>
 </details>
 <details>
-<summary>Are reader settings synced across browsers?</summary>
-<p>No. The settings preview stores preferences locally and does not provide account synchronization.</p>
+<summary>Can I share a link to a specific section?</summary>
+<p>Yes. Each section has a stable fragment identifier that can be included in a shared URL.</p>
 </details>
 <details>
 <summary>Can I print chapters?</summary>
@@ -862,7 +905,7 @@
 </details>
 <details>
 <summary>What happens if JavaScript is blocked?</summary>
-<p>The static page remains available, while the field-guide filters and reader preview enhancements will not operate.</p>
+<p>The static document remains available, while optional field-guide filtering and animation enhancements will not operate.</p>
 </details>
 <details>
 <summary>Is the manifest enough to install an app?</summary>
@@ -874,7 +917,7 @@
 </details>
 <details>
 <summary>Does the site track my reading?</summary>
-<p>No account or chapter history feature is implemented. Only local preview preferences may be stored.</p>
+<p>No account-based reading history or chapter-progress feature is present on this page.</p>
 </details>
 <details>
 <summary>Where can I report a broken link?</summary>

@@ -42,3 +42,27 @@ The repository also contains a custom 404, contact, privacy, terms, and thank-yo
 
 ## Working rule
 Work directly on `main`, inspect current file SHAs before writes, keep the four-section homepage boundary, and do not invent story material or claim checks that were not performed.
+
+
+## 2026-11-26 — Rebuild the three homepage compositions
+
+**Branch:** `main`  
+**Design direction:** Edition 03 / The Unwritten Folio
+
+### Changes
+- Replaced the previous homepage markup in `index.html`, `tablet.html`, and `desktop.html` with three structurally distinct compositions.
+- Replaced the accumulated CSS overrides with clean, page-specific stylesheets and a reduced shared token/reset file.
+- Reframed the hero artwork as an original typographic/concentric-circle diagram crossed by the existing vermilion thread motif.
+- Rebuilt the reading room as an unopened book spread that clearly communicates the absence of supplied chapter text. No chapter names, excerpts, or plot details were invented.
+- Reworked the idea and colophon sections as editorial folio layouts; retained only the agreed hero, idea, reading room, colophon, and footer content areas.
+- Updated the three GSAP scripts to target the new markup. Motion remains optional and is skipped for reduced-motion and Save-Data preferences.
+
+### Research used for design decisions
+- Readymag Websites of the Year 2025: poster-like modules, editorial desk layouts, and vertical scrolling as a deliberate reading experience.
+- Deep / Ransom Note case study: expressive editorial identity balanced with mobile-first navigation and performance.
+- GSAP official documentation: ScrollTrigger and matchMedia guidance; no scroll-jacking or continuous scrub animation was introduced.
+
+### Verification status
+- Source files and repository instructions were inspected before changes.
+- No browser rendering, HTML validator, Vercel deployment check, or real-device QA was run in this session.
+- Visual fit at actual phone/tablet/desktop sizes remains unverified. Do not call this browser-tested or production-verified.

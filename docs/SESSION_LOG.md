@@ -32,3 +32,7 @@ The branch and PR were read before editing. No local browser, Vercel preview, re
 - Checked same-page anchor links against IDs in each document: none missing.
 - Confirmed the two superseded homepage files (css/home.css and js/home.js) are removed.
 - This did not render the pages, validate HTML in a browser, test router transitions, or measure device performance.
+
+- Simulated the viewport router with mocked widths of 390 px, 820 px, and 1440 px, plus mismatched direct-page URLs; it selected the expected documents. This is a logic smoke test, not a real browser resize test.
+- GitHub reports the Vercel preview deployment for the reviewed branch as Ready: https://fate-stay-last-time-3-git-redesig-e0691c-thunder2700cs-projects.vercel.app
+- The preview host could not be opened from the available browser inspection tool, so the deployed visuals remain unreviewed.

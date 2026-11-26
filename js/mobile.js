@@ -12,7 +12,9 @@
     .from('.m-index', { y: 12, autoAlpha: 0, duration: .4 }, '-=.12')
     .from('.m-title > span', { yPercent: 110, autoAlpha: 0, duration: .72, stagger: .1 }, '-=.05')
     .from('.m-hero-bottom', { y: 14, autoAlpha: 0, duration: .45 }, '-=.35')
-    .from('.m-art', { y: 18, scale: .97, autoAlpha: 0, duration: .7 }, '-=.3');
+    .from('.m-art', { y: 18, scale: .97, autoAlpha: 0, duration: .7 }, '-=.3')
+    .from('.m-art [data-thread]', { autoAlpha: 0, duration: .45 }, '-=.18')
+    .from('.m-art [data-knot]', { scale: 0, transformOrigin: '50% 50%', duration: .28, stagger: .08 }, '-=.12');
   if (!window.ScrollTrigger) return;
   ['.m-idea h2', '.m-idea-foot', '.m-reading h2', '.m-book-wrap', '.m-reading-copy', '.m-about h2', '.m-about>p'].forEach(selector => {
     gsap.utils.toArray(selector).forEach(element => gsap.fromTo(element, { y: 22, autoAlpha: 0 }, {

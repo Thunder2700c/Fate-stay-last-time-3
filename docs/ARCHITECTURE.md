@@ -1,47 +1,51 @@
 # Front-end architecture
 
-## Page routing
+## Homepage routing
 
-The root entry point is index.html (mobile composition and no-JavaScript fallback). A small synchronous script, js/device-router.js, selects one of three complete documents from viewport width:
+The root entry point is `index.html`, the mobile composition and no-JavaScript fallback. `js/device-router.js` selects one of three complete documents by viewport width:
 
-| Viewport width | Document | Purpose |
+| Viewport width | Document | Composition |
 |---|---|---|
-| 320–767 px | index.html | Mobile, vertical poster / one-column reading |
-| 768–1099 px | tablet.html | Tablet editorial spread / split composition |
-| 1100 px and wider | desktop.html | Desktop art-directed spread / side index rail |
+| 320–767 px | `index.html` | Mobile vertical poster and one-column sections |
+| 768–1099 px | `tablet.html` | Tablet split editorial composition |
+| 1100 px and wider | `desktop.html` | Desktop spread with side index rail |
 
-The same router runs in all three documents. It uses location.replace() so a layout change does not add a history entry. It preserves the current hash and query string and checks again after viewport resizing. The route describes the viewport, not a physical-device detector; a narrow desktop browser can therefore receive the tablet composition.
+The router uses `location.replace()`, preserves query/hash, and rechecks after resize. It selects by viewport width, not physical device identity. Without JavaScript, the root mobile document remains readable.
 
 ## Page-specific files
 
-| Experience | HTML | CSS | GSAP |
+| Edition | Markup | Styles | Motion |
 |---|---|---|---|
-| Mobile | index.html | css/mobile.css | js/mobile.js |
-| Tablet | tablet.html | css/tablet.css | js/tablet.js |
-| Desktop | desktop.html | css/desktop.css | js/desktop.js |
+| Mobile | `index.html` | `css/mobile.css` | `js/mobile.js` |
+| Tablet | `tablet.html` | `css/tablet.css` | `js/tablet.js` |
+| Desktop | `desktop.html` | `css/desktop.css` | `js/desktop.js` |
 
-Shared files:
-- css/edition-tokens.css — shared color, typography, reset, and reduced-motion foundation.
-- js/device-router.js — viewport-to-document routing.
-- js/edition-shared.js — year, single scroll RAF, progress indicator, and mobile menu behaviour.
-- css/experience.css and js/experience.js — reader preference preview and editorial interface.
-- js/field-guide.js — client-side field-guide search and subject filtering.
+Shared homepage files:
+- `css/edition-tokens.css` — Edition 03 palette, typography, reset, reduced-motion rules, and shared keyboard focus.
+- `js/device-router.js` — viewport routing.
+- `js/edition-shared.js` — year labels, one RAF-batched scroll-progress/header update, and mobile menu.
+- `js/experience.js` — active section state for the section navigation.
+- `assets/favicon.svg` and `assets/og.svg` — site identity assets.
 
-## Utility pages and discovery files
-- 404.html — custom noindex error document.
-- contact.html — project contact information; no form endpoint is configured.
-- privacy.html and terms.html — draft notices that require review before production use.
-- thankyou.html — general thank-you page; thank-you.html redirects to it for compatibility.
-- css/site-pages.css — shared Edition 03 utility-page styling.
-- robots.txt and sitemap.xml — crawler guidance and canonical public URL list.
-- site.webmanifest — app identity and launch metadata; a manifest alone does not implement offline support.
+The homepage intentionally contains four content areas: hero, idea, reading room, and colophon, followed by the footer. The removed field guide, reader preference lab, FAQ, publication ledger, and other added editorial filler are not part of the current homepage.
 
-Utility pages use css/style.css, css/site-pages.css, and js/site.js. The 404 page adds js/404.js for the requested-path label and previous-page action. Homepage field guides use css/experience.css and js/field-guide.js for search and topic filtering.
+## Utility pages
+
+- `404.html` — custom noindex not-found page.
+- `contact.html` — contact information; no private inbox or form endpoint is configured.
+- `privacy.html` and `terms.html` — policy pages; terms remain a draft requiring legal review.
+- `thankyou.html` — generic thank-you page; `thank-you.html` remains a compatibility redirect.
+- `css/style.css` and `css/site-pages.css` — utility-page styling.
+- `js/site.js` — utility-page shared behaviour.
+- `js/404.js` — requested-path label and safe previous-page action.
+- `robots.txt`, `sitemap.xml`, and `site.webmanifest` — crawler and install metadata.
 
 ## Content contract
 
-The three home pages currently repeat the same project copy so that each composition is free to change its markup. Keep the three versions synchronized when editing story copy. The reading room must remain empty until the author supplies rewritten chapters. Existing links to contact, privacy, and terms pages are intentional.
+The rewritten novel is the only canon. The old drafts and former sites are not source material for story facts. The reading room must remain explicitly empty until the author supplies rewritten chapters. Do not invent chapter names, excerpts, characters, or plot details.
 
-## Fonts and motion
+The three homepage files use separate markup so each viewport can have its own composition. Keep shared story copy consistent while preserving each edition's distinct layout.
 
-All three pages use the same four-font editorial palette: Archivo Black, Instrument Serif, DM Sans, and DM Mono. GSAP and ScrollTrigger are loaded from jsDelivr. The page must remain understandable and navigable if those scripts or the font CDN do not load.
+## Type and motion
+
+The homepage uses Archivo Black, Instrument Serif, DM Sans, and DM Mono. GSAP and ScrollTrigger are loaded from jsDelivr. The page must remain readable and navigable if the CDN fails. Respect reduced-motion and Save-Data preferences; do not add motion merely to make the page appear busy.

@@ -89,3 +89,9 @@
 .publication-standard__outcome{color:var(--ink)!important;font-weight:600}
 @media(max-width:900px){.field-guide__toolbar{grid-template-columns:1fr 1fr}.field-guide__toolbar [data-field-count]{grid-column:1/-1}.publication-standards__grid{grid-template-columns:1fr}}
 @media(max-width:620px){.field-guide__grid,.field-guide-scenarios__grid{grid-template-columns:1fr}.field-guide__toolbar{grid-template-columns:1fr}.field-note__details div,.field-guide-scenario dl div{grid-template-columns:1fr;gap:4px}}
+
+/* Defer off-screen card rendering; intrinsic sizes reduce layout shifts when cards enter view. */
+.field-note,.field-guide-scenario,.publication-standard{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 360px;
+}

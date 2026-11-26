@@ -23,8 +23,10 @@ The replacement homepage removes the large grain filter, centralizes progress/he
 - [x] Three page documents and separate device CSS/GSAP scripts added.
 - [x] Handoff, architecture, performance, and QA documentation added.
 - [x] JavaScript syntax and static local-reference / same-page-anchor checks passed.
+- [x] Viewport router smoke-tested with mocked mobile/tablet/desktop widths and mismatched direct URLs.
+- [x] GitHub reports the Vercel preview deployment as Ready: https://fate-stay-last-time-3-git-redesig-e0691c-thunder2700cs-projects.vercel.app
 - [ ] HTML validation and browser rendering not yet run.
-- [ ] Vercel branch preview not yet visually inspected.
+- [ ] Vercel branch preview not yet visually inspected (the preview host was inaccessible to the available browser inspector).
 - [ ] Android phone frame-rate/GPU profiling not yet performed.
 - [ ] Tablet portrait/landscape and desktop browser QA not yet performed.
 

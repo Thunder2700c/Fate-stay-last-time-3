@@ -1,77 +1,75 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-layout="mobile">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#e9e5dc"><meta name="description" content="Fate / Stay Last Time — an independent novel, rewritten from the first page.">
 <meta property="og:title" content="Fate / Stay Last Time"><meta property="og:description" content="A story that refuses to end."><meta property="og:image" content="assets/og.svg">
 <title>Fate / Stay Last Time — A Story That Refuses to End</title>
+<link rel="canonical" href="https://fate-stay-last-time-3.vercel.app/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/home.css">
+<script src="js/device-router.js"></script>
+<link rel="stylesheet" href="css/edition-tokens.css"><link rel="stylesheet" href="css/mobile.css">
 <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-<script defer src="js/site.js"></script><script defer src="js/main.js"></script><script defer src="js/home.js"></script>
+<script defer src="js/edition-shared.js"></script><script defer src="js/mobile.js"></script>
 </head>
-<body class="edition-03">
+<body class="edition-mobile">
 <a class="skip-link" href="#main">Skip to content</a>
-<div class="paper-grain" aria-hidden="true"></div><div class="top-progress"><span id="page-progress-bar"></span></div>
-<header class="masthead" data-header>
-<a class="wordmark" href="index.html" aria-label="Fate / Stay Last Time home"><span class="wordmark-symbol">F<span>/</span></span><span class="wordmark-name">FATE / STAY<br><small>LAST TIME · NEW EDITION</small></span></a>
-<nav class="desktop-nav" aria-label="Main navigation"><a href="#statement">THE IDEA <sup>01</sup></a><a href="#archive">READING ROOM <sup>02</sup></a><a href="#about">ABOUT <sup>03</sup></a></nav>
-<span class="edition-mark"><i></i> REWRITTEN FROM PAGE ONE</span>
-<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle aria-label="Open menu"><span></span><span></span></button>
+<div class="top-progress" aria-hidden="true"><span id="page-progress-bar"></span></div>
+<header class="m-header" data-header>
+<a class="m-brand" href="index.html" aria-label="Fate / Stay Last Time home"><span class="m-mark">F<span>/</span></span><span>FATE / STAY<small>LAST TIME · NEW EDITION</small></span></a>
+<button class="m-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle aria-label="Open menu"><i></i><i></i></button>
 </header>
-<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" data-mobile-menu inert><div class="menu-topline"><span>F / S / L — INDEX</span><span>MENU 00—03</span></div><a href="#statement"><span>01</span> The idea <b>↗</b></a><a href="#archive"><span>02</span> Reading room <b>↗</b></a><a href="#about"><span>03</span> About <b>↗</b></a><p>THE STORY STARTS AGAIN HERE.</p></nav>
+<nav class="m-menu" id="mobile-menu" data-mobile-menu aria-label="Main navigation" inert>
+<div class="m-menu-top"><span>F / S / L — INDEX</span><span>MENU 00—03</span></div>
+<a href="#idea"><small>01</small> The idea <b>↗</b></a><a href="#reading"><small>02</small> Reading room <b>↗</b></a><a href="#about"><small>03</small> About <b>↗</b></a>
+<p>THE STORY STARTS AGAIN HERE.</p>
+</nav>
 <main id="main">
-<section class="hero" id="top">
-<div class="hero-topline"><span>AN INDEPENDENT NOVEL PROJECT</span><span>EDITION 03 / 2026</span><span class="hero-coord">31° 00' N — 00° 00' E</span></div>
-<div class="hero-composition">
-<div class="hero-index"><span>FSLT</span><span>NO.<br>0001</span><span>THE<br>BEGINNING</span></div>
-<div class="hero-title">
-<p class="hero-kicker"><span class="red-dot"></span> EVERY END LEAVES SOMETHING BEHIND</p>
-<h1><span class="hero-word hero-word-one">FATE</span><span class="hero-word hero-word-two"><i>/</i> STAY</span><span class="hero-word hero-word-three">LAST <em>TIME</em><b>.</b></span></h1>
-<div class="hero-bottomline"><p>A story that refuses<br>to end.</p><a href="#statement" class="enter-link"><span>ENTER THE STORY</span><b>↓</b></a></div>
-</div>
-<div class="hero-visual" aria-label="Original abstract illustration: a red thread passing through a fractured circular form">
-<svg class="thread-art" viewBox="0 0 600 700" role="img" aria-labelledby="art-title art-desc">
-<title id="art-title">The unfinished circle</title><desc id="art-desc">An abstract ink illustration of a broken circular form crossed by a vivid red thread.</desc>
-<defs><clipPath id="art-clip"><path d="M50 45H550V655H50Z"/></clipPath><pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 8L8 0" stroke="#181817" stroke-width="1" opacity=".22"/></pattern></defs>
-<g clip-path="url(#art-clip)">
-<path class="art-shadow" d="M325 65C460 81 540 190 520 329S416 570 270 583 65 468 84 306 191 49 325 65Z" fill="#c8c2b7"/>
-<path class="art-ring" d="M317 78C445 88 510 194 492 319S405 540 275 551 94 456 105 313 193 64 317 78Z" fill="none" stroke="#171715" stroke-width="2"/>
-<path d="M315 103C426 113 479 205 465 312S387 510 277 519 119 441 127 317 207 89 315 103Z" fill="url(#hatch)" stroke="#171715" stroke-width="1"/>
-<path d="M316 155C395 163 440 232 429 310S366 455 282 464 164 407 169 317 235 148 316 155Z" fill="#e9e5dc" stroke="#171715" stroke-width="1.5"/>
-<path d="M319 207C367 211 397 258 390 312S346 407 286 412 211 371 215 316 267 201 319 207Z" fill="#171715"/>
-<path d="M300 240L364 302 324 382 249 352Z" fill="#e64b37"/>
-<path d="M75 520L215 411 275 551 157 641Z" fill="#d7d1c6" stroke="#171715" stroke-width="1"/>
-<path d="M432 48L553 159 476 229 395 144Z" fill="#d7d1c6" stroke="#171715" stroke-width="1"/>
-<path d="M46 364L146 286 182 333 79 419Z" fill="#171715"/>
-<path d="M468 432L566 352 591 394 496 482Z" fill="#171715"/>
-<path class="thread-path" d="M-20 426C76 360 97 225 193 262S301 504 380 429 432 183 507 204 565 317 634 271" fill="none" stroke="#e64b37" stroke-width="5" stroke-linecap="round"/>
-<path d="M-20 426C76 360 97 225 193 262S301 504 380 429 432 183 507 204 565 317 634 271" fill="none" stroke="#e64b37" stroke-width="1" stroke-dasharray="2 13" opacity=".65"/>
-<circle cx="193" cy="262" r="9" fill="#e64b37"/><circle cx="380" cy="429" r="9" fill="#e64b37"/><circle cx="507" cy="204" r="9" fill="#e64b37"/>
-<path d="M90 91L153 91M90 91L90 154M510 548L510 611M510 611L447 611" stroke="#171715" stroke-width="1"/>
-</g>
-<g class="art-notes" fill="#171715" font-family="DM Mono,monospace" font-size="10" letter-spacing="2"><text x="63" y="76">FIG. 01</text><text x="424" y="636">UNFINISHED / 001</text><text x="62" y="674">THE THREAD REMAINS</text></g>
+<section class="m-hero" id="top">
+<div class="m-kicker"><span>AN INDEPENDENT NOVEL PROJECT</span><span>EDITION 03 / 2026</span></div>
+<div class="m-index"><span>FSLT — NO. 0001</span><span>THE BEGINNING</span></div>
+<h1 class="m-title"><span>FATE</span><span><i>/</i> STAY</span><span class="m-title-last">LAST <em>TIME</em><b>.</b></span></h1>
+<div class="m-hero-bottom"><p>A story that refuses<br>to end.</p><a href="#idea">ENTER THE STORY <b>↓</b></a></div>
+<div class="m-art" aria-label="An unfinished circle crossed by a red thread">
+<svg viewBox="0 0 480 420" role="img" aria-labelledby="m-art-title">
+<title id="m-art-title">The unfinished circle</title>
+<path d="M247 30C352 33 424 112 410 224S323 388 213 380 45 291 61 174 142 26 247 30Z" fill="#d1cabf" stroke="#171715" stroke-width="2"/>
+<path d="M247 62C328 64 387 128 376 218S307 351 218 346 81 275 94 180 165 59 247 62Z" fill="none" stroke="#171715"/>
+<path d="M242 122C304 126 345 168 338 224S289 304 226 301 133 254 141 194 182 119 242 122Z" fill="#171715"/>
+<path d="M224 145L300 204 261 286 184 252Z" fill="#e64b37"/>
+<path d="M-22 276C65 228 100 135 160 165S251 345 307 288 347 115 414 136 472 222 510 190" fill="none" stroke="#e64b37" stroke-width="5" stroke-linecap="round"/>
+<circle cx="160" cy="165" r="7" fill="#e64b37"/><circle cx="307" cy="288" r="7" fill="#e64b37"/><circle cx="414" cy="136" r="7" fill="#e64b37"/>
+<path d="M35 45h44M35 45v44M445 331v44M445 375h-44" fill="none" stroke="#171715"/>
+<text x="36" y="27" font-size="10" font-family="monospace" letter-spacing="2">FIG. 01</text>
 </svg>
-<span class="visual-stamp">A NEW<br>BEGINNING</span><span class="visual-number">01 / 03</span>
+<span class="m-stamp">A NEW<br>BEGINNING</span><span class="m-art-number">THE THREAD REMAINS / 001</span>
 </div>
-</div>
-<div class="hero-footer"><span>SCROLL TO FOLLOW THE THREAD</span><span class="hero-thread"><i></i></span><span>NO PREVIOUS DRAFTS. NO SHORTCUTS.</span></div>
+<div class="m-scroll-cue"><span>SCROLL TO FOLLOW THE THREAD</span><i></i><span>NO PREVIOUS DRAFTS</span></div>
 </section>
-<section class="statement" id="statement">
-<div class="statement-index"><span>01 — THE IDEA</span><span>AN EDITION OF ITS OWN</span></div>
-<div class="statement-body"><p class="statement-overline">LET THE OLD PAGES CLOSE.</p><h2><span>NOT A</span> <em>CONTINUATION.</em><br><span>A SECOND</span> <em>BEGINNING.</em></h2><div class="statement-foot"><span class="statement-symbol">F<span>/</span></span><p>This edition is being written from the first page again. The past drafts stay in the past. What comes next gets room to become its own story.</p><span class="statement-aside">A CLEAN PAGE<br>IS NOT AN EMPTY IDEA.</span></div></div>
+<section class="m-idea" id="idea">
+<div class="m-section-label"><span>01 — THE IDEA</span><span>AN EDITION OF ITS OWN</span></div>
+<p class="m-overline">LET THE OLD PAGES CLOSE.</p>
+<h2>NOT A<br><em>CONTINUATION.</em><br>A SECOND<br><em>BEGINNING.</em></h2>
+<div class="m-idea-foot"><span class="m-sign">F<span>/</span></span><p>This edition is being written from the first page again. The past drafts stay in the past. What comes next gets room to become its own story.</p></div>
 </section>
-<section class="archive" id="archive">
-<div class="archive-head"><div><span class="section-index">02 — READING ROOM</span><h2>THE STORY<br>IS <em>LOADING.</em></h2></div><p class="archive-intro">No placeholder chapters dressed up as content. The archive opens when the new writing is ready.</p></div>
-<div class="archive-frame"><div class="archive-frame-top"><span>FSLT / READING ROOM</span><span>CATALOGUE STATUS: 00</span></div><div class="archive-empty">
-<div class="book-art" aria-hidden="true"><div class="book-page page-back"></div><div class="book-page page-front"><span>F / S / L</span><b>THE<br>FIRST<br>PAGE</b><i>EDITION 03</i></div><div class="book-shadow"></div></div>
-<div class="archive-copy"><span class="red-dot"></span><p class="archive-status">THE FIRST CHAPTER HAS NOT ARRIVED</p><h3>Somewhere,<br>the first line<br>is being written.</h3><p>When the rewritten chapters are ready, this space becomes the reading room: one continuous structure, one considered reading experience, and no material carried over from earlier versions.</p><span class="archive-code">INCOMING TEXT / WAITING FOR AUTHOR</span></div>
-</div><div class="archive-frame-bottom"><span>00 CHAPTERS AVAILABLE</span><span>THE QUIET BEFORE PAGE ONE</span><span>END OF INDEX — FOR NOW</span></div></div>
+<section class="m-reading" id="reading">
+<div class="m-section-label"><span>02 — READING ROOM</span><span>CATALOGUE / 00</span></div>
+<h2>THE STORY<br>IS <em>LOADING.</em></h2>
+<p class="m-reading-intro">No placeholder chapters dressed up as content. The archive opens when the new writing is ready.</p>
+<div class="m-book-wrap"><div class="m-book" aria-hidden="true"><span>F / S / L</span><strong>THE<br>FIRST<br>PAGE</strong><small>EDITION 03</small></div><span class="m-book-caption">A COVER FOR WHAT COMES NEXT</span></div>
+<div class="m-reading-copy"><span class="m-status"><i></i> THE FIRST CHAPTER HAS NOT ARRIVED</span><h3>Somewhere,<br>the first line<br>is being written.</h3><p>When the rewritten chapters are ready, this becomes the reading room: one continuous structure, one considered reading experience, and no material carried over from earlier versions.</p><span class="m-waiting">INCOMING TEXT / WAITING FOR AUTHOR</span></div>
 </section>
-<section class="about" id="about"><div class="about-left"><span class="section-index">03 — COLOPHON</span><div class="about-big">F<span>/</span></div><span class="about-note">WRITTEN AGAIN.<br>NOT ERASED.</span></div><div class="about-right"><p class="about-overline">FATE / STAY LAST TIME</p><h2>Every story<br>deserves its<br><em>own beginning.</em></h2><p>This is an independent novel project and its new digital home. The site will grow with the writing: chapters first, thoughtful reading tools next, and visual flourishes only where they add meaning.</p><a href="contact.html" class="about-contact">SEND A MESSAGE <span>↗</span></a></div></section>
+<section class="m-about" id="about">
+<div class="m-section-label"><span>03 — COLOPHON</span><span>WRITTEN AGAIN. NOT ERASED.</span></div>
+<div class="m-about-mark">F<span>/</span></div>
+<p class="m-overline">FATE / STAY LAST TIME</p>
+<h2>Every story<br>deserves its<br><em>own beginning.</em></h2>
+<p>This is an independent novel project and its new digital home. The site will grow with the writing: chapters first, thoughtful reading tools next, and visual flourishes only where they add meaning.</p>
+<a href="contact.html" class="m-contact">SEND A MESSAGE <b>↗</b></a>
+</section>
 </main>
-<footer class="site-footer"><a href="index.html">FATE / STAY LAST TIME</a><span>AN INDEPENDENT NOVEL PROJECT</span><div><a href="privacy.html">PRIVACY</a><a href="terms.html">TERMS</a><a href="contact.html">CONTACT</a></div><span>© <span data-year></span></span></footer>
+<footer class="m-footer"><a href="index.html">FATE / STAY LAST TIME</a><span>© <span data-year></span></span><nav><a href="privacy.html">PRIVACY</a><a href="terms.html">TERMS</a><a href="contact.html">CONTACT</a></nav></footer>
 </body></html>

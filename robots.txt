@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-
-# Keep these routes crawlable so search engines can read their page-level noindex directives.
-# The not-found and general thank-you pages are intentionally omitted from the sitemap.
-Sitemap: https://fate-stay-last-time-3.vercel.app/sitemap.xml

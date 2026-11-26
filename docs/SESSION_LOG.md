@@ -24,3 +24,11 @@ Append a new dated entry after each substantial implementation or investigation.
 
 ### Validation truth
 The branch and PR were read before editing. No local browser, Vercel preview, real Android device, Chrome Performance trace, or measured FPS test was run in this session. Performance improvements are implementation choices awaiting real-device verification, not a measured benchmark result.
+
+
+### Follow-up static validation — 2026-11-26
+- Parsed all five new JavaScript files with the JavaScript parser: passed.
+- Checked the three homepage documents for missing local script, stylesheet, asset, and page references against the branch tree: none found.
+- Checked same-page anchor links against IDs in each document: none missing.
+- Confirmed the two superseded homepage files (css/home.css and js/home.js) are removed.
+- This did not render the pages, validate HTML in a browser, test router transitions, or measure device performance.

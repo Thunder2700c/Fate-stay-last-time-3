@@ -89,3 +89,27 @@ The branch and PR were read before editing. No local browser, Vercel preview, re
 - Homepage line counts, duplicate IDs, and internal anchors checked.
 - Full HTML validation, browser visual QA, deployed 404 response verification, and real-device profiling remain unperformed.
 - Privacy and terms pages are project-specific drafts, not final legal advice.
+
+
+## 2026-11-26 — Final static verification after utility-page and CSS work
+
+**Branch:** `main`  
+**Latest implementation commit:** `ed489d3f1734c553374731aeeabc3ab7d274b6de`
+
+### Checks completed
+- Confirmed homepage source line counts from GitHub: mobile 1,032; tablet 1,034; desktop 1,041.
+- Confirmed no duplicate IDs or broken same-page anchors in the three homepage documents.
+- Confirmed all three pages include the field-guide search script and site manifest.
+- Parsed `js/field-guide.js`, `js/404.js`, and `js/experience.js) with the JavaScript parser: passed.
+- Checked local references on utility pages against the repository tree: none missing.
+- Checked main homepage HTML tag nesting: no mismatches detected by the static tag-stack check.
+- Checked brace balance in `css/experience.css`, `css/site-pages.css`, and `css/style.css`: balanced.
+- Parsed `site.webmanifest` as JSON.
+- Confirmed sitemap URLs are absolute and canonical; robots.txt references the sitemap.
+
+### Not verified
+- No real browser visual or interaction QA was run.
+- The live Vercel deployment and actual HTTP 404 response were not verified; the external page inspection endpoint could not open the deployment URL.
+- No Android, tablet, or desktop performance trace was recorded.
+- The contact endpoint remains intentionally unconfigured.
+- Privacy and terms remain draft project notices pending legal review.

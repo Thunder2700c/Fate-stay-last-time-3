@@ -5,7 +5,7 @@ Last updated: 2026-11-26 (Asia/Kolkata)
 ## Current state
 - Repository: https://github.com/Thunder2700c/Fate-stay-last-time-3
 - Working branch: `main`
-- Latest implementation commit before this documentation update: `63070cb504beee6f7de8c562142cf32fd400a047`
+- Latest implementation commit: `ed489d3f1734c553374731aeeabc3ab7d274b6de`
 - Design direction: Edition 03 — warm paper, near-black ink, vermilion thread, expressive editorial typography.
 - Independent homepage compositions: `index.html` (mobile), `tablet.html`, and `desktop.html`.
 - Viewport routing: mobile <=767 px; tablet 768–1099 px; desktop >=1100 px.
@@ -41,10 +41,17 @@ Last updated: 2026-11-26 (Asia/Kolkata)
 - [x] Duplicate IDs checked on all three homepages: none found.
 - [x] Same-page anchor targets checked on all three homepages: none missing.
 - [x] Field-guide markup and page-specific scenarios present on all three pages.
+- [x] Field-guide search script included by all three homepages and syntax-checked.
+- [x] Utility-page local references checked against the repository tree: none missing.
+- [x] Custom 404, contact, policy, thank-you, and legacy redirect pages checked for required metadata and local references.
+- [x] Web manifest parsed as JSON; sitemap contains absolute canonical URLs; robots.txt points to that sitemap.
+- [x] Main homepage HTML tags checked for balanced nesting: no mismatches found.
+- [x] CSS brace counts checked for the edited stylesheets: balanced.
+- [x] Off-screen editorial cards use content-visibility with intrinsic sizing to reduce initial rendering work.
 - [x] Manifest link present on all three homepage documents.
 - [ ] Full HTML validation not run.
 - [ ] Browser rendering and interaction QA not run.
-- [ ] Vercel production deployment not checked after these commits.
+- [ ] Vercel production deployment and live custom-404 HTTP response not verified after these commits; the external page inspection endpoint could not open the deployment.
 - [ ] Real Android/tablet/desktop performance profiling not run.
 - [ ] Privacy and terms require legal review before being treated as final legal documents.
 - [ ] Contact endpoint remains unconfigured; the page is transparent about that limitation.

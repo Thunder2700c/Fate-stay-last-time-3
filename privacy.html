@@ -35,16 +35,16 @@
 <p>This notice applies to visitors of the Fate / Stay Last Time website at the production domain shown in the page's canonical URLs. It describes the current website features, not unrelated services or the GitHub platform itself.</p>
 <h2>2. Information entered by visitors</h2>
 <p>The current website does not provide an active contact-submission form, account registration, comment system, newsletter signup, payment flow, or chapter upload facility.</p>
-<p>The contact page is informational and links to the public project repository. Following that link takes the visitor to GitHub, which operates independently and applies its own privacy practices. The contact page does not transmit a message to the project owner.</p>
+<p>The contact page is informational. Its copy-address control copies a public repository URL when the visitor activates it. It does not transmit a message to the project owner.</p>
 <p>Do not submit confidential, financial, health, identity, or account information through a public issue tracker or any future contact route unless the project publishes a suitable secure process and explains its purpose.</p>
-<h2>3. Browser storage and reading history</h2>
-<p>The current published homepage documents do not provide a reader-preference panel, account sign-in, saved reading position, chapter history, or chapter-progress tracking.</p>
-<p>The field-guide search and topic filter change which notes are visible in the current page. Those selections operate in the page itself, are not intentionally saved by the project, and return to their defaults when the page is reloaded.</p>
+<h2>3. Reader preference storage</h2>
+<p>The reader preview can store a small set of display preferences in the browser's localStorage. These preferences include the preview tone, text size, line spacing, reading width, and font choice.</p>
 <ul class="utility-list">
-<li>No project account or reader profile is created by browsing these static pages.</li>
-<li>The current HTML does not offer a feature for saving a chapter position or maintaining a reading history.</li>
-<li>The field-guide filter does not submit its search terms to a project form or contact endpoint.</li>
-<li>Browser caching and any storage used by the hosting platform or third-party providers are separate from project-provided reading features.</li>
+<li>The preferences are stored in the visitor's browser, not in a project account.</li>
+<li>The current implementation does not send these preference values to a project server.</li>
+<li>Preferences are not synchronized between devices or browsers.</li>
+<li>Clearing site data or browser storage may remove the saved values.</li>
+<li>If browser storage is unavailable, controls may still work for the current page session without persistence.</li>
 </ul>
 <h2>4. Hosting and technical request data</h2>
 <p>The website is deployed as a static site on Vercel. When a browser requests a page or asset, the hosting platform and network infrastructure may process technical information such as the requested URL, request time, IP address, user-agent details, and diagnostic information. The exact information, retention period, and processing purposes are governed by the hosting provider's current documentation and policies.</p>

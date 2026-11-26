@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-# Add the production sitemap URL after the final domain is confirmed.
+# Search engines should discover canonical public pages through the sitemap.
+Sitemap: https://fate-stay-last-time-3.vercel.app/sitemap.xml

@@ -1,11 +1,21 @@
 {
+  "id": "/",
   "name": "Fate / Stay Last Time",
   "short_name": "Fate / Stay",
-  "description": "An independent novel project.",
+  "description": "An independent novel project, rewritten from the first page.",
+  "lang": "en",
+  "dir": "ltr",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#090a0d",
-  "theme_color": "#090a0d",
-  "icons": [{"src":"assets/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]
+  "background_color": "#e9e5dc",
+  "theme_color": "#e9e5dc",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
 }

@@ -10,8 +10,8 @@ This repository is a real novel website. Treat the files and current Git branch 
 5. Inspect the current files and GitHub PR/branch state. A log is a handoff, not proof that the code still matches it.
 
 ## Git and delivery
-- Work on the active review branch unless the user explicitly asks for another branch.
-- Do not merge a PR, push to main, or claim a production deployment without explicit authorization and actual confirmation.
+- Work directly on `main` by default, as requested by the repository owner.
+- Do not create feature branches or pull requests unless the user explicitly asks for them.
 - Check the current branch head before writing. Do not overwrite a newer change using a stale file SHA.
 - Keep changes focused. Prefer one coherent commit when practical.
 - After every substantial task, update PROJECT_LOG.md and append a factual entry to docs/SESSION_LOG.md.
@@ -33,4 +33,4 @@ This repository is a real novel website. Treat the files and current Git branch 
 - Viewport routing is based on width, not a claim about the physical device. Keep breakpoints documented and test resizing/orientation changes.
 
 ## Final response format
-State branch and PR, summarize actual code changes, list real checks, and call out anything that still needs real-device verification. Link the PR. Be direct about limitations.
+State the branch and commit, summarize actual code changes, list real checks, and call out anything that still needs real-device verification. Link the commit. Be direct about limitations.

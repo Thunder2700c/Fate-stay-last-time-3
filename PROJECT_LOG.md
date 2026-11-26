@@ -4,39 +4,44 @@ Last updated: 2026-11-26 (Asia/Kolkata)
 
 ## Current state
 - Repository: https://github.com/Thunder2700c/Fate-stay-last-time-3
-- Active review branch: redesign/last-playback
-- Pull request: https://github.com/Thunder2700c/Fate-stay-last-time-3/pull/1
-- Base branch: main
-- PR remains a review change; do not assume it is merged or deployed.
+- Working branch: `main`
+- Latest implementation commit: `e06aadbed9e8c43376602113a2cd26eb89a65e10`
 - Current design direction: Edition 03 — warm paper, black ink, vermilion thread, expressive editorial typography.
-- Three separate homepage compositions have been authored: mobile index.html, tablet tablet.html, and desktop desktop.html.
-- Homepage routing is based on viewport width: mobile <=767 px; tablet 768–1099 px; desktop >=1100 px.
-- The reading room is intentionally empty pending rewritten chapter content.
+- Three independent homepage compositions remain: mobile `index.html`, tablet `tablet.html`, and desktop `desktop.html`.
+- Routing is based on viewport width: mobile <=767 px; tablet 768–1099 px; desktop >=1100 px.
+- The reading room remains honestly empty pending rewritten chapter content.
 
-## Performance investigation
-The previous mobile/desktop homepage was inspected in source. Likely contributors to jank were the oversized fixed SVG turbulence grain overlay, duplicate scroll/progress listeners in the old homepage scripts, and a scrubbed ScrollTrigger parallax animation. These are source-level hypotheses, not a measured Chrome Performance trace.
+## Latest implementation
+- Restored the original Edition 03 page compositions instead of keeping the simplified replacement markup.
+- Added an interactive reader-preference preview to each homepage: paper/sepia/night tone, text size, line spacing, reading width, and serif/sans font.
+- Reader preview preferences persist locally in browser storage. The controls are explicitly described as a preview; they do not pretend that chapters exist.
+- Added editorial principles, the intended chapter publication workflow, a project FAQ, a page index, and a correspondence section.
+- Added active section navigation, a back-to-top control, and shared experience styling/script.
+- Existing page-specific layouts, CSS, routing, and GSAP scripts remain separate.
 
-The replacement homepage removes the large grain filter, centralizes progress/header updates in one RAF-batched scroll handler, uses a transform-based progress indicator, and uses page-specific GSAP entrance/one-time reveal animations. Frequent motion is restricted to transform/opacity.
+## Performance and accessibility
+- Reader controls update only their preview surface; they do not trigger page-wide layout work.
+- Preferences use a small localStorage record with failure handling.
+- Native `details/summary` elements provide the FAQ interaction without a JavaScript dependency.
+- The active-section indicator uses IntersectionObserver where available.
+- Back-to-top respects reduced-motion preferences.
+- Existing reduced-motion foundation remains in place.
 
-## Important verification status
-- [x] Repository branch and PR state inspected before edits.
-- [x] Three page documents and separate device CSS/GSAP scripts added.
-- [x] Handoff, architecture, performance, and QA documentation added.
-- [x] JavaScript syntax and static local-reference / same-page-anchor checks passed.
-- [x] Viewport router smoke-tested with mocked mobile/tablet/desktop widths and mismatched direct URLs.
-- [x] GitHub reports the Vercel preview deployment as Ready: https://fate-stay-last-time-3-git-redesig-e0691c-thunder2700cs-projects.vercel.app
-- [ ] HTML validation and browser rendering not yet run.
-- [ ] Vercel branch preview not yet visually inspected (the preview host was inaccessible to the available browser inspector).
-- [ ] Android phone frame-rate/GPU profiling not yet performed.
-- [ ] Tablet portrait/landscape and desktop browser QA not yet performed.
+## Verification status
+- [x] Latest `main` inspected before writing; commits applied directly to `main`.
+- [x] Three homepage files checked for duplicate IDs, missing local references, and missing same-page anchors.
+- [x] `js/experience.js` parsed successfully with the JavaScript parser.
+- [ ] Browser rendering and interaction QA not yet run.
+- [ ] Android phone frame-rate/GPU profiling not performed.
+- [ ] Tablet portrait/landscape and desktop browser QA not performed.
+- [ ] Full HTML validator and CSS parser not run.
+- [ ] The 1,000-line-per-page target is **not yet met**; the current pages are intentionally readable and currently around 400 lines each. More actual features/content are needed rather than whitespace or line splitting.
 
-## Next agent actions
-1. Read AGENTS.md, this file, docs/ARCHITECTURE.md, and docs/PERFORMANCE.md.
-2. Inspect latest branch head and pull request #1; verify all expected paths still exist.
-3. Validate route switching at 767/768 and 1099/1100 px, including resize/orientation.
-4. Inspect mobile, tablet, and desktop layouts in a real browser.
-5. Measure the user's reported lag on their Android phone before making further performance claims.
-6. Append actual findings and test evidence to docs/SESSION_LOG.md; update this handoff.
+## Next actions
+1. Run browser-based QA for reader controls, local preference persistence, active section navigation, and back-to-top.
+2. Check all three page compositions at representative widths and tablet orientations.
+3. Add further purposeful features only where they improve the novel-site experience; do not pad HTML to reach a line count.
+4. Measure actual Android performance before making FPS/GPU claims.
 
 ## Working rule
-This file is the concise current snapshot. docs/SESSION_LOG.md is append-only history. Correct this snapshot when a later task changes the branch, architecture, status, or next steps.
+Work directly on `main`, inspect its latest head before every write, commit coherent changes, and never claim tests or deployment that did not happen.

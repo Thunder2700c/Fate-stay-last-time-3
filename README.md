@@ -42,9 +42,11 @@ Static site; no build step is required. Serve the repository root with any stati
 - index.html, tablet.html, desktop.html — three home compositions
 - css/edition-tokens.css — shared homepage design tokens
 - css/mobile.css, css/tablet.css, css/desktop.css — page-specific layouts
+- css/experience.css — reader preference preview and added editorial sections
 - js/device-router.js — width-based page routing
 - js/edition-shared.js — year, scroll progress, header state, and mobile menu
 - js/mobile.js, js/tablet.js, js/desktop.js — page-specific GSAP motion
+- js/experience.js — local reader-preview preferences, active section navigation, and back-to-top control
 - css/style.css, js/site.js — shared utility-page foundation
 - docs/ARCHITECTURE.md, docs/PERFORMANCE.md, docs/QA_CHECKLIST.md — implementation notes
 - AGENTS.md, PROJECT_LOG.md, docs/SESSION_LOG.md — agent handoff and work history

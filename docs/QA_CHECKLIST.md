@@ -27,3 +27,16 @@
 - [ ] Tablet portrait and landscape: correct composition and smooth scroll.
 - [ ] Desktop: no layout overflow at common laptop and wide-screen sizes.
 - [ ] Inspect with browser performance tools and record evidence; do not infer GPU acceleration from CSS alone.
+
+
+## Reader experience additions
+- [ ] Reader tone buttons switch the preview between paper, sepia, and night.
+- [ ] Text size slider updates the specimen and its output label.
+- [ ] Line-spacing slider updates the specimen.
+- [ ] Reading width and font selectors update the specimen.
+- [ ] Preferences persist after reload and reset to defaults.
+- [ ] Storage-disabled/private contexts still allow in-page controls to work.
+- [ ] FAQ details open and close with keyboard and pointer.
+- [ ] Active section navigation updates as the reader scrolls.
+- [ ] Back-to-top appears after scrolling and respects reduced motion.
+- [ ] The reader preview clearly states that its sample is not novel text.

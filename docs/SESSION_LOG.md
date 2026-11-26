@@ -36,3 +36,24 @@ The branch and PR were read before editing. No local browser, Vercel preview, re
 - Simulated the viewport router with mocked widths of 390 px, 820 px, and 1440 px, plus mismatched direct-page URLs; it selected the expected documents. This is a logic smoke test, not a real browser resize test.
 - GitHub reports the Vercel preview deployment for the reviewed branch as Ready: https://fate-stay-last-time-3-git-redesig-e0691c-thunder2700cs-projects.vercel.app
 - The preview host could not be opened from the available browser inspection tool, so the deployed visuals remain unreviewed.
+
+
+## 2026-11-26 — Functional reader preview and editorial sections
+
+**Branch:** `main`  
+**Commit:** `e06aadbed9e8c43376602113a2cd26eb89a65e10`
+
+### Changes
+- Preserved the original independent mobile, tablet, and desktop compositions.
+- Added a reader preference lab with paper/sepia/night tones, type size, line spacing, text width, and font selection.
+- Persisted reader preview preferences locally with graceful storage failure handling.
+- Added editorial principles, the intended chapter publication workflow, native FAQ disclosures, a page index, and correspondence information.
+- Added active-section navigation and a back-to-top control.
+- Added shared experience CSS and JavaScript.
+
+### Validation
+- Checked duplicate IDs, local references, and same-page anchors for all three pages: passed.
+- Parsed `js/experience.js`: passed.
+- No real browser, phone, tablet, or desktop visual/interaction test was run.
+- No FPS, GPU, or thermal benchmark was run.
+- The requested 1,000-line minimum per HTML page is not yet met. Current page markup is approximately 400 lines per file; it has not been padded with artificial line breaks.

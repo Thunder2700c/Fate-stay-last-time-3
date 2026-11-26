@@ -872,6 +872,148 @@
 </details>
 </div>
 </section>
+<section class="editorial-section field-guide-scenarios" id="reading-scenarios" aria-labelledby="mobile-scenario-title">
+<div class="editorial-section__top">
+<span>13 / Reading scenarios</span>
+<span>MOBILE / REAL-WORLD USE</span>
+</div>
+<h2 class="editorial-section__heading" id="mobile-scenario-title">The page meets <em>real readers.</em></h2>
+<p class="editorial-section__intro">These scenarios turn the layout principles into concrete checks. They describe browser and accessibility situations that should be tested before the site is called production-ready.</p>
+<div class="field-guide-scenarios__grid">
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 01</p>
+<h3>A visitor arrives from a shared link</h3>
+</header>
+<p class="field-guide-scenario__lead">A phone visitor may land halfway down the page from a message or bookmark.</p>
+<p>Keep section headings descriptive and make the skip link available at the start of the document.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Open a direct hash URL on a narrow phone and verify that the target is not hidden by the header.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The visitor can identify the section and continue without restarting the page.</dd>
+</div>
+</dl>
+<footer>
+<span>MOBILE / EDITION 03</span>
+<span>SCENARIO 1 OF 6</span>
+</footer>
+</article>
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 02</p>
+<h3>A visitor reads in bright daylight</h3>
+</header>
+<p class="field-guide-scenario__lead">Outdoor glare changes the perceived contrast of fine text and thin borders.</p>
+<p>Do not rely on faint metadata to communicate important status.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Review the main text and controls at high screen brightness and default zoom.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The archive status and navigation remain readable.</dd>
+</div>
+</dl>
+<footer>
+<span>MOBILE / EDITION 03</span>
+<span>SCENARIO 2 OF 6</span>
+</footer>
+</article>
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 03</p>
+<h3>A visitor uses a screen magnifier</h3>
+</header>
+<p class="field-guide-scenario__lead">Magnification reduces the amount of visible content at once.</p>
+<p>Avoid fixed overlays that cover the current reading position.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Test with browser zoom and a screen magnifier where available.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The visitor can follow the document without horizontal panning.</dd>
+</div>
+</dl>
+<footer>
+<span>MOBILE / EDITION 03</span>
+<span>SCENARIO 3 OF 6</span>
+</footer>
+</article>
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 04</p>
+<h3>A visitor has limited data</h3>
+</header>
+<p class="field-guide-scenario__lead">Remote fonts and decorative resources can add network requests.</p>
+<p>The page should communicate its project status before every optional asset loads.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Block external resources and confirm that core text remains visible.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The first meaningful content is available without waiting for animation.</dd>
+</div>
+</dl>
+<footer>
+<span>MOBILE / EDITION 03</span>
+<span>SCENARIO 4 OF 6</span>
+</footer>
+</article>
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 05</p>
+<h3>A visitor uses text-to-speech</h3>
+</header>
+<p class="field-guide-scenario__lead">Semantic structure helps speech tools move through a long document.</p>
+<p>Visual labels should correspond to meaningful headings and landmarks.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Inspect heading order and landmark names with an accessibility tree.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The document has a coherent spoken outline.</dd>
+</div>
+</dl>
+<footer>
+<span>MOBILE / EDITION 03</span>
+<span>SCENARIO 5 OF 6</span>
+</footer>
+</article>
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 06</p>
+<h3>A visitor returns after a pause</h3>
+</header>
+<p class="field-guide-scenario__lead">A reader may switch apps and return to the same page later.</p>
+<p>Avoid timers and automatic route changes that interrupt a reading session.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Leave the page in the background, return, and inspect the current position.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The page does not unexpectedly reset or move the visitor.</dd>
+</div>
+</dl>
+<footer>
+<span>MOBILE / EDITION 03</span>
+<span>SCENARIO 6 OF 6</span>
+</footer>
+</article>
+</div>
+</section>
 </main>
 <footer class="m-footer">
 <a href="index.html">FATE / STAY LAST TIME</a>

@@ -880,6 +880,148 @@
 </details>
 </div>
 </section>
+<section class="editorial-section field-guide-scenarios" id="reading-scenarios" aria-labelledby="desktop-scenario-title">
+<div class="editorial-section__top">
+<span>13 / Reading scenarios</span>
+<span>DESKTOP / REAL-WORLD USE</span>
+</div>
+<h2 class="editorial-section__heading" id="desktop-scenario-title">The page meets <em>real readers.</em></h2>
+<p class="editorial-section__intro">These scenarios turn the layout principles into concrete checks. They describe browser and accessibility situations that should be tested before the site is called production-ready.</p>
+<div class="field-guide-scenarios__grid">
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 01</p>
+<h3>A reader opens a deep link</h3>
+</header>
+<p class="field-guide-scenario__lead">A desktop visitor may arrive at a specific section from search or a shared URL.</p>
+<p>The target section needs a descriptive heading and stable ID.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Load a direct hash URL in a fresh browser tab.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The visitor lands at the requested section and can identify its context.</dd>
+</div>
+</dl>
+<footer>
+<span>DESKTOP / EDITION 03</span>
+<span>SCENARIO 1 OF 6</span>
+</footer>
+</article>
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 02</p>
+<h3>A reader uses multiple monitors</h3>
+</header>
+<p class="field-guide-scenario__lead">The browser may be moved between displays with different pixel densities.</p>
+<p>The layout should rely on CSS viewport dimensions rather than assumptions about physical pixels.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Move the window between displays and resize it around the documented breakpoints.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The composition changes only when the viewport requires it.</dd>
+</div>
+</dl>
+<footer>
+<span>DESKTOP / EDITION 03</span>
+<span>SCENARIO 2 OF 6</span>
+</footer>
+</article>
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 03</p>
+<h3>A reader uses a screen reader</h3>
+</header>
+<p class="field-guide-scenario__lead">A visual side rail does not automatically provide a meaningful navigation landmark.</p>
+<p>Use semantic nav labels and a logical heading sequence.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Inspect the accessibility tree and navigate by headings.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The page outline remains useful without visual styling.</dd>
+</div>
+</dl>
+<footer>
+<span>DESKTOP / EDITION 03</span>
+<span>SCENARIO 3 OF 6</span>
+</footer>
+</article>
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 04</p>
+<h3>A reader prints a project page</h3>
+</header>
+<p class="field-guide-scenario__lead">A printout should not include fixed controls or decorative progress elements.</p>
+<p>Keep the document content in normal flow and avoid making text part of an image.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Use print preview to inspect the page structure.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The project information remains legible on paper.</dd>
+</div>
+</dl>
+<footer>
+<span>DESKTOP / EDITION 03</span>
+<span>SCENARIO 4 OF 6</span>
+</footer>
+</article>
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 05</p>
+<h3>A reader opens a narrow desktop window</h3>
+</header>
+<p class="field-guide-scenario__lead">A desktop browser window may be resized below the width of a typical monitor.</p>
+<p>The page must adapt instead of preserving a wide rail at all costs.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Resize the window through the tablet breakpoint and inspect navigation.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The side rail yields to the narrower composition cleanly.</dd>
+</div>
+</dl>
+<footer>
+<span>DESKTOP / EDITION 03</span>
+<span>SCENARIO 5 OF 6</span>
+</footer>
+</article>
+<article class="field-guide-scenario">
+<header>
+<p class="field-guide-scenario__index">READING SCENARIO 06</p>
+<h3>A reader blocks third-party scripts</h3>
+</header>
+<p class="field-guide-scenario__lead">Privacy extensions and network filters may block GSAP or other external resources.</p>
+<p>Core content must not depend on those scripts to become visible.</p>
+<dl>
+<div>
+<dt>Validation step</dt>
+<dd>Block the animation CDN and reload the page.</dd>
+</div>
+<div>
+<dt>Expected outcome</dt>
+<dd>The reader can still navigate and read all static project information.</dd>
+</div>
+</dl>
+<footer>
+<span>DESKTOP / EDITION 03</span>
+<span>SCENARIO 6 OF 6</span>
+</footer>
+</article>
+</div>
+</section>
 </main>
 <footer class="d-footer">
 <a href="index.html">FATE / STAY LAST TIME</a>

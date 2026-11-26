@@ -1,68 +1,44 @@
 # Manual QA checklist
 
-## Route and composition
-- [ ] 360 × 800 or similar phone viewport opens index.html.
-- [ ] 768–1099 px viewport opens tablet.html.
-- [ ] 1100 px and wider opens desktop.html.
-- [ ] Resizing or rotating across a breakpoint switches to the correct document.
-- [ ] Directly opening a non-matching document redirects to the correct one.
-- [ ] With JavaScript disabled, the mobile root page remains readable.
+## Routing and composition
+- [ ] 360 × 800 phone viewport opens the mobile composition.
+- [ ] 768–1099 px viewport opens the tablet composition.
+- [ ] 1100 px and wider opens the desktop composition.
+- [ ] Resizing/rotating across breakpoints selects the right composition.
+- [ ] Directly opening a non-matching edition redirects correctly.
+- [ ] With JavaScript disabled, the root mobile page remains readable.
 
-## Interaction
-- [ ] Skip link works with keyboard.
-- [ ] All section links land on the right section.
+## Homepage content and navigation
+- [ ] Homepage contains only hero, idea, reading room, colophon, and footer.
+- [ ] No removed field-guide, reader-lab, FAQ, publication-ledger, or reading-scenario markup has returned.
+- [ ] Every section navigation link resolves to an existing section.
+- [ ] Active section state updates while scrolling.
 - [ ] Mobile menu opens, closes, closes on Escape, and closes after selecting a link.
-- [ ] Contact, privacy, and terms links still resolve.
-- [ ] Progress indicator follows scroll without horizontal layout shift.
+- [ ] Skip link and visible keyboard focus work.
+- [ ] Contact, privacy, and terms links resolve.
 
 ## Motion and accessibility
 - [ ] Hero entrance and section reveals work when GSAP is available.
 - [ ] Content remains visible if GSAP/ScrollTrigger is blocked.
-- [ ] Reduced-motion mode disables non-essential motion.
+- [ ] Reduced-motion disables non-essential motion.
 - [ ] Save-Data disables non-essential motion.
-- [ ] Keyboard focus remains visible and controls have accessible names.
+- [ ] Interactive controls have accessible names and keyboard focus remains visible.
 
-## Real-device performance
-- [ ] Phone: no visible stutter during hero entrance, scroll, or menu animation.
-- [ ] Tablet portrait and landscape: correct composition and smooth scroll.
-- [ ] Desktop: no layout overflow at common laptop and wide-screen sizes.
-- [ ] Inspect with browser performance tools and record evidence; do not infer GPU acceleration from CSS alone.
-
-
-## Reader experience additions
-- [ ] Reader tone buttons switch the preview between paper, sepia, and night.
-- [ ] Text size slider updates the specimen and its output label.
-- [ ] Line-spacing slider updates the specimen.
-- [ ] Reading width and font selectors update the specimen.
-- [ ] Preferences persist after reload and reset to defaults.
-- [ ] Storage-disabled/private contexts still allow in-page controls to work.
-- [ ] FAQ details open and close with keyboard and pointer.
-- [ ] Active section navigation updates as the reader scrolls.
-- [ ] Back-to-top appears after scrolling and respects reduced motion.
-- [ ] The reader preview clearly states that its sample is not novel text.
-
-
-## Expanded homepage field guide
-- [ ] Each homepage has more than 1,000 source lines of actual semantic content.
-- [ ] Search filters field notes by visible text.
-- [ ] Subject filter narrows field notes to the selected category.
-- [ ] Reset clears both search and subject filters.
-- [ ] Empty search results display a clear no-match message.
-- [ ] Device-specific reading scenarios appear in the correct edition.
-- [ ] Every new field-guide section anchor resolves.
+## Real-device verification
+- [ ] Phone: check first paint, hero entrance, scrolling, and menu interaction.
+- [ ] Tablet: check portrait and landscape.
+- [ ] Desktop: check common laptop and wide-screen widths.
+- [ ] Inspect overflow, layout shifts, long tasks, paint, and frame drops with browser tools.
+- [ ] Record device, browser, viewport, test steps, and observations in the session log.
+- [ ] Do not claim FPS, GPU use, thermal performance, or deployment success without direct evidence.
 
 ## Utility pages and metadata
-- [ ] Unknown paths display the custom 404 page on the deployed static host.
-- [ ] The 404 home link returns to the homepage.
-- [ ] The 404 previous-page action falls back to home when no prior history exists.
-- [ ] The requested path is displayed as text, not injected as HTML.
-- [ ] Contact page does not imply that a message was submitted.
-- [ ] Copy-project-address control reports success or shows the address fallback.
-- [ ] Privacy notice accurately describes localStorage and third-party resources.
+- [ ] Unknown paths show the custom 404 on the deployed static host.
+- [ ] 404 home link returns to the homepage.
+- [ ] 404 previous-page action safely falls back to home.
+- [ ] Requested path is rendered as text, not injected HTML.
+- [ ] Contact page does not imply a message was submitted.
+- [ ] Privacy notice accurately describes local storage and third-party resources.
 - [ ] Terms page remains marked as a draft pending legal review.
-- [ ] thankyou.html does not claim that a form was submitted.
-- [ ] thank-you.html redirects to thankyou.html.
-- [ ] robots.txt points to the production sitemap.
-- [ ] sitemap.xml parses and contains only canonical public pages.
-- [ ] site.webmanifest parses as JSON and has same-origin relative start_url and scope.
-- [ ] Utility pages use the shared Edition 03 utility-page CSS.
+- [ ] Thank-you page does not claim a form was submitted.
+- [ ] Sitemap, robots.txt, and web manifest parse and use the production domain.

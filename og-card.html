@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Press Kit — Asset Generator · FSLT-001</title>
+<meta name="robots" content="noindex">
+<style>
+body{background:#131110;color:#ece5d8;font-family:system-ui,sans-serif;padding:40px 20px;display:flex;flex-direction:column;align-items:center;gap:24px}
+h1{font-size:20px}p{color:#a3988a;font-size:14px;max-width:640px;text-align:center}
+canvas{max-width:100%;height:auto;border:1px solid #2e2823}
+button{background:#d43a2f;color:#ece5d8;border:0;padding:12px 22px;font-size:13px;letter-spacing:.1em;cursor:pointer}
+button:hover{background:#e0483c}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,900;1,9..144,900&family=Archivo:wght@400;600&family=Space+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+<h1>FSLT-001 · Press Kit</h1>
+<p>Click each button, then commit the downloaded files to your repo root. og.png powers link previews; apple-touch-icon.png powers iOS home screens.</p>
+<canvas id="og" width="1200" height="630"></canvas>
+<button id="dl-og">DOWNLOAD og.png</button>
+<canvas id="icon" width="180" height="180"></canvas>
+<button id="dl-icon">DOWNLOAD apple-touch-icon.png</button>
+<script>
+function record(ctx, cx, cy, R, labelR, labelText) {
+  ctx.fillStyle = '#1d1a18'; ctx.beginPath(); ctx.arc(cx, cy, R, 0, 7); ctx.fill();
+  for (let i = 0; i < 14; i++) {
+    ctx.strokeStyle = i % 2 ? '#282320' : '#161311'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.arc(cx, cy, R * (0.45 + i * 0.038), 0, 7); ctx.stroke();
+  }
+  ctx.fillStyle = '#d43a2f'; ctx.beginPath(); ctx.arc(cx, cy, labelR, 0, 7); ctx.fill();
+  ctx.fillStyle = '#ece5d8'; ctx.textAlign = 'center';
+  ctx.font = '700 ' + Math.round(labelR * 0.28) + 'px "Space Mono"';
+  ctx.fillText('FSLT', cx, cy - labelR * 0.28);
+  ctx.font = '900 ' + Math.round(labelR * 0.62) + 'px Fraunces';
+  ctx.fillText(labelText, cx, cy + labelR * 0.34);
+  ctx.fillStyle = '#131110'; ctx.beginPath(); ctx.arc(cx, cy, labelR * 0.07, 0, 7); ctx.fill();
+}
+async function draw() {
+  await Promise.all([
+    document.fonts.load('900 96px Fraunces'), document.fonts.load('italic 900 96px Fraunces'),
+    document.fonts.load('600 26px Archivo'), document.fonts.load('16px "Space Mono"'),
+    document.fonts.load('700 26px "Space Mono"')
+  ]);
+  const c = document.getElementById('og'), x = c.getContext('2d');
+  x.fillStyle = '#131110'; x.fillRect(0, 0, 1200, 630);
+  record(x, 285, 315, 225, 92, '001');
+  x.textAlign = 'left';
+  x.fillStyle = '#d43a2f'; x.font = '16px "Space Mono"';
+  x.fillText('A TYPE-MOON FAN WORK  ·  CATALOG FSLT-001', 600, 150);
+  x.fillStyle = '#ece5d8'; x.font = '900 96px Fraunces';
+  x.fillText('The Pruned', 600, 268);
+  x.fillStyle = '#d43a2f'; x.font = 'italic 900 96px Fraunces';
+  x.fillText('Timeline', 600, 372);
+  x.fillStyle = '#a3988a'; x.font = '600 26px Archivo';
+  x.fillText('Fate/Stay Last Time — a fan novel in five sides', 600, 440);
+  x.fillStyle = '#6f6558'; x.font = '16px "Space Mono"';
+  x.fillText('10 TRACKS · 85 MIN · READ FREE', 600, 540);
+  x.fillText('FATE-STAY-LAST-TIME.VERCEL.APP', 600, 568);
+  const ic = document.getElementById('icon'), y = ic.getContext('2d');
+  y.fillStyle = '#131110'; y.fillRect(0, 0, 180, 180);
+  record(y, 90, 90, 72, 30, '01');
+}
+draw();
+function dl(id, name) {
+  const a = document.createElement('a');
+  a.download = name; a.href = document.getElementById(id).toDataURL('image/png'); a.click();
+}
+document.getElementById('dl-og').onclick = () => dl('og', 'og.png');
+document.getElementById('dl-icon').onclick = () => dl('icon', 'apple-touch-icon.png');
+</script>
+</body>
+</html>

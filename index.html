@@ -1,1162 +1,161 @@
 <!doctype html>
-<html
-  lang=
-    "en"
-  data-layout=
-    "mobile"
->
-<head
-
->
-<meta
-  charset=
-    "utf-8"
->
-<meta
-  name=
-    "viewport"
-  content=
-    "width=device-width,initial-scale=1,viewport-fit=cover"
->
-<meta
-  name=
-    "theme-color"
-  content=
-    "#e9e5dc"
->
-<meta
-  name=
-    "description"
-  content=
-    "Fate / Stay Last Time — an independent novel, rewritten from the first page."
->
-<meta
-  property=
-    "og:title"
-  content=
-    "Fate / Stay Last Time"
->
-<meta
-  property=
-    "og:description"
-  content=
-    "A story that refuses to end."
->
-<meta
-  property=
-    "og:image"
-  content=
-    "assets/og.svg"
->
-<title
-
->
- Fate
-/
-Stay
-Last
-Time
-—
-A
-Story
-That
-Refuses
-to
-End
-
-</title>
-<link
-  rel=
-    "canonical"
-  href=
-    "https://fate-stay-last-time-3.vercel.app/"
->
-<link
-  rel=
-    "icon"
-  href=
-    "assets/favicon.svg"
-  type=
-    "image/svg+xml"
->
-<link
-  rel=
-    "preconnect"
-  href=
-    "https://fonts.googleapis.com"
->
-<link
-  rel=
-    "preconnect"
-  href=
-    "https://fonts.gstatic.com"
-  crossorigin
->
-<link
-  href=
-    "https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
-  rel=
-    "stylesheet"
->
-<script
-  src=
-    "js/device-router.js"
->
-</script>
-<link
-  rel=
-    "stylesheet"
-  href=
-    "css/edition-tokens.css"
->
-<link
-  rel=
-    "stylesheet"
-  href=
-    "css/mobile.css"
->
-<script
-  defer
-  src=
-    "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
->
-</script>
-<script
-  defer
-  src=
-    "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"
->
-</script>
-<script
-  defer
-  src=
-    "js/edition-shared.js"
->
-</script>
-<script
-  defer
-  src=
-    "js/mobile.js"
->
-</script>
+<html lang="en" data-layout="mobile">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e9e5dc">
+  <meta name="description" content="Fate / Stay Last Time — an independent novel, rewritten from the first page.">
+  <meta property="og:title" content="Fate / Stay Last Time">
+  <meta property="og:description" content="A story that refuses to end.">
+  <meta property="og:image" content="assets/og.svg">
+  <title>Fate / Stay Last Time — A Story That Refuses to End</title>
+  <link rel="canonical" href="https://fate-stay-last-time-3.vercel.app/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <script src="js/device-router.js"></script>
+  <link rel="stylesheet" href="css/edition-tokens.css">
+  <link rel="stylesheet" href="css/mobile.css">
+  <link rel="stylesheet" href="css/experience.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script defer src="js/edition-shared.js"></script>
+  <script defer src="js/mobile.js"></script>
+  <script defer src="js/experience.js"></script>
 </head>
-<body
-  class=
-    "edition-mobile"
->
-<a
-  class=
-    "skip-link"
-  href=
-    "#main"
->
- Skip
-to
-content
-
-</a>
-<div
-  class=
-    "top-progress"
-  aria-hidden=
-    "true"
->
-<span
-  id=
-    "page-progress-bar"
->
-</span>
-</div>
-<header
-  class=
-    "m-header"
-  data-header
->
-<a
-  class=
-    "m-brand"
-  href=
-    "index.html"
-  aria-label=
-    "Fate / Stay Last Time home"
->
-<span
-  class=
-    "m-mark"
->
- F
-
-<span
-
->
- /
-
-</span>
-</span>
-<span
-
->
- FATE
-/
-STAY
-
-<small
-
->
- LAST
-TIME
-·
-NEW
-EDITION
-
-</small>
-</span>
-</a>
-<button
-  class=
-    "m-menu-button"
-  type=
-    "button"
-  aria-expanded=
-    "false"
-  aria-controls=
-    "mobile-menu"
-  data-menu-toggle
-  aria-label=
-    "Open menu"
->
-<i
-
->
-</i>
-<i
-
->
-</i>
-</button>
-</header>
-<nav
-  class=
-    "m-menu"
-  id=
-    "mobile-menu"
-  data-mobile-menu
-  aria-label=
-    "Main navigation"
-  inert
->
-<div
-  class=
-    "m-menu-top"
->
-<span
-
->
- F
-/
-S
-/
-L
-—
-INDEX
-
-</span>
-<span
-
->
- MENU
-00—03
-
-</span>
-</div>
-<a
-  href=
-    "#idea"
->
-<small
-
->
- 01
-
-</small>
- The
-idea
-
-<b
-
->
- ↗
-
-</b>
-</a>
-<a
-  href=
-    "#reading"
->
-<small
-
->
- 02
-
-</small>
- Reading
-room
-
-<b
-
->
- ↗
-
-</b>
-</a>
-<a
-  href=
-    "#about"
->
-<small
-
->
- 03
-
-</small>
- About
-
-<b
-
->
- ↗
-
-</b>
-</a>
-<p
-
->
- THE
-STORY
-STARTS
-AGAIN
-HERE.
-
-</p>
-</nav>
-<main
-  id=
-    "main"
->
-<section
-  class=
-    "m-hero"
-  id=
-    "top"
->
-<div
-  class=
-    "m-kicker"
->
-<span
-
->
- AN
-INDEPENDENT
-NOVEL
-PROJECT
-
-</span>
-<span
-
->
- EDITION
-03
-/
-2026
-
-</span>
-</div>
-<div
-  class=
-    "m-index"
->
-<span
-
->
- FSLT
-—
-NO.
-0001
-
-</span>
-<span
-
->
- THE
-BEGINNING
-
-</span>
-</div>
-<h1
-  class=
-    "m-title"
->
-<span
-
->
- FATE
-
-</span>
-<span
-
->
-<i
-
->
- /
-
-</i>
- STAY
-
-</span>
-<span
-  class=
-    "m-title-last"
->
- LAST
-
-<em
-
->
- TIME
-
-</em>
-<b
-
->
- .
-
-</b>
-</span>
-</h1>
-<div
-  class=
-    "m-hero-bottom"
->
-<p
-
->
- A
-story
-that
-refuses
-
-<br
-
->
- to
-end.
-
-</p>
-<a
-  href=
-    "#idea"
->
- ENTER
-THE
-STORY
-
-<b
-
->
- ↓
-
-</b>
-</a>
-</div>
-<div
-  class=
-    "m-art"
-  aria-label=
-    "An unfinished circle crossed by a red thread"
->
-<svg
-  viewBox=
-    "0 0 480 420"
-  role=
-    "img"
-  aria-labelledby=
-    "m-art-title"
->
-<title
-  id=
-    "m-art-title"
->
- The
-unfinished
-circle
-
-</title>
-<path
-  d=
-    "M247 30C352 33 424 112 410 224S323 388 213 380 45 291 61 174 142 26 247 30Z"
-  fill=
-    "#d1cabf"
-  stroke=
-    "#171715"
-  stroke-width=
-    "2"
-/>
-<path
-  d=
-    "M247 62C328 64 387 128 376 218S307 351 218 346 81 275 94 180 165 59 247 62Z"
-  fill=
-    "none"
-  stroke=
-    "#171715"
-/>
-<path
-  d=
-    "M242 122C304 126 345 168 338 224S289 304 226 301 133 254 141 194 182 119 242 122Z"
-  fill=
-    "#171715"
-/>
-<path
-  d=
-    "M224 145L300 204 261 286 184 252Z"
-  fill=
-    "#e64b37"
-/>
-<path
-  d=
-    "M-22 276C65 228 100 135 160 165S251 345 307 288 347 115 414 136 472 222 510 190"
-  fill=
-    "none"
-  stroke=
-    "#e64b37"
-  stroke-width=
-    "5"
-  stroke-linecap=
-    "round"
-/>
-<circle
-  cx=
-    "160"
-  cy=
-    "165"
-  r=
-    "7"
-  fill=
-    "#e64b37"
-/>
-<circle
-  cx=
-    "307"
-  cy=
-    "288"
-  r=
-    "7"
-  fill=
-    "#e64b37"
-/>
-<circle
-  cx=
-    "414"
-  cy=
-    "136"
-  r=
-    "7"
-  fill=
-    "#e64b37"
-/>
-<path
-  d=
-    "M35 45h44M35 45v44M445 331v44M445 375h-44"
-  fill=
-    "none"
-  stroke=
-    "#171715"
-/>
-<text
-  x=
-    "36"
-  y=
-    "27"
-  font-size=
-    "10"
-  font-family=
-    "monospace"
-  letter-spacing=
-    "2"
->
- FIG.
-01
-
-</text>
-</svg>
-<span
-  class=
-    "m-stamp"
->
- A
-NEW
-
-<br
-
->
- BEGINNING
-
-</span>
-<span
-  class=
-    "m-art-number"
->
- THE
-THREAD
-REMAINS
-/
-001
-
-</span>
-</div>
-<div
-  class=
-    "m-scroll-cue"
->
-<span
-
->
- SCROLL
-TO
-FOLLOW
-THE
-THREAD
-
-</span>
-<i
-
->
-</i>
-<span
-
->
- NO
-PREVIOUS
-DRAFTS
-
-</span>
-</div>
+<body class="edition-mobile">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="top-progress" aria-hidden="true"><span id="page-progress-bar"></span></div>
+  <header class="m-header" data-header><a class="m-brand" href="index.html" aria-label="Fate / Stay Last Time home"><span class="m-mark">F<span>/</span></span><span>FATE / STAY<small>LAST TIME · NEW EDITION</small></span></a><button class="m-menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle aria-label="Open menu"><i></i><i></i></button></header><nav class="m-menu" id="mobile-menu" data-mobile-menu aria-label="Main navigation" inert><div class="m-menu-top"><span>F / S / L — INDEX</span><span>MENU 00—07</span></div><a href="#idea">The idea <b>↗</b></a><a href="#reading">Reading room <b>↗</b></a><a href="#reader-settings">Reader's desk <b>↗</b></a><a href="#principles">Principles <b>↗</b></a><a href="#process">The process <b>↗</b></a><a href="#questions">Questions <b>↗</b></a><p>THE STORY STARTS AGAIN HERE.</p></nav>
+  <main id="main">
+    <section class="m-hero" id="top"><div class="m-kicker"><span>AN INDEPENDENT NOVEL PROJECT</span><span>EDITION 03 / 2026</span></div><div class="m-index"><span>FSLT — NO. 0001</span><span>THE BEGINNING</span></div><h1 class="m-title"><span>FATE</span><span><i>/</i> STAY</span><span class="m-title-last">LAST <em>TIME</em><b>.</b></span></h1><div class="m-hero-bottom"><p>A story that refuses<br>to end.</p><a href="#idea">ENTER THE STORY <b>↓</b></a></div><div class="m-art" aria-label="An unfinished circle crossed by a red thread"><svg viewBox="0 0 480 420" role="img" aria-labelledby="m-art-title"><title id="m-art-title">The unfinished circle</title><path d="M247 30C352 33 424 112 410 224S323 388 213 380 45 291 61 174 142 26 247 30Z" fill="#d1cabf" stroke="#171715" stroke-width="2"/><path d="M247 62C328 64 387 128 376 218S307 351 218 346 81 275 94 180 165 59 247 62Z" fill="none" stroke="#171715"/><path d="M242 122C304 126 345 168 338 224S289 304 226 301 133 254 141 194 182 119 242 122Z" fill="#171715"/><path d="M224 145L300 204 261 286 184 252Z" fill="#e64b37"/><path d="M-22 276C65 228 100 135 160 165S251 345 307 288 347 115 414 136 472 222 510 190" fill="none" stroke="#e64b37" stroke-width="5" stroke-linecap="round"/></svg><span class="m-stamp">A NEW<br>BEGINNING</span><span class="m-art-number">THE THREAD REMAINS / 001</span></div><div class="m-scroll-cue"><span>SCROLL TO FOLLOW THE THREAD</span><i></i><span>NO PREVIOUS DRAFTS</span></div></section>
+    <section class="m-idea" id="idea"><div class="m-section-label editorial-section__top"><span>01 — THE IDEA</span><span>AN EDITION OF ITS OWN</span></div><div class="m-idea-grid"><h2>NOT A<br><em>CONTINUATION.</em><br>A SECOND<br><em>BEGINNING.</em></h2><div class="m-idea-copy"><p class="m-overline">LET THE OLD PAGES CLOSE.</p><p>This edition is being written from the first page again. The past drafts stay in the past. What comes next gets room to become its own story.</p></div></div></section>
+    <section class="m-reading" id="reading"><div class="m-section-label editorial-section__top"><span>02 — READING ROOM</span><span>CATALOGUE STATUS / 00</span></div><div class="m-reading-heading"><h2>THE STORY<br>IS <em>LOADING.</em></h2><p>No placeholder chapters dressed up as content. The archive opens when the new writing is ready.</p></div><div class="m-reading-card"><div class="m-book-scene"><div class="m-book"><span>F / S / L</span><strong>THE<br>FIRST<br>PAGE</strong><small>EDITION 03</small></div><span>THE COVER FOR WHAT COMES NEXT</span></div><div class="m-reading-copy"><p class="m-status">THE FIRST CHAPTER HAS NOT ARRIVED</p><h3>Somewhere,<br>the first line<br>is being written.</h3><p>When the rewritten chapters are ready, this space becomes the reading room: one continuous structure, one considered reading experience, and no material carried over from earlier versions.</p><span>INCOMING TEXT / WAITING FOR AUTHOR</span></div></div></section>
+    <section class="m-about" id="about"><div class="m-section-label editorial-section__top"><span>03 — COLOPHON</span><span>WRITTEN AGAIN. NOT ERASED.</span></div><div class="m-about-copy"><p class="m-overline">FATE / STAY LAST TIME</p><h2>Every story deserves<br>its <em>own beginning.</em></h2><p>This is an independent novel project and its new digital home. The site will grow with the writing: chapters first, thoughtful reading tools next, and visual flourishes only where they add meaning.</p><a href="contact.html">SEND A MESSAGE <b>↗</b></a></div></section>
+    
+<section class="editorial-section" id="reader-settings" aria-labelledby="m-reader-title">
+  <div class="editorial-section__top"><span>04 / Reader's desk</span><span>Interactive preview</span></div>
+  <div class="reader-lab" data-reader-lab data-tone="paper">
+    <div class="reader-lab__head">
+      <div>
+        <span class="reader-lab__eyebrow">Reading preferences / prototype</span>
+        <h2 class="reader-lab__title" id="m-reader-title">Make room for the words.</h2>
+        <p class="editorial-section__intro">Try the typography controls on this sample. Your choices are saved on this device and are a preview of the settings planned for the chapter reader.</p>
+      </div>
+      <span class="reader-lab__meta">LOCAL PREVIEW / NO ACCOUNT</span>
+    </div>
+    <div class="reader-lab__grid">
+      <div class="reader-lab__settings" aria-label="Reading preference controls">
+        <div class="reader-lab__field">
+          <span class="reader-lab__label">Paper tone</span>
+          <div class="reader-lab__segmented" role="group" aria-label="Preview tone">
+            <button type="button" data-tone-choice="paper" aria-pressed="true">Paper</button>
+            <button type="button" data-tone-choice="sepia" aria-pressed="false">Sepia</button>
+            <button type="button" data-tone-choice="night" aria-pressed="false">Night</button>
+          </div>
+        </div>
+        <div class="reader-lab__field">
+          <label for="m-size">Text size <output data-size-output>17 px</output></label>
+          <input id="m-size" type="range" min="14" max="24" step="1" value="17" data-size>
+        </div>
+        <div class="reader-lab__field">
+          <label for="m-leading">Line spacing</label>
+          <input id="m-leading" type="range" min="1.4" max="2.2" step=".1" value="1.8" data-leading>
+        </div>
+        <div class="reader-lab__field">
+          <label for="m-width">Reading width</label>
+          <select id="m-width" data-width>
+            <option value="narrow">Narrow</option>
+            <option value="comfortable" selected>Comfortable</option>
+            <option value="wide">Wide</option>
+          </select>
+        </div>
+        <div class="reader-lab__field">
+          <label for="m-font">Text face</label>
+          <select id="m-font" data-font>
+            <option value="serif" selected>Literary serif</option>
+            <option value="sans">Clean sans</option>
+          </select>
+        </div>
+        <div class="reader-lab__actions">
+          <button class="reader-lab__reset" type="button" data-reset-reader>Reset preferences</button>
+        </div>
+      </div>
+      <div class="reader-lab__preview" aria-live="polite">
+        <span class="reader-lab__eyebrow">Type specimen / 001</span>
+        <h3>A quieter page.</h3>
+        <div class="reader-lab__sample">
+          <p>Some stories ask to be read quickly. Others ask for a little space: a clear line, a comfortable measure, and enough quiet around each paragraph to let the thought settle.</p>
+          <p>This is sample interface copy, not an excerpt from the novel. The rewritten chapters will be added only when the author supplies them.</p>
+        </div>
+        <p class="reader-lab__notice">Preview settings are stored locally in this browser. They do not change the chapter archive while it is empty.</p>
+      </div>
+    </div>
+  </div>
 </section>
-<section
-  class=
-    "m-idea"
-  id=
-    "idea"
->
-<div
-  class=
-    "m-section-label"
->
-<span
-
->
- 01
-—
-THE
-IDEA
-
-</span>
-<span
-
->
- AN
-EDITION
-OF
-ITS
-OWN
-
-</span>
-</div>
-<p
-  class=
-    "m-overline"
->
- LET
-THE
-OLD
-PAGES
-CLOSE.
-
-</p>
-<h2
-
->
- NOT
-A
-
-<br
-
->
-<em
-
->
- CONTINUATION.
-
-</em>
-<br
-
->
- A
-SECOND
-
-<br
-
->
-<em
-
->
- BEGINNING.
-
-</em>
-</h2>
-<div
-  class=
-    "m-idea-foot"
->
-<span
-  class=
-    "m-sign"
->
- F
-
-<span
-
->
- /
-
-</span>
-</span>
-<p
-
->
- This
-edition
-is
-being
-written
-from
-the
-first
-page
-again.
-The
-past
-drafts
-stay
-in
-the
-past.
-What
-comes
-next
-gets
-room
-to
-become
-its
-own
-story.
-
-</p>
-</div>
+    
+<section class="editorial-section" id="principles" aria-labelledby="m-principles-title">
+  <div class="editorial-section__top"><span>05 / Editorial principles</span><span>Edition 03</span></div>
+  <h2 class="editorial-section__heading" id="m-principles-title">The rules behind <em>the reading room.</em></h2>
+  <p class="editorial-section__intro">A novel site should be more than a cover and a list of links. These principles guide the interface while the new manuscript is being written.</p>
+  <div class="editorial-grid">
+    <article class="editorial-card"><span class="editorial-card__number">01 / PRINCIPLE</span><h3>Start with the page</h3><p>The reading experience comes before decorative effects.</p></article>
+    <article class="editorial-card"><span class="editorial-card__number">02 / PRINCIPLE</span><h3>Keep the archive honest</h3><p>No invented chapters, teaser excerpts, or borrowed drafts.</p></article>
+    <article class="editorial-card"><span class="editorial-card__number">03 / PRINCIPLE</span><h3>Respect the reader</h3><p>Readable type, clear navigation, keyboard access, and reduced motion.</p></article>
+    <article class="editorial-card"><span class="editorial-card__number">04 / PRINCIPLE</span><h3>Design for the hand</h3><p>Touch controls and comfortable spacing are considered from the start.</p></article>
+    <article class="editorial-card"><span class="editorial-card__number">05 / PRINCIPLE</span><h3>Let the story lead</h3><p>Visual treatment supports the writing instead of competing with it.</p></article>
+    <article class="editorial-card"><span class="editorial-card__number">06 / PRINCIPLE</span><h3>Keep the site quick</h3><p>Small assets and restrained animation are preferred over spectacle.</p></article>
+  </div>
 </section>
-<section
-  class=
-    "m-reading"
-  id=
-    "reading"
->
-<div
-  class=
-    "m-section-label"
->
-<span
-
->
- 02
-—
-READING
-ROOM
-
-</span>
-<span
-
->
- CATALOGUE
-/
-00
-
-</span>
-</div>
-<h2
-
->
- THE
-STORY
-
-<br
-
->
- IS
-
-<em
-
->
- LOADING.
-
-</em>
-</h2>
-<p
-  class=
-    "m-reading-intro"
->
- No
-placeholder
-chapters
-dressed
-up
-as
-content.
-The
-archive
-opens
-when
-the
-new
-writing
-is
-ready.
-
-</p>
-<div
-  class=
-    "m-book-wrap"
->
-<div
-  class=
-    "m-book"
-  aria-hidden=
-    "true"
->
-<span
-
->
- F
-/
-S
-/
-L
-
-</span>
-<strong
-
->
- THE
-
-<br
-
->
- FIRST
-
-<br
-
->
- PAGE
-
-</strong>
-<small
-
->
- EDITION
-03
-
-</small>
-</div>
-<span
-  class=
-    "m-book-caption"
->
- A
-COVER
-FOR
-WHAT
-COMES
-NEXT
-
-</span>
-</div>
-<div
-  class=
-    "m-reading-copy"
->
-<span
-  class=
-    "m-status"
->
-<i
-
->
-</i>
- THE
-FIRST
-CHAPTER
-HAS
-NOT
-ARRIVED
-
-</span>
-<h3
-
->
- Somewhere,
-
-<br
-
->
- the
-first
-line
-
-<br
-
->
- is
-being
-written.
-
-</h3>
-<p
-
->
- When
-the
-rewritten
-chapters
-are
-ready,
-this
-becomes
-the
-reading
-room:
-one
-continuous
-structure,
-one
-considered
-reading
-experience,
-and
-no
-material
-carried
-over
-from
-earlier
-versions.
-
-</p>
-<span
-  class=
-    "m-waiting"
->
- INCOMING
-TEXT
-/
-WAITING
-FOR
-AUTHOR
-
-</span>
-</div>
+    
+<section class="editorial-section" id="process" aria-labelledby="m-process-title">
+  <div class="editorial-section__top"><span>06 / From draft to archive</span><span>Publication workflow</span></div>
+  <h2 class="editorial-section__heading" id="m-process-title">A chapter earns <em>its place.</em></h2>
+  <p class="editorial-section__intro">The site is being prepared ahead of the rewritten manuscript. This is the intended publishing workflow, not a claim that chapters are already complete.</p>
+  <div class="project-steps">
+    <article class="project-step"><small>SOURCE MATERIAL</small><h3>Manuscript</h3><p>The author supplies the rewritten chapter text.</p></article>
+    <article class="project-step"><small>CONTENT MODEL</small><h3>Structure</h3><p>Chapters receive a consistent, accessible reading template.</p></article>
+    <article class="project-step"><small>EDITORIAL QA</small><h3>Proof</h3><p>Navigation, typography, and chapter continuity are reviewed.</p></article>
+    <article class="project-step"><small>PUBLICATION</small><h3>Release</h3><p>Only approved writing is published to the archive.</p></article>
+  </div>
 </section>
-<section
-  class=
-    "m-about"
-  id=
-    "about"
->
-<div
-  class=
-    "m-section-label"
->
-<span
-
->
- 03
-—
-COLOPHON
-
-</span>
-<span
-
->
- WRITTEN
-AGAIN.
-NOT
-ERASED.
-
-</span>
-</div>
-<div
-  class=
-    "m-about-mark"
->
- F
-
-<span
-
->
- /
-
-</span>
-</div>
-<p
-  class=
-    "m-overline"
->
- FATE
-/
-STAY
-LAST
-TIME
-
-</p>
-<h2
-
->
- Every
-story
-
-<br
-
->
- deserves
-its
-
-<br
-
->
-<em
-
->
- own
-beginning.
-
-</em>
-</h2>
-<p
-
->
- This
-is
-an
-independent
-novel
-project
-and
-its
-new
-digital
-home.
-The
-site
-will
-grow
-with
-the
-writing:
-chapters
-first,
-thoughtful
-reading
-tools
-next,
-and
-visual
-flourishes
-only
-where
-they
-add
-meaning.
-
-</p>
-<a
-  href=
-    "contact.html"
-  class=
-    "m-contact"
->
- SEND
-A
-MESSAGE
-
-<b
-
->
- ↗
-
-</b>
-</a>
+    <section class="editorial-section" id="site-index" aria-labelledby="m-index-title">
+      <div class="editorial-section__top"><span>08 / Site index</span><span>Quick navigation</span></div>
+      <h2 class="editorial-section__heading" id="m-index-title">Find your <em>place.</em></h2>
+      <p class="editorial-section__intro">Use the index to move between the project overview, reading preview, and information about this edition.</p>
+      <nav class="section-nav" aria-label="On this page" data-section-nav>
+    <a href="#idea">The idea</a>
+    <a href="#reading">Reading room</a>
+    <a href="#reader-settings">Reader's desk</a>
+    <a href="#principles">Principles</a>
+    <a href="#process">Process</a>
+    <a href="#questions">Questions</a>
+  </nav>
+    </section>
+    
+<section class="editorial-section" id="questions" aria-labelledby="m-questions-title">
+  <div class="editorial-section__top"><span>07 / Questions</span><span>Project information</span></div>
+  <h2 class="editorial-section__heading" id="m-questions-title">A few things <em>worth knowing.</em></h2>
+  <div class="faq-list">
+    <details><summary>Why is the reading room empty?</summary><p>The novel is being rewritten from the first page. The archive will open when the new chapters are ready; older drafts will not be republished as placeholders.</p></details>
+    <details><summary>Are these pages three different websites?</summary><p>They are three independent homepage documents with separate compositions for phone, tablet, and desktop. They share the same project identity and core content.</p></details>
+    <details><summary>How is the layout selected?</summary><p>The site selects a composition from the current viewport width. It does not claim to detect the physical device. Resizing across a breakpoint can load a different page.</p></details>
+    <details><summary>Do the reader controls affect chapters?</summary><p>Not yet. The typography lab is a working preview. Its preferences are stored locally and demonstrate the controls intended for the future chapter reader.</p></details>
+    <details><summary>Does the site require animation?</summary><p>No. Motion is an enhancement. The content and navigation remain available if GSAP does not load or reduced motion is enabled.</p></details>
+    <details><summary>Where are my reader preferences saved?</summary><p>The preview uses local browser storage on this device. Clearing site data or using another browser may reset those settings.</p></details>
+    <details><summary>Can I read the old version here?</summary><p>No. This edition is a clean restart. Previous drafts and their story material are intentionally not carried into the new archive.</p></details>
+    <details><summary>When will the first chapter be published?</summary><p>There is no confirmed publication date. The archive status will change only after the author has supplied and approved the rewritten material.</p></details>
+  </div>
 </section>
-</main>
-<footer
-  class=
-    "m-footer"
->
-<a
-  href=
-    "index.html"
->
- FATE
-/
-STAY
-LAST
-TIME
-
-</a>
-<span
-
->
- ©
-
-<span
-  data-year
->
-</span>
-</span>
-<nav
-
->
-<a
-  href=
-    "privacy.html"
->
- PRIVACY
-
-</a>
-<a
-  href=
-    "terms.html"
->
- TERMS
-
-</a>
-<a
-  href=
-    "contact.html"
->
- CONTACT
-
-</a>
-</nav>
-</footer>
+    <section class="editorial-section" id="contact-note" aria-labelledby="m-contact-title">
+      <div class="editorial-section__top"><span>09 / Correspondence</span><span>Open channel</span></div>
+      <h2 class="editorial-section__heading" id="m-contact-title">A note, a question, <em>a thought.</em></h2>
+      <p class="editorial-section__intro">For questions about the project or this website, use the contact page. No chapter submission or newsletter service is implied by this page.</p>
+      <p><a class="d-contact" href="contact.html">OPEN CONTACT PAGE ↗</a></p>
+    </section>
+  </main>
+  <footer class="m-footer"><a href="index.html">FATE / STAY LAST TIME</a><span>AN INDEPENDENT NOVEL PROJECT · © <span data-current-year></span></span><nav aria-label="Legal"><a href="privacy.html">PRIVACY</a><a href="terms.html">TERMS</a><a href="contact.html">CONTACT</a></nav></footer>
+  <button class="back-to-top" type="button" data-back-to-top aria-label="Back to top">↑</button>
 </body>
 </html>

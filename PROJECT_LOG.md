@@ -5,8 +5,8 @@ Last updated: 2026-11-26 (Asia/Kolkata)
 ## Repository state
 - Repository: https://github.com/Thunder2700c/Fate-stay-last-time-3
 - Active branch: `main`
-- Latest homepage implementation commit: `3248edc57e877a17c7a0ddc52536d04469968927`
-- Current homepage direction: Edition 03 — warm paper, near-black ink, vermilion red, expressive editorial typography, unfinished-circle/red-thread motif.
+- Latest homepage implementation commit: `2c240205e161df0b7c7243395d31f6755cfee844`
+- Current homepage direction: Edition 03 / The Unwritten Folio — warm paper, near-black ink, vermilion red, folio labels, concentric-circle diagram, and a book-spread reading room.
 - Separate homepage compositions: `index.html` (mobile), `tablet.html`, and `desktop.html`.
 - Viewport routing: mobile <=767 px; tablet 768–1099 px; desktop >=1100 px.
 - Current homepage content boundary: hero, idea, reading room, colophon, footer.

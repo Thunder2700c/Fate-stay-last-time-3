@@ -475,8 +475,8 @@
 <p>No. Motion is an enhancement. The content and navigation remain available if GSAP does not load or reduced motion is enabled.</p>
 </details>
 <details>
-<summary>Where are my reader preferences saved?</summary>
-<p>The preview uses local browser storage on this device. Clearing site data or using another browser may reset those settings.</p>
+<summary>Does this page save my reading position?</summary>
+<p>No. The current edition does not provide a saved reading position, reader account, or chapter history.</p>
 </details>
 <details>
 <summary>Can I read the old version here?</summary>
@@ -706,14 +706,14 @@
 <article class="field-note" data-field-note data-topic="0">
 <header>
 <p class="field-note__index">FIELD NOTE 11 / LAYOUT</p>
-<h3>Reader preference clarity</h3>
+<h3>Section link clarity</h3>
 </header>
-<p class="field-note__lead">The reader's desk is a live preview rather than a chapter reader.</p>
-<p>Explain which sample text is affected and make each setting visibly change it.</p>
+<p class="field-note__lead">A shared section URL should identify its destination without relying on page state.</p>
+<p>Use stable IDs and descriptive link labels so a visitor can understand where a fragment will lead.</p>
 <dl class="field-note__details">
 <div>
 <dt>Design response</dt>
-<dd>Change tone, size, line height, width, and font, then reset.</dd>
+<dd>Open each section link from a fresh tab and confirm that it lands at the intended heading.</dd>
 </div>
 </dl>
 <footer>
@@ -724,14 +724,14 @@
 <article class="field-note" data-field-note data-topic="1">
 <header>
 <p class="field-note__index">FIELD NOTE 12 / READING</p>
-<h3>Local preference limits</h3>
+<h3>Temporary filter state</h3>
 </header>
-<p class="field-note__lead">Browser storage is tied to a browser profile and device.</p>
-<p>Do not describe local settings as an account or cloud synchronization.</p>
+<p class="field-note__lead">Field-guide filters change the visible notes in the current page only.</p>
+<p>The selected search and topic are not saved as a reader profile and return to their defaults after a reload.</p>
 <dl class="field-note__details">
 <div>
 <dt>Design response</dt>
-<dd>Clear site data and confirm that the controls return to their defaults.</dd>
+<dd>Apply a search, reload the page, and confirm that the full note list returns.</dd>
 </div>
 </dl>
 <footer>

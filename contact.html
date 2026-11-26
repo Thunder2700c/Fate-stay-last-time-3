@@ -37,9 +37,7 @@
 <p>The project repository is the public place to review the website source and its published changes. Public issue reports may be visible to anyone who can access the repository.</p>
 <div class="utility-actions">
 <a class="button button-primary" href="https://github.com/Thunder2700c/Fate-stay-last-time-3">Open project repository <span>↗</span></a>
-<button class="button button-quiet" type="button" data-copy-project>Copy project address</button>
 </div>
-<p class="utility-meta" data-copy-status role="status" aria-live="polite">No address copied yet.</p>
 </section>
 <section aria-labelledby="contact-guidance">
 <h2 id="contact-guidance">Before sending a report</h2>
@@ -50,6 +48,14 @@
 <li>Remove passwords, private account details, phone numbers, and other sensitive information.</li>
 </ul>
 </section>
+<details class="contact-detail">
+<summary>Is the public repository a private contact inbox?</summary>
+<p>No. Public repository activity may be visible to other visitors. Do not post passwords, personal identifiers, private correspondence, or other sensitive information there.</p>
+</details>
+<details class="contact-detail">
+<summary>Can I submit a manuscript or chapter here?</summary>
+<p>No. This website has no manuscript upload, chapter submission, or file-attachment endpoint. The rewritten novel content remains under the author's control.</p>
+</details>
 <section class="utility-callout" aria-labelledby="contact-boundary">
 <h2 id="contact-boundary">A clear boundary</h2>
 <p>This static page does not collect messages, upload attachments, subscribe visitors, or send email. A confirmation page is not evidence that a message was submitted.</p>
@@ -66,21 +72,5 @@
 <div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
 <span>© <span data-year></span></span>
 </footer>
-<script>
-(() => {
-  const button = document.querySelector('[data-copy-project]');
-  const status = document.querySelector('[data-copy-status]');
-  if (!button || !status) return;
-  button.addEventListener('click', async () => {
-    const address = 'https://github.com/Thunder2700c/Fate-stay-last-time-3';
-    try {
-      await navigator.clipboard.writeText(address);
-      status.textContent = 'Project address copied to the clipboard.';
-    } catch {
-      status.textContent = address;
-    }
-  });
-})();
-</script>
 </body>
 </html>

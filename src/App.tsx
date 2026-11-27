@@ -1,84 +1,106 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
+import { Link, NavLink, Route, Routes, useNavigate, useParams } from 'react-router-dom'
+import { ArrowDown, ArrowLeft, ArrowRight, AudioLines, Bookmark, BookOpen, Check, ChevronDown, Command, Headphones, Menu, Moon, Search, Settings2, Sun, X } from 'lucide-react'
+import gsap from 'gsap'
+import { chapters, type Chapter } from './data/chapters'
 
-function App() {
-  const [menuOpen, setMenuOpen] = useState(false)
+const FONT_OPTIONS = [
+  ['Literata','Literata, Georgia, serif'],['Lora','Lora, Georgia, serif'],['Merriweather','Merriweather, Georgia, serif'],['Source Serif 4','Source Serif 4, Georgia, serif'],['Crimson Pro','Crimson Pro, Georgia, serif'],['Cormorant Garamond','Cormorant Garamond, Georgia, serif'],['EB Garamond','EB Garamond, Georgia, serif'],['Alegreya','Alegreya, Georgia, serif'],['Spectral','Spectral, Georgia, serif'],['Bitter','Bitter, Georgia, serif'],['DM Serif Display','DM Serif Display, Georgia, serif'],['Playfair Display','Playfair Display, Georgia, serif'],['Libre Baskerville','Libre Baskerville, Georgia, serif'],['PT Serif','PT Serif, Georgia, serif'],['Noto Serif','Noto Serif, Georgia, serif'],['Roboto Slab','Roboto Slab, Georgia, serif'],['Newsreader','Newsreader, Georgia, serif'],['Fraunces','Fraunces, Georgia, serif'],['Georgia','Georgia, serif'],['System Sans','Arial, sans-serif']
+] as const
 
-  useEffect(() => {
-    if (!menuOpen) return
-    const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMenuOpen(false)
-    }
-    window.addEventListener('keydown', closeOnEscape)
-    return () => window.removeEventListener('keydown', closeOnEscape)
-  }, [menuOpen])
-
-  const closeMenu = () => setMenuOpen(false)
-
-  return (
-    <main className="site" id="page1">
-      <header className="header">
-        <a className="logo" href="#page1" onClick={closeMenu} aria-label="Fate / Stay Last Time home">
-          <span className="logo-mark">F<span>/</span>SLT</span>
-        </a>
-
-        <nav className="nav-links" aria-label="Main navigation">
-          <a href="#page1">Home</a>
-          <a href="#project">The project</a>
-        </nav>
-
-        <div className="header-side">
-          <span className="project-label">Unofficial fan story</span>
-          <button
-            className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
-            type="button"
-            aria-expanded={menuOpen}
-            aria-controls="mobile-menu"
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            <span>{menuOpen ? 'Close' : 'Menu'}</span>
-            <i aria-hidden="true"><b /><b /></i>
-          </button>
-        </div>
-      </header>
-
-      <section className="home" aria-labelledby="home-title">
-        <img
-          className="home-artwork"
-          src="/images/fate-stay-last-time.png"
-          alt=""
-          fetchPriority="high"
-          decoding="async"
-        />
-        <div className="artwork-shade" aria-hidden="true" />
-        <div className="artwork-grain" aria-hidden="true" />
-
-        <div className="hero-content">
-          <div className="hero-heading" id="project">
-            <p className="eyebrow"><span /> An alternate Fate universe</p>
-            <h1 id="home-title">
-              <span className="title-first">Fate</span>
-              <span className="title-second">Stay Last Time</span>
-            </h1>
-          </div>
-
-          <div className="hero-bottom">
-            <p>A fan-created story, set in a different Fate universe.</p>
-            <a className="back-to-top" href="#page1" aria-label="Back to top">
-              <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <div className={`mobile-menu ${menuOpen ? 'is-visible' : ''}`} id="mobile-menu" aria-hidden={!menuOpen}>
-        <nav aria-label="Mobile navigation">
-          <a href="#page1" onClick={closeMenu}>Home <span>01</span></a>
-          <a href="#project" onClick={closeMenu}>The project <span>02</span></a>
-        </nav>
-        <p>Fate / Stay Last Time · Unofficial fan story</p>
-      </div>
-    </main>
-  )
+function useStored<T>(key:string, initial:T):[T,(value:T)=>void] {
+  const [value,setValue] = useState<T>(()=>{try{const saved=localStorage.getItem(key);return saved?JSON.parse(saved) as T:initial}catch{return initial}})
+  const update=(next:T)=>{setValue(next);try{localStorage.setItem(key,JSON.stringify(next))}catch{}}
+  return [value,update]
 }
-
-export default App
+function MotionIn({children,className=''}:{children:React.ReactNode,className?:string}) {
+  useEffect(()=>{const ctx=gsap.context(()=>{gsap.fromTo('.reveal',{y:26,opacity:0},{y:0,opacity:1,duration:.9,stagger:.12,ease:'power3.out',clearProps:'all'})});return()=>ctx.revert()},[])
+  return <div className={className}>{children}</div>
+}
+function Header({compact=false}:{compact?:boolean}) {
+  const [open,setOpen]=useState(false)
+  return <header className={`topbar ${compact?'topbar-compact':''}`}>
+    <Link className="wordmark" to="/" aria-label="Fate Stay Last Time home"><span>F</span><i>/</i>SLT</Link>
+    <nav className="desktop-nav"><NavLink to="/">The threshold</NavLink><NavLink to="/index">The archive</NavLink></nav>
+    <div className="topbar-right"><span className="edition-tag">AN UNOFFICIAL FAN STORY</span><button className="icon-button mobile-menu-trigger" onClick={()=>setOpen(!open)} aria-label="Toggle menu">{open?<X/>:<Menu/>}</button><Link className="nav-enter" to="/index">ENTER THE ARCHIVE <ArrowRight size={14}/></Link></div>
+    {open&&<div className="mobile-nav"><Link to="/" onClick={()=>setOpen(false)}>The threshold</Link><Link to="/index" onClick={()=>setOpen(false)}>The archive</Link></div>}
+  </header>
+}
+function Landing() {
+  const [tilt,setTilt]=useState({x:0,y:0})
+  useEffect(()=>{const ctx=gsap.context(()=>{gsap.fromTo('.hero-kicker,.hero-title,.hero-deck,.hero-bottomline',{y:32,opacity:0},{y:0,opacity:1,duration:1.1,stagger:.14,ease:'power3.out',delay:.2});gsap.to('.orbit-planet',{rotate:360,duration:80,repeat:-1,ease:'none'})});return()=>ctx.revert()},[])
+  return <main className="landing-shell" onPointerMove={e=>{if(e.pointerType==='touch')return;const r=e.currentTarget.getBoundingClientRect();setTilt({x:(e.clientX-r.left)/r.width-.5,y:(e.clientY-r.top)/r.height-.5})}}>
+    <Header/>
+    <section className="landing-hero">
+      <div className="hero-coordinate">37° 33' 18.4&quot; N<br/>A STORY OUTSIDE THE RECORD</div>
+      <div className="hero-art" style={{transform:`perspective(1200px) rotateY(${tilt.x*3}deg) rotateX(${-tilt.y*3}deg)`}}>
+        <div className="art-veil"/><div className="art-sun"/><div className="orbit orbit-one"/><div className="orbit orbit-two"/><div className="orbit-planet"/>
+        <div className="art-vertical">THE LAST RECORD / UNSEALED</div>
+        <div className="art-index">F–00<br/>ARCHIVE OF AN<br/>UNWRITTEN END</div>
+      </div>
+      <div className="hero-copy">
+        <p className="hero-kicker"><span className="red-dot"/> A DIFFERENT FATE UNIVERSE <span className="kicker-line"/></p>
+        <h1 className="hero-title">Fate <em>Stay</em><br/><span>Last Time.</span></h1>
+        <p className="hero-deck">Some stories are written in history.<br/>Others begin where history breaks.</p>
+        <Link className="begin-link" to="/index"><span className="begin-icon"><ArrowDown size={17}/></span><span>STEP INTO THE STORY</span><small>OPEN THE ARCHIVE</small></Link>
+      </div>
+      <div className="hero-side-note">AN INDEPENDENT FAN-CREATED STORY<br/>UNOFFICIAL / NOT AFFILIATED WITH TYPE-MOON</div>
+      <div className="hero-bottomline"><span>FATE / STAY LAST TIME</span><span>THE BEGINNING IS A CHOICE</span><span>SCROLL TO EXPLORE ↓</span></div>
+    </section>
+    <section className="threshold-section">
+      <div className="threshold-number">01 / THE PREMISE</div>
+      <div className="threshold-content"><p className="section-overline">A STORY IN ANOTHER DIRECTION</p><h2>Not the end<br/>you <i>remember.</i></h2><p className="threshold-body">An unofficial fan-created story set in a different Fate universe. Enter the archive to discover the chapters as they are written.</p><Link to="/index" className="text-arrow">EXPLORE THE STORY <ArrowRight size={15}/></Link></div>
+      <div className="threshold-aside"><div className="seal-sketch">✳</div><span>THE RECORD<br/>IS INCOMPLETE</span></div>
+    </section>
+    <footer className="site-footer"><span>F / SLT</span><span>AN UNOFFICIAL FAN WORK</span><span>© THE AUTHOR</span></footer>
+  </main>
+}
+function IndexPage() {
+  const [query,setQuery]=useState('')
+  const [playing,setPlaying]=useState(false)
+  const filtered=chapters.filter(c=>(c.title+' '+c.subtitle+' '+c.number).toLowerCase().includes(query.toLowerCase()))
+  const [progress]=useStored<Record<string,number>>('fslt-progress',{})
+  return <main className="archive-shell">
+    <Header compact/>
+    <section className="archive-intro"><p className="micro-label reveal">F / SLT — THE CHAPTER ARCHIVE</p><h1 className="archive-title reveal">The <i>unwritten</i><br/>record.</h1><div className="archive-intro-bottom reveal"><p>Every story leaves a trace.<br/>This is where you follow them.</p><span>ARCHIVE NO. 001<br/>ENGLISH EDITION</span></div></section>
+    <section className="archive-console">
+      <div className="console-head"><div><span className="console-dot"/> READING SEQUENCE</div><span>{String(filtered.length).padStart(2,'0')} ENTRIES</span></div>
+      <div className="player-strip"><div className="player-art"><AudioLines size={24}/></div><div className="player-meta"><small>NOW BROWSING</small><strong>Fate / Stay Last Time</strong><span>CHAPTER INDEX · READING ARCHIVE</span></div><button className={`play-button ${playing?'is-playing':''}`} onClick={()=>setPlaying(!playing)} aria-label="Toggle archive animation"><span>{playing?'Ⅱ':'▶'}</span></button><div className="player-wave" aria-hidden="true">{Array.from({length:34},(_,i)=><i key={i} style={{height:`${8+(i*17%27)}px`}}/>)}</div></div>
+      <div className="archive-tools"><label className="search-box"><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search chapters or titles..." aria-label="Search chapters"/></label><span className="sort-note">ORDER / CHRONOLOGICAL</span></div>
+      <div className="track-list">{filtered.map((c,i)=><Link to={`/read/${c.slug}`} className="track-row" key={c.slug}><span className="track-no">{String(i+1).padStart(2,'0')}</span><span className="track-symbol">✳</span><span className="track-title"><strong>{c.title}</strong><small>{c.subtitle}</small></span><span className="track-duration">{progress[c.slug]?Math.round(progress[c.slug])+'% READ':c.readTime}</span><span className="track-arrow"><ArrowRight size={17}/></span></Link>)}
+        {filtered.length===0&&<p className="empty-search">No chapters match that search.</p>}
+      </div>
+      <div className="archive-foot"><span>END OF CURRENT ARCHIVE</span><span>NEW ENTRIES APPEAR HERE</span></div>
+    </section>
+    <footer className="site-footer"><span>F / SLT</span><span>AN UNOFFICIAL FAN WORK</span><span><Link to="/">RETURN TO THRESHOLD ↑</Link></span></footer>
+  </main>
+}
+function Reader() {
+  const {slug=''}=useParams()
+  const navigate=useNavigate()
+  const chapter=chapters.find(c=>c.slug===slug)
+  const idx=chapters.findIndex(c=>c.slug===slug)
+  const [theme,setTheme]=useStored('fslt-theme','night')
+  const [font,setFont]=useStored('fslt-font','Literata')
+  const [size,setSize]=useStored('fslt-size',19)
+  const [line,setLine]=useStored('fslt-line',1.85)
+  const [bookmarks,setBookmarks]=useStored<string[]>('fslt-bookmarks',[])
+  const [progress,setProgress]=useStored<Record<string,number>>('fslt-progress',{})
+  const [settings,setSettings]=useState(false)
+  const [showChapters,setShowChapters]=useState(false)
+  const [scrollPct,setScrollPct]=useState(0)
+  useEffect(()=>{const fn=()=>{const max=document.documentElement.scrollHeight-window.innerHeight;const p=max>0?Math.min(100,Math.max(0,window.scrollY/max*100)):0;setScrollPct(p);if(chapter)setProgress({...progress,[chapter.slug]:p})};window.addEventListener('scroll',fn,{passive:true});return()=>window.removeEventListener('scroll',fn)},[chapter?.slug])
+  useEffect(()=>{window.scrollTo(0,0)},[slug])
+  if(!chapter)return <main className="not-found"><Header compact/><h1>That page is not in this archive.</h1><Link to="/index">Return to the index <ArrowRight/></Link></main>
+  const saved=bookmarks.includes(chapter.slug)
+  const toggleBookmark=()=>setBookmarks(saved?bookmarks.filter(x=>x!==chapter.slug):[...bookmarks,chapter.slug])
+  const prev=chapters[idx-1],next=chapters[idx+1]
+  return <main className={`reader-shell theme-${theme}`} style={{'--reader-font':FONT_OPTIONS.find(f=>f[0]===font)?.[1]||'Georgia,serif','--reader-size':size+'px','--reader-line':line} as React.CSSProperties}>
+    <div className="reading-progress"><span style={{width:scrollPct+'%'}}/></div>
+    <header className="reader-top"><Link to="/index" className="reader-back"><ArrowLeft size={16}/><span>ARCHIVE</span></Link><span className="reader-brand">F / SLT</span><div className="reader-actions"><button className="reader-tool" onClick={toggleBookmark} aria-label={saved?'Remove bookmark':'Bookmark chapter'}><Bookmark size={18} fill={saved?'currentColor':'none'}/></button><button className="reader-tool" onClick={()=>setSettings(!settings)} aria-label="Reading settings"><Settings2 size={18}/></button></div></header>
+    {settings&&<aside className="reader-settings"><div className="settings-heading"><strong>READING ROOM</strong><button onClick={()=>setSettings(false)} aria-label="Close settings"><X size={17}/></button></div><label>THEME<div className="theme-choices"><button className={theme==='night'?'selected':''} onClick={()=>setTheme('night')}><Moon size={15}/> Night</button><button className={theme==='paper'?'selected':''} onClick={()=>setTheme('paper')}><Sun size={15}/> Paper</button><button className={theme==='violet'?'selected':''} onClick={()=>setTheme('violet')}>✳ Violet</button></div></label><label>TYPEFACE<select value={font} onChange={e=>setFont(e.target.value)}>{FONT_OPTIONS.map(f=><option key={f[0]} value={f[0]}>{f[0]}</option>)}</select></label><label>TEXT SIZE <span>{size}px</span><input type="range" min="15" max="27" value={size} onChange={e=>setSize(Number(e.target.value))}/></label><label>LINE SPACING <span>{line.toFixed(2)}</span><input type="range" min="1.45" max="2.2" step=".05" value={line} onChange={e=>setLine(Number(e.target.value))}/></label><button className="reset-settings" onClick={()=>{setTheme('night');setFont('Literata');setSize(19);setLine(1.85)}}>RESET READING SETTINGS</button></aside>}
+    <div className="reader-layout"><aside className="reader-rail"><span>F / SLT</span><span>CHAPTER<br/>{chapter.number}</span><span>{String(scrollPct).padStart(2,'0')}%</span></aside><article className="reading-column"><div className="chapter-overline">CHAPTER {chapter.number} <span>✳</span> {chapter.readTime.toUpperCase()}</div><h1 className="chapter-title">{chapter.title}</h1><p className="chapter-subtitle">{chapter.subtitle}</p><div className="chapter-rule"><span>✳</span></div><div className="chapter-body">{chapter.paragraphs.map((p,i)=>p===''?<div className="chapter-spacer" key={i}/>:<p key={i}>{p}</p>)}</div><div className="chapter-end"><span>✳</span><small>END OF CHAPTER {chapter.number}</small></div><div className="reader-bottom-actions"><button onClick={()=>setShowChapters(!showChapters)}><BookOpen size={16}/> CHAPTER LIST <ChevronDown size={14}/></button><button onClick={toggleBookmark}><Bookmark size={16} fill={saved?'currentColor':'none'}/>{saved?'SAVED':'SAVE'}</button></div>{showChapters&&<div className="reader-chapter-list">{chapters.map(c=><Link key={c.slug} to={'/read/'+c.slug}>{c.number} — {c.title}</Link>)}</div>}<div className="chapter-navigation">{prev?<Link to={'/read/'+prev.slug}><small>PREVIOUS</small><span><ArrowLeft size={16}/>{prev.title}</span></Link>:<span/>}{next?<Link to={'/read/'+next.slug} className="next-chapter"><small>NEXT CHAPTER</small><span>{next.title}<ArrowRight size={16}/></span></Link>:<Link to="/index" className="next-chapter"><small>END OF ARCHIVE</small><span>Return to index <ArrowRight size={16}/></span></Link>}</div></article></div>
+    <div className="reader-footer"><Link to="/index">F / SLT — ARCHIVE</Link><span>YOUR PROGRESS IS SAVED ON THIS DEVICE</span></div>
+  </main>
+}
+export default function App(){return <Routes><Route path="/" element={<Landing/>}/><Route path="/index" element={<IndexPage/>}/><Route path="/read/:slug" element={<Reader/>}/><Route path="*" element={<Landing/>}/></Routes>}

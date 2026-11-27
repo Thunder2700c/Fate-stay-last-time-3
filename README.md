@@ -96,7 +96,7 @@ npm run dev
 npm run build
 ```
 
-The generated website is in `out/`. Vercel settings are included in `vercel.json`: Next.js framework, `npm run build`, output directory `out`.
+The generated website is in `out/`. Connect the repository to Vercel and select the **Next.js** framework preset. Keep Vercel's detected Build Command and Output Directory settings rather than adding an Output Directory override; Next.js handles its static-export output automatically.
 
 ## Folder map
 

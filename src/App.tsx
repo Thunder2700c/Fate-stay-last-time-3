@@ -62,6 +62,7 @@ function Landing() {
       <div className="threshold-content"><p className="section-overline">A STORY IN ANOTHER DIRECTION</p><h2>Not the end<br/>you <i>remember.</i></h2><p className="threshold-body">An unofficial fan-created story set in a different Fate universe. Enter the archive to discover the chapters as they are written.</p><Link to="/index" className="text-arrow">EXPLORE THE STORY <ArrowRight size={15}/></Link></div>
       <div className="threshold-aside"><div className="seal-sketch">✳</div><span>THE RECORD<br/>IS INCOMPLETE</span></div>
     </section>
+    <section className="author-strip"><span>02 / THE AUTHOR</span><div><small>AN INDEPENDENT FAN CREATION</small><p>Written by Gurtej. A personal fan project exploring a different direction in the Fate universe.</p></div><span>F / SLT</span></section>
     <footer className="site-footer"><span>F / SLT</span><span>AN UNOFFICIAL FAN WORK</span><span>© THE AUTHOR</span></footer>
   </main>
 }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode, type CSSProperties } from 'react'
 import { Link, NavLink, Route, Routes, useParams } from 'react-router-dom'
 import { ArrowDown, ArrowLeft, ArrowRight, AudioLines, Bookmark, BookOpen, ChevronDown, Menu, Moon, Search, Settings2, Sun, X } from 'lucide-react'
 import gsap from 'gsap'
@@ -12,10 +12,6 @@ function useStored<T>(key:string, initial:T):[T,(value:T)=>void] {
   const [value,setValue] = useState<T>(()=>{try{const saved=localStorage.getItem(key);return saved?JSON.parse(saved) as T:initial}catch{return initial}})
   const update=(next:T)=>{setValue(next);try{localStorage.setItem(key,JSON.stringify(next))}catch{}}
   return [value,update]
-}
-function MotionIn({children,className=''}:{children:React.ReactNode,className?:string}) {
-  useEffect(()=>{const ctx=gsap.context(()=>{gsap.fromTo('.reveal',{y:26,opacity:0},{y:0,opacity:1,duration:.9,stagger:.12,ease:'power3.out',clearProps:'all'})});return()=>ctx.revert()},[])
-  return <div className={className}>{children}</div>
 }
 function Header({compact=false}:{compact?:boolean}) {
   const [open,setOpen]=useState(false)
@@ -109,7 +105,7 @@ function Reader() {
   const saved=bookmarks.includes(chapter.slug)
   const toggleBookmark=()=>setBookmarks(saved?bookmarks.filter(x=>x!==chapter.slug):[...bookmarks,chapter.slug])
   const prev=chapters[idx-1],next=chapters[idx+1]
-  return <main className={`reader-shell theme-${theme}`} style={{'--reader-font':FONT_OPTIONS.find(f=>f[0]===font)?.[1]||'Georgia,serif','--reader-size':size+'px','--reader-line':line} as React.CSSProperties}>
+  return <main className={`reader-shell theme-${theme}`} style={{'--reader-font':FONT_OPTIONS.find(f=>f[0]===font)?.[1]||'Georgia,serif','--reader-size':size+'px','--reader-line':line} as CSSProperties}>
     <div className="reading-progress"><span style={{width:scrollPct+'%'}}/></div>
     <header className="reader-top"><Link to="/index" className="reader-back"><ArrowLeft size={16}/><span>ARCHIVE</span></Link><span className="reader-brand">F / SLT</span><div className="reader-actions"><button className="reader-tool" onClick={toggleBookmark} aria-label={saved?'Remove bookmark':'Bookmark chapter'}><Bookmark size={18} fill={saved?'currentColor':'none'}/></button><button className="reader-tool" onClick={()=>setSettings(!settings)} aria-label="Reading settings"><Settings2 size={18}/></button></div></header>
     {settings&&<aside className="reader-settings"><div className="settings-heading"><strong>READING ROOM</strong><button onClick={()=>setSettings(false)} aria-label="Close settings"><X size={17}/></button></div><label>THEME<div className="theme-choices"><button className={theme==='night'?'selected':''} onClick={()=>setTheme('night')}><Moon size={15}/> Night</button><button className={theme==='paper'?'selected':''} onClick={()=>setTheme('paper')}><Sun size={15}/> Paper</button><button className={theme==='violet'?'selected':''} onClick={()=>setTheme('violet')}>✳ Violet</button></div></label><label>TYPEFACE<select value={font} onChange={e=>setFont(e.target.value)}>{FONT_OPTIONS.map(f=><option key={f[0]} value={f[0]}>{f[0]}</option>)}</select></label><label>TEXT SIZE <span>{size}px</span><input type="range" min="15" max="27" value={size} onChange={e=>setSize(Number(e.target.value))}/></label><label>LINE SPACING <span>{line.toFixed(2)}</span><input type="range" min="1.45" max="2.2" step=".05" value={line} onChange={e=>setLine(Number(e.target.value))}/></label><button className="reset-settings" onClick={()=>{setTheme('night');setFont('Literata');setSize(19);setLine(1.85)}}>RESET READING SETTINGS</button></aside>}

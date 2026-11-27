@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, type PointerEvent } from 'react'
 import { gsap } from 'gsap'
 import { AudioWaveform, ArrowDown, ArrowUpRight, CloudLightning, Radio, Volume2, VolumeX, ChevronRight, X } from 'lucide-react'
 
@@ -58,6 +58,8 @@ function App() {
   const [pointer, setPointer] = useState({ x: .5, y: .5 })
   const [strikes, setStrikes] = useState(0)
   const [record, setRecord] = useState<(typeof records)[number] | null>(null)
+  const lastPointer = useRef(0)
+  const onStrike = useCallback(() => setStrikes(v => v + 1), [])
 
   const beat = useCallback(() => {
     setPulseCount(v => v + 1); window.dispatchEvent(new Event('storm-pulse'))
@@ -85,12 +87,12 @@ function App() {
     master.gain.setTargetAtTime(.55, ctx.currentTime, 1.4); audio.current = { ctx, gain: master }; setSound(true)
   }
 
-  const move = (e: React.PointerEvent<HTMLElement>) => { const r = e.currentTarget.getBoundingClientRect(); setPointer({ x: Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)), y: Math.max(0, Math.min(1, (e.clientY - r.top) / r.height)) }) }
+  const move = (e: PointerEvent<HTMLElement>) => { const now = performance.now(); if (now - lastPointer.current < 40) return; lastPointer.current = now; const r = e.currentTarget.getBoundingClientRect(); setPointer({ x: Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)), y: Math.max(0, Math.min(1, (e.clientY - r.top) / r.height)) }) }
   const intensify = () => { setBpm(v => Math.min(128, v + 4)); setIntensity(v => Math.min(1, v + .1)); beat() }
   const calm = () => { setBpm(58); setIntensity(.15) }
 
   return <main className="world" ref={root} onPointerMove={move}>
-    <StormCanvas intensity={intensity} pointer={pointer} onStrike={() => setStrikes(v => v + 1)} />
+    <StormCanvas intensity={intensity} pointer={pointer} onStrike={onStrike} />
     <div className="vignette" />
     <header className="topline">
       <a className="wordmark" href="#home"><span className="mark">F<span>/</span></span><span>FATE / STAY<br/>LAST TIME</span></a>

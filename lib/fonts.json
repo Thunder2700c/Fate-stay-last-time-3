@@ -23,6 +23,8 @@
     {"slug":"caesar-dressing","family":"Caesar Dressing","role":"display","package":"@fontsource/caesar-dressing"},
     {"slug":"metal-mania","family":"Metal Mania","role":"display","package":"@fontsource/metal-mania"},
     {"slug":"almendra-sc","family":"Almendra SC","role":"display","package":"@fontsource/almendra-sc"},
-    {"slug":"italiana","family":"Italiana","role":"display","package":"@fontsource/italiana"}
+    {"slug":"italiana","family":"Italiana","role":"display","package":"@fontsource/italiana"},
+    {"slug":"dm-sans","family":"DM Sans","role":"ui","package":"@fontsource-variable/dm-sans"},
+    {"slug":"dm-mono","family":"DM Mono","role":"ui","package":"@fontsource/dm-mono"}
   ]
 }

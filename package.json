@@ -3,6 +3,7 @@
   "scripts":{"dev":"node scripts/copy-fonts.mjs && next dev","build":"node scripts/copy-fonts.mjs && next build && pagefind --site out --output-subdir pagefind","typecheck":"tsc --noEmit"},
   "engines":{"node":">=20.9.0"},
   "dependencies":{
+    "@fontsource/dm-mono":"^5.2.6","@fontsource-variable/dm-sans":"^5.2.6",
     "@fontsource-variable/alegreya":"^5.2.6","@fontsource-variable/cormorant-garamond":"^5.2.6","@fontsource-variable/crimson-pro":"^5.2.6","@fontsource-variable/eb-garamond":"^5.2.6","@fontsource-variable/literata":"^5.2.6","@fontsource-variable/lora":"^5.2.6","@fontsource-variable/merriweather":"^5.2.6","@fontsource-variable/source-serif-4":"^5.2.6",
     "@fontsource/almendra":"^5.2.6","@fontsource/almendra-sc":"^5.2.6","@fontsource/caesar-dressing":"^5.2.6","@fontsource/cinzel":"^5.2.6","@fontsource/cinzel-decorative":"^5.2.6","@fontsource/cormorant-unicase":"^5.2.6","@fontsource/grenze-gotisch":"^5.2.6","@fontsource/im-fell-english":"^5.2.6","@fontsource/italiana":"^5.2.6","@fontsource/metal-mania":"^5.2.6","@fontsource/pirata-one":"^5.2.6","@fontsource/uncial-antiqua":"^5.2.6","@fontsource/unifrakturcook":"^5.2.6","@fontsource/vollkorn-sc":"^5.2.6",
     "@react-three/fiber":"^9.4.0","framer-motion":"^12.23.24","gray-matter":"^4.0.3","gsap":"^3.14.2","next":"^16.0.0","next-mdx-remote":"^5.0.0","pagefind":"^1.4.0","react":"^19.2.0","react-dom":"^19.2.0","three":"^0.181.0"

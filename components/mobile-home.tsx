@@ -5,15 +5,16 @@ import {getChapters} from "@/lib/chapters";
 type Chapter=ReturnType<typeof getChapters>[number];
 export function MobileHome({chapters}:{chapters:Chapter[]}){
  const [resumeSlug,setResumeSlug]=useState<string>("");
+ const [resumeProgress,setResumeProgress]=useState(0);
  const resume=useMemo(()=>chapters.find(c=>c.slug===resumeSlug)||chapters.at(-1)||chapters[0],[chapters,resumeSlug]);
  useEffect(()=>{
   try{
    const saved=JSON.parse(localStorage.getItem("fslt-progress")||"{}") as Record<string,number>;
    const best=chapters.filter(c=>(saved[c.slug]||0)>0).sort((a,b)=>(saved[b.slug]||0)-(saved[a.slug]||0))[0];
-   if(best)setResumeSlug(best.slug);
+   if(best){setResumeSlug(best.slug);setResumeProgress(Math.round(saved[best.slug]||0));}
   }catch{/* A clean start is fine when local storage is unavailable. */}
  },[chapters]);
- const progress=resume?(()=>{try{return Math.round(JSON.parse(localStorage.getItem("fslt-progress")||"{}")[resume.slug]||0)}catch{return 0}})():0;
+ const progress=resumeProgress;
  return <main className="mobile-home" id="mobile-top">
   <header className="mobile-masthead"><Link href="/" className="mobile-brand"><b>F / SLT</b><small>A STORY IN PROGRESS</small></Link><span>VOL. 01 <i>✳</i></span></header>
   <section className="mobile-cover">

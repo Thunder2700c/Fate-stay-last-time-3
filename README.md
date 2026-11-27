@@ -2,23 +2,23 @@
 
 A static, phone-editable chapter website for an unofficial Fate fan story. Add or edit one MDX file per chapter in GitHub; the archive, reader route, and search index are generated at build time.
 
-## Stack and static-host constraints
+## Stack and static-host limits
 
 - Next.js App Router with `output: "export"`; the finished website is in `out/`.
 - MDX chapters and YAML frontmatter live in `content/chapters/`.
 - GSAP + ScrollTrigger handle scroll entrances and chapter effects.
 - Framer Motion handles page and inline transitions.
-- React Three Fiber is dynamically loaded only in the homepage hero. It is skipped for reduced-motion, low-memory, low-core, or data-saving devices.
+- React Three Fiber is dynamically loaded only in the homepage hero; skipped for reduced-motion, low-memory, low-core, and data-saving devices.
 - Pagefind creates a local static search index after export.
-- localStorage stores bookmarks, reading progress, and preferences in the current browser only.
+- localStorage stores bookmarks, saved reading position, and reader preferences in the current browser only.
 
-There is no backend, login, synced reading progress, server action, or shared comments system. Those need a server/database and are intentionally not simulated.
+There is no backend, login, cross-device sync, server action, or shared comments system. Reading data stays in the browser that created it.
 
 ## Add a chapter from GitHub mobile
 
 1. Open `content/chapters/`.
 2. Create a file such as `11-the-next-record.mdx`.
-3. Paste the template below and write your chapter.
+3. Paste the template and write your chapter.
 4. Commit to `main`. The new route and archive row are generated automatically from the filename and frontmatter.
 
 ```mdx
@@ -54,37 +54,37 @@ A passage can be revealed by scrolling into view or tapping it.
 </Reveal>
 ```
 
-Use a unique filename with lowercase letters, digits, and hyphens. `number` controls reading order. Use a real `YYYY-MM-DD` date. The `fonts` list is optional; only the display fonts listed there are linked on that chapter.
+Use a unique filename with lowercase letters, digits, and hyphens. `number` controls reading order. Use a real `YYYY-MM-DD` date. `fonts` is an optional list of display-font slugs. Fonts explicitly named by `Chant` are also loaded for that chapter automatically.
 
 ## MDX component tags
 
-Props are optional unless shown. Invalid font names fall back safely; unknown divider types use `fracture`.
+All tags are optional-prop friendly and have safe defaults. Invalid font names fall back to Cinzel; unknown divider types use `fracture`.
 
-| Tag | Effect |
+| Tag | Use |
 | --- | --- |
-| `<Chant font="cinzel">...</Chant>` | Incantation with a chapter display font |
+| `<Chant font="cinzel">...</Chant>` | Incantation using a chapter display font |
 | `<Seal />` | Command seal that briefly glows and fades |
 | `<Shake>...</Shake>` | One impact shake as the passage enters view |
-| `<Reveal>...</Reveal>` | Text revealed on scroll or tap |
-| `<SystemWindow>...</SystemWindow>` | Game-style status/message frame; optional `title`, `status` |
+| `<Reveal>...</Reveal>` | Passage revealed on scroll or tap |
+| `<SystemWindow>...</SystemWindow>` | Game-style status/message frame; optional `title` and `status` |
 | `<NobleName>...</NobleName>` | Dramatic name/title treatment |
-| `<Whisper>...</Whisper>` | Quiet text and low-motion reveal |
-| `<Scream>...</Scream>` | High-impact text treatment |
+| `<Whisper>...</Whisper>` | Quiet text motion |
+| `<Scream>...</Scream>` | High-impact text motion |
 | `<Divider type="rift" />` | Scene break: `fracture`, `ash`, `rift`, `silence`, `static` |
 
 ## Fonts
 
-`lib/fonts.json` is the single font catalog: **8 reader fonts + 14 display fonts + 2 UI fonts**. All are packaged from open-license Fontsource distributions under the SIL Open Font License 1.1. The catalog records each family, role, and source package.
+`lib/fonts.json` is the single catalog: **8 reader fonts + 14 display fonts + 2 UI fonts**. Each entry lists its family, role, Fontsource package, and SIL Open Font License 1.1 license. The license URL is at the top of the file.
 
-The build script copies only Latin-subset WOFF2 assets into the generated `public/fonts/` folder and creates a small CSS file per family. Font files are self-hosted by the exported site, not requested from Google Fonts at runtime. The generated folder is not committed.
+Before dev/build, `scripts/copy-fonts.mjs` copies Latin-subset WOFF2 assets into the generated `public/fonts/` folder and writes one CSS file per family with `font-display: swap`. The exported site self-hosts these assets; it does not request the fonts from Google Fonts at runtime. The generated folder is not committed.
 
-- Reader CSS loads on chapter pages; the reader's font selector changes the chosen family.
-- Chapter display CSS is linked only on the chapter whose frontmatter lists that font.
-- To add/remove a family, update `lib/fonts.json` and the dependency list in `package.json`. Use the catalog slug in frontmatter. Keep the license attribution accurate.
+- The reader font CSS loads only on chapter pages and the reader can change between the 8 families.
+- Each chapter loads the display-font CSS listed in its own frontmatter (plus any font explicitly named in a `Chant` tag).
+- To add/remove a family, update `lib/fonts.json` and the matching dependency in `package.json`. Keep the license attribution accurate.
 
-## Search
+## Search and reader features
 
-The `build` script runs Next.js export, then Pagefind against `out/`. The search UI imports that local index in the browser. No external search service or account is used.
+Pagefind indexes the exported chapter HTML after Next.js builds. The archive search imports the local index. Bookmarks, read progress, theme, and font preferences are stored locally; the archive's “saved only” filter reads the same bookmark list. These do not sync between browsers or phones.
 
 ## Run and build
 
@@ -96,15 +96,15 @@ npm run dev
 npm run build
 ```
 
-The generated static site is `out/`. Vercel settings are included in `vercel.json`: Next.js framework, `npm run build`, output directory `out`.
+The generated website is in `out/`. Vercel settings are included in `vercel.json`: Next.js framework, `npm run build`, output directory `out`.
 
 ## Folder map
 
 - `app/` — homepage, archive, chapter route, global layout
 - `components/` — header, motion, low-end-aware 3D hero, reader controls, MDX effects
-- `content/chapters/` — one `.mdx` file per chapter
+- `content/chapters/` — one editable `.mdx` file per chapter
 - `lib/chapters.ts` — chapter metadata and static route source
-- `lib/fonts.json` — all reader/display/UI fonts
+- `lib/fonts.json` — all reader, display, and UI fonts
 - `scripts/copy-fonts.mjs` — WOFF2 self-hosting step
 - `public/fonts/` — generated fonts and CSS, not committed
 - `out/` — generated static export, not committed

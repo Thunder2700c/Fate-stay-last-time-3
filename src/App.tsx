@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { ArrowDownRight, ArrowLeft, ArrowRight, AudioLines, BookOpen, ChevronDown, Menu, X } from 'lucide-react'
+import { ArrowDownRight, ArrowLeft, ArrowRight, AudioLines, BookOpen, Menu, X } from 'lucide-react'
 import { gsap } from 'gsap'
 
 const chapters = [

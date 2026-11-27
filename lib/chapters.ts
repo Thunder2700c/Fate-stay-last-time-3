@@ -18,8 +18,12 @@ function readChapter(fileName:string):ChapterFile{
   const mood=typeof data.mood==="string"?data.mood:"Unclassified";
   const requested=Array.isArray(data.fonts)?data.fonts:[];
   const explicit=requested.filter((font):font is string=>typeof font==="string"&&displaySlugs.has(font));
-  const chantFonts=[...parsed.content.matchAll(/<Chant\b[^>]*\bfont=["']([^"']+)["']/gi)].map(match=>match[1]);
-  if(/<Chant(?:\s|>)/i.test(parsed.content)&&chantFonts.length===0)chantFonts.push("cinzel");
+  const chantRequests=[...parsed.content.matchAll(/<Chant\b[^>]*\bfont=["']([^"']+)["']/gi)].map(match=>match[1]);
+  if(/<Chant(?:\s|>)/i.test(parsed.content)&&chantRequests.length===0)chantRequests.push("cinzel");
+  const chantFonts=chantRequests.map(request=>{
+    const match=fontCatalog.fonts.find(font=>font.role==="display"&&(font.slug===request||font.family.toLowerCase()===request.toLowerCase()));
+    return match?.slug??"cinzel";
+  });
   const fonts=[...new Set([...explicit,...chantFonts])].filter(font=>displaySlugs.has(font));
   const excerpt=parsed.content.replace(/<[^>]+>/g," ").replace(/[#*_~`]/g,"").replace(/\s+/g," ").trim().slice(0,190);
   return {slug,title,number,date,mood,fonts,excerpt,source:parsed.content};

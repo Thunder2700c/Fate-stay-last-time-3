@@ -7,7 +7,7 @@ export const chapters:Chapter[] = [
     "title": "The Flap of the Leather",
     "subtitle": "Hour 0 – Part 1",
     "phase": "Phase I — The Catalyst",
-    "readTime": "READ",
+    "readTime": "11 MIN",
     "paragraphs": [
       "## Hour 0: The Ludhiana Trap",
       "The air in the Ludhiana banquet hall was a suffocating cocktail of heavy jasmine perfume, roasting spices, and the stifling, radiant body heat of six hundred people. The bass from the DJ's speakers vibrated through the marble floor, a rhythmic, relentless thumping that resonated in my chest. To anyone else, this was the pinnacle of celebration—a grand Punjabi wedding, dripping in gold jewelry, flashing lights, and forced smiles. To me, it was a sensory overload.",
@@ -119,7 +119,7 @@ export const chapters:Chapter[] = [
     "title": "Blood and the Catalyst",
     "subtitle": "Hours 13 to 24",
     "phase": "Phase II — The Summoning",
-    "readTime": "READ",
+    "readTime": "8 MIN",
     "paragraphs": [
       "## Hour 13 to 14: The Architecture of Vengeance",
       "The basement beneath my house was a relic of unfinished construction, a cavern of exposed brick, dusty concrete, and the lingering smell of damp earth. It was completely isolated from the suffocating heat of the Ludhiana afternoon above. Down here, the world felt distant. The incessant buzzing of my phone, the notifications, the billion pairs of eyes—none of it could penetrate the concrete.",
@@ -191,7 +191,7 @@ export const chapters:Chapter[] = [
     "title": "The Ghost in the Machine",
     "subtitle": "Hours 25 to 36",
     "phase": "Phase III — War of the Grail",
-    "readTime": "READ",
+    "readTime": "7 MIN",
     "paragraphs": [
       "## Hour 25 to 28: Structural Grasp and the Digital Forge",
       "We abandoned the basement and moved upstairs to my bedroom, the nerve center of my previous, quiet life. The sun had set over Ludhiana, plunging the city back into its smoggy, neon-lit night. My room, usually a sanctuary for web development and writing The Gods Rank Awakening, now served as the war room for the end of the world.",
@@ -271,7 +271,7 @@ export const chapters:Chapter[] = [
     "title": "The Hunt and the High-Altitude Fortress",
     "subtitle": "Hours 37 to 48",
     "phase": "Phase III — War of the Grail",
-    "readTime": "READ",
+    "readTime": "8 MIN",
     "paragraphs": [
       "## Hour 37: The Disparity of Myth",
       "The three Clock Tower Enforcers stood amidst the rubble of my living room wall, their crests glowing beneath their heavy coats. The lead Magus, a man with cold, aristocratic features, raised a staff carved from petrified wood. The air pressure in the room spiked as he launched a high-speed incantation, drawing ambient mana to form a localized bounded field of absolute zero temperature.",
@@ -360,7 +360,7 @@ export const chapters:Chapter[] = [
     "title": "The Golden Bastard and the Forge of the Soul",
     "subtitle": "Hours 49 to 60",
     "phase": "Phase III — War of the Grail",
-    "readTime": "READ",
+    "readTime": "10 MIN",
     "paragraphs": [
       "## Hour 49: The Meteor of Avalon",
       "To witness a Heroic Spirit in true combat is to understand the terrifying insignificance of modern man.",
@@ -483,7 +483,7 @@ export const chapters:Chapter[] = [
     "title": "The Broken Forge and the World's Betrayal",
     "subtitle": "Hours 61 to 67",
     "phase": "Phase IV — The Global War",
-    "readTime": "READ",
+    "readTime": "11 MIN",
     "paragraphs": [
       "## Hour 61 to 62: The Hollow Clash",
       "The sky of Unlimited Blade Works was choked with ash and turning gears, a mechanical purgatory forged from a single man’s regrets. But the silence of the wasteland was instantly shattered by the deafening roar of mythic artillery.",
@@ -583,7 +583,7 @@ export const chapters:Chapter[] = [
     "title": "The Blood of the Mountain and the Overseer's Secret",
     "subtitle": "Hours 68 to 72",
     "phase": "Phase IV — The Global War",
-    "readTime": "READ",
+    "readTime": "10 MIN",
     "paragraphs": [
       "## Hour 68: The Lord’s Decree",
       "@@Saber|\"Let it burn.\"",
@@ -690,7 +690,7 @@ export const chapters:Chapter[] = [
     "title": "The Psychopath Pact and the Planet's Immune System",
     "subtitle": "Hours 73 to 77",
     "phase": "Phase IV — The Global War",
-    "readTime": "READ",
+    "readTime": "7 MIN",
     "paragraphs": [
       "## Hour 73: The King's First Meal",
       "The Himalayan wind howled against the heavy oak doors of the monastery, but inside, the war of gods and kings was momentarily suspended by the screech of a cheap portable gas stove.",
@@ -773,7 +773,7 @@ export const chapters:Chapter[] = [
     "title": "The Mortal King and the Memory Maze",
     "subtitle": "Hours 84 to 87",
     "phase": "Phase V — The Clock Tower Descent",
-    "readTime": "READ",
+    "readTime": "7 MIN",
     "paragraphs": [
       "## Hour 84: Fish and Chips in the Fog",
       "The flight from the Himalayas to London was a blur of forged documents and Church-funded private charters, courtesy of Jaskaran. Now, the thick, damp fog of the English capital clung to our clothes.",
@@ -867,7 +867,7 @@ export const chapters:Chapter[] = [
     "title": "The Heavy Sword and the Desync",
     "subtitle": "Hours 87 to 89",
     "phase": "Phase V — The Clock Tower Descent",
-    "readTime": "READ",
+    "readTime": "6 MIN",
     "paragraphs": [
       "## Hour 87: The Tactical Retreat",
       "The King of Knights didn't charge. She grabbed the collar of my jacket and pulled me into the dark.",

@@ -71,6 +71,10 @@ All tags are optional-prop friendly and have safe defaults. Invalid font names f
 | `<Whisper>...</Whisper>` | Quiet text motion |
 | `<Scream>...</Scream>` | High-impact text motion |
 | `<Divider type="rift" />` | Scene break: `fracture`, `ash`, `rift`, `silence`, `static` |
+| `<SocialPost platform="INSTAGRAM / REELS" author="COUSIN" caption="..." views="10,000+" />` | In-story social post with reactions and reach metadata |
+| `<MessageThread title="GROUP NAME" platform="WHATSAPP">` with `<MessageBubble author="CLASSMATE">...</MessageBubble>` | In-story group or private-message thread |
+| `<LiveChat>` with `<ChatLine author="VIEWER">...</ChatLine>` | Live-stream chat messages |
+| `<StoryImage src="https://images.unsplash.com/..." alt="..." caption="..." />` | Responsive photographic scene image; use licensed assets and descriptive alt text |
 
 ## Fonts
 

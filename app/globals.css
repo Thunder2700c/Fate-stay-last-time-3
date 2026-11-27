@@ -62,3 +62,6 @@ body.screen-impact{animation:viewport-impact .42s cubic-bezier(.3,.7,.2,1) 1}
 @keyframes silence-pulse{0%,100%{opacity:.2;transform:rotate(45deg) scale(.75)}50%{opacity:.8;transform:rotate(45deg) scale(1.35)}}
 @keyframes static-jolt{0%{transform:translateX(-8px) rotate(-27deg);opacity:0}40%{transform:translateX(5px) rotate(-27deg);opacity:1}100%{transform:translateX(0) rotate(-27deg);opacity:1}}
 @media(prefers-reduced-motion:reduce){body.screen-impact{animation:none}.effect-divider,.effect-divider.is-visible{opacity:1;transform:none;animation:none}}
+
+@keyframes seal-flare{0%{opacity:.12;filter:brightness(.7);transform:scale(.82)}24%{opacity:1;filter:brightness(2);transform:scale(1.08)}56%{opacity:1;filter:brightness(1.2);transform:scale(1)}100%{opacity:.32;filter:brightness(.9);transform:scale(.97)}}
+.effect-seal.is-visible{animation:seal-flare 2.5s ease-out 1 forwards}

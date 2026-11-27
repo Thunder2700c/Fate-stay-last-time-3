@@ -90,7 +90,6 @@ function IndexPage() {
 }
 function Reader() {
   const {slug=''}=useParams()
-  const navigate=useNavigate()
   const chapter=chapters.find(c=>c.slug===slug)
   const idx=chapters.findIndex(c=>c.slug===slug)
   const [theme,setTheme]=useStored('fslt-theme','night')

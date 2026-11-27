@@ -1,96 +1,82 @@
-import { useEffect, useRef } from 'react'
-
-function RiftScene() {
-  const host = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const element = host.current
-    if (!element) return
-
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const probe = document.createElement('canvas')
-    const canUseWebGL = Boolean(window.WebGLRenderingContext && (probe.getContext('webgl2') || probe.getContext('webgl')))
-    if (reducedMotion.matches || !canUseWebGL || !('IntersectionObserver' in window)) return
-
-    let dispose: (() => void) | undefined
-    let cancelled = false
-    const observer = new IntersectionObserver((entries) => {
-      if (!entries.some((entry) => entry.isIntersecting)) return
-      observer.disconnect()
-      import('./scene/BrandArtifact')
-        .then(({ mountBrandArtifact }) => {
-          if (!cancelled) dispose = mountBrandArtifact(element)
-        })
-        .catch(() => element.classList.remove('is-rendered'))
-    }, { rootMargin: '120px' })
-
-    observer.observe(element)
-    return () => {
-      cancelled = true
-      observer.disconnect()
-      dispose?.()
-    }
-  }, [])
-
-  return (
-    <div className="rift-scene" aria-hidden="true">
-      <div className="rift-aura" />
-      <div className="rift-fallback">
-        <span className="fallback-shard shard-one" />
-        <span className="fallback-shard shard-two" />
-        <span className="fallback-shard shard-three" />
-      </div>
-      <div className="rift-canvas" ref={host} />
-      <div className="scene-coordinate scene-coordinate-top">F / SLT <span>—</span> 001</div>
-      <div className="scene-coordinate scene-coordinate-bottom">ANOTHER POSSIBILITY</div>
-    </div>
-  )
-}
+import { useEffect, useState } from 'react'
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => {
+    if (!menuOpen) return
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMenuOpen(false)
+    }
+    window.addEventListener('keydown', closeOnEscape)
+    return () => window.removeEventListener('keydown', closeOnEscape)
+  }, [menuOpen])
+
+  const closeMenu = () => setMenuOpen(false)
+
   return (
-    <main className="gateway">
-      <div className="gateway-grid" aria-hidden="true" />
-      <div className="gateway-grain" aria-hidden="true" />
-      <header className="gateway-header">
-        <a className="gateway-mark" href="/" aria-label="Fate Stay Last Time home">
-          <span className="mark-symbol">F<span>/</span>SLT</span>
-          <span className="mark-caption">AN ALTERNATE FATE UNIVERSE</span>
+    <main className="site" id="page1">
+      <header className="header">
+        <a className="logo" href="#page1" onClick={closeMenu} aria-label="Fate / Stay Last Time home">
+          <span className="logo-mark">F<span>/</span>SLT</span>
         </a>
-        <div className="header-note">
-          <span className="live-dot" />
-          <span>UNOFFICIAL FAN PROJECT</span>
+
+        <nav className="nav-links" aria-label="Main navigation">
+          <a href="#page1">Home</a>
+          <a href="#project">The project</a>
+        </nav>
+
+        <div className="header-side">
+          <span className="project-label">Unofficial fan story</span>
+          <button
+            className={`menu-toggle ${menuOpen ? 'is-open' : ''}`}
+            type="button"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span>{menuOpen ? 'Close' : 'Menu'}</span>
+            <i aria-hidden="true"><b /><b /></i>
+          </button>
         </div>
       </header>
 
-      <section className="gateway-hero" aria-labelledby="brand-title">
-        <RiftScene />
-        <div className="hero-copy">
-          <p className="hero-eyebrow"><span>01</span> THE STORY BEGINS ELSEWHERE</p>
-          <h1 id="brand-title">
-            <span className="title-fate">FATE</span>
-            <span className="title-stay">STAY LAST</span>
-            <span className="title-time">TIME<span className="title-mark">.</span></span>
-          </h1>
-          <div className="hero-description">
-            <span className="description-line" />
-            <p>A fan-created story, set in a different Fate universe.</p>
+      <section className="home" aria-labelledby="home-title">
+        <img
+          className="home-artwork"
+          src="/images/fate-stay-last-time.png"
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="artwork-shade" aria-hidden="true" />
+        <div className="artwork-grain" aria-hidden="true" />
+
+        <div className="hero-content">
+          <div className="hero-heading" id="project">
+            <p className="eyebrow"><span /> An alternate Fate universe</p>
+            <h1 id="home-title">
+              <span className="title-first">Fate</span>
+              <span className="title-second">Stay Last Time</span>
+            </h1>
           </div>
-          <div className="hero-footnote">
-            <span>FAN-MADE FICTION</span>
-            <span className="footnote-divider" />
-            <span>AN UNOFFICIAL PROJECT</span>
+
+          <div className="hero-bottom">
+            <p>A fan-created story, set in a different Fate universe.</p>
+            <a className="back-to-top" href="#page1" aria-label="Back to top">
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
-        <div className="hero-side-label">FATE / STAY LAST TIME</div>
-        <div className="hero-scroll-mark" aria-hidden="true"><span /></div>
       </section>
 
-      <footer className="gateway-footer">
-        <span>F / SLT</span>
-        <span>NOT AFFILIATED WITH TYPE-MOON</span>
-        <span>EST. 2026</span>
-      </footer>
+      <div className={`mobile-menu ${menuOpen ? 'is-visible' : ''}`} id="mobile-menu" aria-hidden={!menuOpen}>
+        <nav aria-label="Mobile navigation">
+          <a href="#page1" onClick={closeMenu}>Home <span>01</span></a>
+          <a href="#project" onClick={closeMenu}>The project <span>02</span></a>
+        </nav>
+        <p>Fate / Stay Last Time · Unofficial fan story</p>
+      </div>
     </main>
   )
 }

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;600;700&family=Crimson+Pro:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Lora:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Merriweather:wght@400;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=PT+Serif:wght@400;700&family=Roboto+Slab:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Spectral:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&family=Alegreya:wght@400;500;600;700&family=Crimson+Pro:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&family=Lora:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&family=Merriweather:wght@400;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=PT+Serif:wght@400;700&family=Roboto+Slab:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Spectral:wght@400;500;600;700&display=swap');
 :root{font-family:'DM Sans',sans-serif;color:#e9e4dc;background:#111014;font-synthesis:none;text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;--ink:#111014;--paper:#e9e4dc;--red:#bd3848;--gold:#c5a66b;--muted:#8b8581;--mono:'DM Mono',monospace}
 *{box-sizing:border-box}html{min-width:320px;scroll-behavior:smooth}body{margin:0;min-width:320px;background:#111014}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{color:inherit}::selection{background:#bd3848;color:#fff}
 .landing-shell,.archive-shell{overflow:hidden;background:#111014}
@@ -83,3 +83,11 @@
 .chapter-scene-break span{font-size:15px}
 .theme-paper .chapter-dialogue{background:rgba(150,93,78,.07)}
 .theme-paper .chapter-dialogue small,.theme-paper .chapter-sound{color:#963c48}
+
+.author-strip{display:grid;grid-template-columns:1fr 2fr 1fr;gap:40px;padding:38px clamp(28px,10vw,160px);background:#dcd2c5;color:#292226;border-top:1px solid rgba(40,32,30,.18);align-items:start}
+.author-strip>span{font:8px var(--mono);letter-spacing:.15em;color:#88796e}
+.author-strip>span:last-child{text-align:right}
+.author-strip div{max-width:620px}
+.author-strip small{font:8px var(--mono);letter-spacing:.14em;color:#9b4a52}
+.author-strip p{font:16px/1.55 'Cormorant Garamond',serif;color:#403536;margin:13px 0 0}
+@media(max-width:600px){.author-strip{grid-template-columns:1fr auto;gap:18px;padding:30px 24px}.author-strip>span:last-child{grid-column:2;grid-row:1}.author-strip div{grid-column:1/-1}.author-strip p{font-size:17px}}

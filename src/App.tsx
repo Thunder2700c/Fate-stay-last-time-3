@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode, type CSSProperties } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import { Link, NavLink, Route, Routes, useParams } from 'react-router-dom'
 import { ArrowDown, ArrowLeft, ArrowRight, AudioLines, Bookmark, BookOpen, ChevronDown, Menu, Moon, Search, Settings2, Sun, X } from 'lucide-react'
 import gsap from 'gsap'

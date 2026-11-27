@@ -4,9 +4,10 @@ import { HeroSceneLoader } from "@/components/hero-scene-loader";
 import { HomeMotion } from "@/components/home-motion";
 import { PageTransition } from "@/components/page-transition";
 import { MobileHome } from "@/components/mobile-home";
+import { TabletHome } from "@/components/tablet-home";
 export default function HomePage(){
   const chapters=getChapters(),first=chapters[0],latest=chapters.at(-1);
-  return <PageTransition><MobileHome chapters={chapters}/><main className="home-page">
+  return <PageTransition><MobileHome chapters={chapters}/><TabletHome chapters={chapters}/><main className="home-page">
     <HomeMotion/>
     <section className="home-hero">
       <div className="hero-topline"><span>AN UNOFFICIAL FATE FAN STORY</span><span>ARCHIVE / 001 — ENGLISH</span></div>

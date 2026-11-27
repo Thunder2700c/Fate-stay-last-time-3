@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, Route, Routes, useParams } from 'react-router-dom'
 import { ArrowDown, ArrowLeft, ArrowRight, AudioLines, Bookmark, BookOpen, ChevronDown, Menu, Moon, Search, Settings2, Sun, X } from 'lucide-react'
 import gsap from 'gsap'
-import { chapters, type Chapter } from './data/chapters'
+import { chapters } from './data/chapters'
 
 const FONT_OPTIONS = [
   ['Literata','Literata, Georgia, serif'],['Lora','Lora, Georgia, serif'],['Merriweather','Merriweather, Georgia, serif'],['Source Serif 4','Source Serif 4, Georgia, serif'],['Crimson Pro','Crimson Pro, Georgia, serif'],['Cormorant Garamond','Cormorant Garamond, Georgia, serif'],['EB Garamond','EB Garamond, Georgia, serif'],['Alegreya','Alegreya, Georgia, serif'],['Spectral','Spectral, Georgia, serif'],['Bitter','Bitter, Georgia, serif'],['DM Serif Display','DM Serif Display, Georgia, serif'],['Playfair Display','Playfair Display, Georgia, serif'],['Libre Baskerville','Libre Baskerville, Georgia, serif'],['PT Serif','PT Serif, Georgia, serif'],['Noto Serif','Noto Serif, Georgia, serif'],['Roboto Slab','Roboto Slab, Georgia, serif'],['Newsreader','Newsreader, Georgia, serif'],['Fraunces','Fraunces, Georgia, serif'],['Georgia','Georgia, serif'],['System Sans','Arial, sans-serif']
@@ -38,11 +38,25 @@ function Landing() {
         <div className="art-vertical">THE LAST RECORD / UNSEALED</div>
         <div className="art-index">F–00<br/>ARCHIVE OF AN<br/>UNWRITTEN END</div>
       </div>
-      <div className="hero-copy">
+      <div className="hero-copy desktop-stage">
         <p className="hero-kicker"><span className="red-dot"/> A DIFFERENT FATE UNIVERSE <span className="kicker-line"/></p>
         <h1 className="hero-title">Fate <em>Stay</em><br/><span>Last Time.</span></h1>
         <p className="hero-deck">Some stories are written in history.<br/>Others begin where history breaks.</p>
         <Link className="begin-link" to="/index"><span className="begin-icon"><ArrowDown size={17}/></span><span>STEP INTO THE STORY</span><small>OPEN THE ARCHIVE</small></Link>
+      </div>
+      <div className="tablet-stage">
+        <div className="tablet-stage-label">F / SLT — AN ALTERNATE FATE UNIVERSE</div>
+        <div className="tablet-stage-title">A story<br/><i>outside</i> the record.</div>
+        <p>Some stories are written in history.<br/>Others begin where history breaks.</p>
+        <Link to="/index" className="tablet-stage-link">OPEN THE ARCHIVE <ArrowRight size={16}/></Link>
+        <span className="tablet-stage-index">ARCHIVE 001 · ENGLISH EDITION</span>
+      </div>
+      <div className="mobile-stage">
+        <div className="mobile-stage-kicker"><span/> AN ALTERNATE FATE UNIVERSE</div>
+        <h1>Fate /<br/><i>Stay Last</i><br/>Time.</h1>
+        <p>A fan-created story.<br/>A different direction.</p>
+        <Link to="/index"><span>ENTER THE ARCHIVE</span><ArrowDown size={17}/></Link>
+        <small>UNOFFICIAL FAN WORK · F / SLT</small>
       </div>
       <div className="hero-side-note">AN INDEPENDENT FAN-CREATED STORY<br/>UNOFFICIAL / NOT AFFILIATED WITH TYPE-MOON</div>
       <div className="hero-bottomline"><span>FATE / STAY LAST TIME</span><span>THE BEGINNING IS A CHOICE</span><span>SCROLL TO EXPLORE ↓</span></div>

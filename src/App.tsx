@@ -68,7 +68,9 @@ function Landing() {
 function IndexPage() {
   const [query,setQuery]=useState('')
   const [playing,setPlaying]=useState(false)
-  const filtered=chapters.filter(c=>(c.title+' '+c.subtitle+' '+c.number).toLowerCase().includes(query.toLowerCase()))
+  const [savedOnly,setSavedOnly]=useState(false)
+  const [bookmarks]=useStored<string[]>('fslt-bookmarks',[])
+  const filtered=chapters.filter(c=>(!savedOnly||bookmarks.includes(c.slug))&&(c.title+' '+c.subtitle+' '+c.number).toLowerCase().includes(query.toLowerCase()))
   const [progress]=useStored<Record<string,number>>('fslt-progress',{})
   return <main className="archive-shell">
     <Header compact/>
@@ -76,7 +78,7 @@ function IndexPage() {
     <section className="archive-console">
       <div className="console-head"><div><span className="console-dot"/> READING SEQUENCE</div><span>{String(filtered.length).padStart(2,'0')} ENTRIES</span></div>
       <div className="player-strip"><div className="player-art"><AudioLines size={24}/></div><div className="player-meta"><small>NOW BROWSING</small><strong>Fate / Stay Last Time</strong><span>CHAPTER INDEX · READING ARCHIVE</span></div><button className={`play-button ${playing?'is-playing':''}`} onClick={()=>setPlaying(!playing)} aria-label="Toggle archive animation"><span>{playing?'Ⅱ':'▶'}</span></button><div className="player-wave" aria-hidden="true">{Array.from({length:34},(_,i)=><i key={i} style={{height:`${8+(i*17%27)}px`}}/>)}</div></div>
-      <div className="archive-tools"><label className="search-box"><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search chapters or titles..." aria-label="Search chapters"/></label><span className="sort-note">ORDER / CHRONOLOGICAL</span></div>
+      <div className="archive-tools"><label className="search-box"><Search size={16}/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Search chapters or titles..." aria-label="Search chapters"/></label><button className={`saved-filter ${savedOnly?'active':''}`} onClick={()=>setSavedOnly(!savedOnly)}><Bookmark size={13}/> SAVED ONLY</button></div>
       <div className="track-list">{filtered.map((c,i)=><Link to={`/read/${c.slug}`} className="track-row" key={c.slug}><span className="track-no">{String(i+1).padStart(2,'0')}</span><span className="track-symbol">✳</span><span className="track-title"><strong>{c.title}</strong><small>{c.subtitle}</small></span><span className="track-duration">{progress[c.slug]?Math.round(progress[c.slug])+'% READ':c.readTime}</span><span className="track-arrow"><ArrowRight size={17}/></span></Link>)}
         {filtered.length===0&&<p className="empty-search">No chapters match that search.</p>}
       </div>
@@ -99,7 +101,7 @@ function Reader() {
   const [settings,setSettings]=useState(false)
   const [showChapters,setShowChapters]=useState(false)
   const [scrollPct,setScrollPct]=useState(0)
-  useEffect(()=>{const fn=()=>{const max=document.documentElement.scrollHeight-window.innerHeight;const p=max>0?Math.min(100,Math.max(0,window.scrollY/max*100)):0;setScrollPct(p);if(chapter)setProgress({...progress,[chapter.slug]:p})};window.addEventListener('scroll',fn,{passive:true});return()=>window.removeEventListener('scroll',fn)},[chapter?.slug])
+  useEffect(()=>{const fn=()=>{const max=document.documentElement.scrollHeight-window.innerHeight;const p=max>0?Math.min(100,Math.max(0,window.scrollY/max*100)):0;setScrollPct(p);if(chapter){let all:Record<string,number>={};try{all=JSON.parse(localStorage.getItem('fslt-progress')||'{}')}catch{};setProgress({...all,[chapter.slug]:p})}};window.addEventListener('scroll',fn,{passive:true});return()=>window.removeEventListener('scroll',fn)},[chapter?.slug])
   useEffect(()=>{window.scrollTo(0,0)},[slug])
   if(!chapter)return <main className="not-found"><Header compact/><h1>That page is not in this archive.</h1><Link to="/index">Return to the index <ArrowRight/></Link></main>
   const saved=bookmarks.includes(chapter.slug)

@@ -108,6 +108,7 @@ The generated website is in `out/`. Connect the repository to Vercel and select 
 - `components/` — header, motion, low-end-aware 3D hero, reader controls, MDX effects
 - `content/chapters/` — one editable `.mdx` file per chapter
 - `lib/chapters.ts` — chapter metadata and static route source
+- `ASSET_SOURCES.md` — photographic asset credits and license notes
 - `lib/fonts.json` — all reader, display, and UI fonts
 - `scripts/copy-fonts.mjs` — WOFF2 self-hosting step
 - `public/fonts/` — generated fonts and CSS, not committed
